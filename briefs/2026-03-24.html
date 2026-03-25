@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning Brief · 24 Mar 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f172a;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+.hdr{background:linear-gradient(135deg,#1c3a5e,#1e1b4b);padding:24px 28px;border-radius:0 0 20px 20px;margin-bottom:22px;color:#fff}
+.hdr-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.hdr-title{font-size:28px;font-weight:700;letter-spacing:-.03em}
+.hdr-date{font-size:13px;opacity:.75;margin-top:3px}
+.badge{font-size:11px;font-weight:700;padding:5px 12px;border-radius:9999px;letter-spacing:.03em}
+.badge-talks{background:#3b82f6;color:#fff}
+.badge-oil{background:#d97706;color:#1c1917}
+.badge-warn{background:#ef4444;color:#fff}
+.hdr-sub{margin-top:16px;font-size:14px;line-height:1.7;opacity:.9}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin:28px 0 12px;padding-bottom:8px;border-bottom:2px solid #f3f4f6}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:18px}
+@media(max-width:680px){.g2,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.g2,.g4{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 4px rgba(0,0,0,.05);margin-bottom:14px}
+.card-title{font-size:13px;font-weight:600;color:#111827;margin-bottom:10px}
+.card-body{font-size:13px;color:#4b5563;line-height:1.75}
+.card-body strong{color:#111827;font-weight:600}
+.card-body a{color:#2563eb;text-decoration:none;font-weight:500;font-size:12px}
+.tc{background:#fff;border-radius:12px;padding:14px 16px;border:1px solid rgba(0,0,0,.07);border-top:3px solid var(--ac,#e5e7eb)}
+.tc.cred{--ac:#ef4444}.tc.cgreen{--ac:#22c55e}.tc.cblue{--ac:#3b82f6}.tc.camber{--ac:#f59e0b}.tc.cgold{--ac:#d97706}
+.tl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9ca3af;margin-bottom:6px}
+.tv{font-size:20px;font-weight:700;color:#111827;letter-spacing:-.04em;line-height:1}
+.tc-ch{font-size:12px;font-weight:500;margin-top:5px}
+.tc-note{font-size:11px;color:#9ca3af;margin-top:3px;line-height:1.4}
+.up{color:#16a34a}.dn{color:#dc2626}.fl{color:#6b7280}
+.alert{display:flex;gap:10px;padding:13px 16px;border-radius:11px;margin-bottom:14px;align-items:flex-start;font-size:13px;line-height:1.7}
+.a-red{background:#fef2f2;border:1px solid #fecaca;color:#374151}
+.a-amber{background:#fffbeb;border:1px solid #fde68a;color:#374151}
+.a-green{background:#f0fdf4;border:1px solid #bbf7d0;color:#374151}
+.a-blue{background:#eff6ff;border:1px solid #bfdbfe;color:#374151}
+.a-dark{background:#1e1b4b;border:1px solid #4338ca;color:#e0e7ff}
+.alert strong{color:#111827}.a-dark strong{color:#fff}
+.alert a{color:#2563eb;text-decoration:none;font-weight:500;font-size:12px}
+.a-dark a{color:#93c5fd}
+.geo{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:14px}
+.geo-head{padding:13px 18px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#fafafa}
+.geo-head.war{background:linear-gradient(135deg,#1e1b4b,#7f1d1d)}
+.geo-head.war .geo-name{color:#e0e7ff}
+.geo-head.blue{background:linear-gradient(135deg,#1c3a5e,#1e1b4b)}
+.geo-head.blue .geo-name{color:#bfdbfe}
+.geo-name{font-size:13.5px;font-weight:700;color:#111827}
+.geo-body{padding:14px 18px;font-size:13px;color:#4b5563;line-height:1.75}
+.geo-body strong{color:#111827;font-weight:600}
+.geo-body a{color:#2563eb;text-decoration:none;font-weight:500}
+.geo-dark-body{padding:14px 18px;font-size:13px;color:#bfdbfe;line-height:1.75;background:linear-gradient(135deg,#0c1a2e,#1e1b4b)}
+.geo-dark-body strong{color:#e0e7ff;font-weight:600}
+.geo-dark-body a{color:#93c5fd;text-decoration:none;font-weight:500}
+.pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;white-space:nowrap}
+.p-red{background:#fef2f2;color:#dc2626}
+.p-amber{background:#fffbeb;color:#d97706}
+.p-green{background:#f0fdf4;color:#16a34a}
+.p-blue{background:#eff6ff;color:#1d4ed8}
+.p-teal{background:#f0fdf4;color:#0f766e;border:1px solid #99f6e4}
+.p-war{background:#1e1b4b;color:#e0e7ff;border:1px solid #4338ca}
+.qs{background:#fff;border-radius:14px;padding:22px;border:1px solid rgba(0,0,0,.07);margin-bottom:14px}
+.qs-title{font-size:14px;font-weight:700;color:#111827;margin-bottom:14px}
+.metric{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:9px;padding:10px 14px;margin-bottom:7px;border:1px solid #f3f4f6}
+.ml{font-size:13px;font-weight:500;color:#374151}
+.mv{font-size:13px;font-weight:700}
+.mv.bad{color:#dc2626}.mv.ok{color:#d97706}.mv.good{color:#16a34a}
+.rec{display:flex;gap:11px;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.rec:last-child{border-bottom:none}
+.rec-n{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.rec-body{flex:1;font-size:13px;color:#4b5563;line-height:1.7}
+.rec-body strong{color:#111827;font-weight:600}
+.rec-body a{color:#2563eb;text-decoration:none;font-size:12px;font-weight:500}
+.scen{border-radius:10px;padding:12px 16px;margin-bottom:10px;font-size:13px;line-height:1.7;border:1px solid}
+.scen-red{background:#fef2f2;border-color:#fecaca;color:#374151}
+.scen-red strong{color:#dc2626}
+.scen-amber{background:#fffbeb;border-color:#fde68a;color:#374151}
+.scen-amber strong{color:#d97706}
+.scen-green{background:#f0fdf4;border-color:#bbf7d0;color:#374151}
+.scen-green strong{color:#16a34a}
+.divider{height:1px;background:#f3f4f6;margin:14px 0}
+.reg{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:12px}
+.reg-head{padding:12px 18px;background:#fafafa;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.reg-title{font-size:13px;font-weight:600;color:#111827;flex:1}
+.reg-body{padding:13px 18px;font-size:13px;color:#4b5563;line-height:1.7}
+.reg-body strong{color:#111827;font-weight:600}
+.reg-body a{color:#2563eb;text-decoration:none;font-weight:500}
+.reg-foot{padding:9px 18px;border-top:1px solid #f3f4f6;display:flex;justify-content:space-between;align-items:center}
+.dl{font-size:11px;font-weight:600;padding:3px 9px;border-radius:9999px}
+.dl-r{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.dl-a{background:#fffbeb;color:#d97706;border:1px solid #fde68a}
+.sap-item{border-left:3px solid #2563eb;padding-left:16px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f3f4f6}
+.sap-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sap-item.red{border-left-color:#ef4444}
+.sap-item.amber{border-left-color:#f59e0b}
+.sap-item.green{border-left-color:#22c55e}
+.sap-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:7px}
+.sap-body{font-size:13px;color:#4b5563;line-height:1.75}
+.sap-body strong{color:#111827}
+.sap-body a{color:#2563eb;text-decoration:none;font-size:12px;font-weight:500}
+.act-list{list-style:none}
+.act-list li{display:flex;gap:10px;padding:7px 0;font-size:13px;color:#374151;line-height:1.65;border-bottom:1px solid #f9fafb}
+.act-list li:last-child{border-bottom:none}
+.act-list li strong{color:#111827}
+.dot{width:7px;height:7px;border-radius:50%;background:#2563eb;flex-shrink:0;margin-top:7px}
+footer{text-align:center;padding:24px 0;font-size:11.5px;color:#9ca3af}
+footer a{color:#6b7280;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-top">
+    <div>
+      <div class="hdr-title">☀️ Morning Brief</div>
+      <div class="hdr-date">Tuesday, March 24, 2026 · Buenos Aires ART · War Day 25</div>
+    </div>
+    <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
+      <span class="badge badge-talks">💬 TALKS UNDERWAY · DAY 2</span>
+      <span class="badge badge-oil">🛢️ BRENT ~$101 · Bouncing</span>
+      <span class="badge badge-warn">⚠️ IRAN STILL DENYING</span>
+    </div>
+  </div>
+  <div class="hdr-sub">
+    <strong>Monday's relief rally is fading on Tuesday.</strong> S&P 500 closed +1.15% Monday (6,581) on Trump's 5-day pause, but <strong>futures are flat-to-down Tuesday morning</strong> as Iran denied talks happened and Brent climbed back above $101. The 5-day window is ticking — expires ~March 28. Mediators (Oman, Turkey, Egypt, Pakistan) are actively shuttling messages. Trump told reporters Monday "Iran called, I didn't call" and there are already "major points of agreement." A suspicious $1.5B S&P futures trade 15 minutes before Trump's Truth Social post is now under scrutiny. Flash PMIs today are the first real-economy read on the oil shock.
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="sec-label">⚡ Overview — Tuesday March 24</div>
+
+<div class="alert a-blue">
+  <span>💬</span>
+  <div><strong>Where the talks stand as of Tuesday morning:</strong> <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-24-26">Iran's Foreign Ministry later acknowledged receiving messages through "friendly countries" and confirmed the proposals are under review</a> — walking back from the full denial. Trump told reporters: "They called, I didn't call. They want to make a deal." <a href="https://www.theweek.in/news/middle-east/2026/03/24/trump-shelved-iran-strikes-us-rethinking-strategy-amid-energy-price-surge-pressure-from-allies.html">Pakistan's army chief is in contact with Trump envoys Witkoff and Kushner. Turkey and Egypt actively coordinating messages.</a> Iran wants sanctions relief + permanent non-attack guarantee. US wants full nuclear halt. A deal is not imminent but the channel is open.</div>
+</div>
+
+<div class="alert a-amber">
+  <span>🛢️</span>
+  <div><strong>Oil bouncing back Tuesday morning.</strong> <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-24-26">Brent climbed 1.6% to $101.50 Tuesday. WTI rose 2.7% to $90.50.</a> Iran denied talks → oil partially retraced Monday's 11% drop. Hormuz still effectively closed. <a href="https://www.cnbc.com/2026/03/23/oil-prices-trump-iran-strait-of-hormuz-wti-crude-middle-east-lng-gas.html">Goldman Sachs now assumes Hormuz flows remain at 5% of normal for 6 weeks — forecasting Brent averages $110 in March–April.</a> If that 6-week timeline extends: Brent exceeds its 2008 record (~$147).</div>
+</div>
+
+<div class="alert a-red">
+  <span>🔍</span>
+  <div><strong>The insider trading story — watch this.</strong> <a href="https://www.cnbc.com/2026/03/23/volume-in-stock-and-oil-futures-surged-minutes-before-trumps-market-turning-post.html">$1.5B in S&P 500 futures and $580M in oil contracts changed hands at 6:49–6:50 AM Monday — exactly 15 minutes before Trump's 7:05 AM Truth Social post.</a> <a href="https://fortune.com/2026/03/24/trump-exit-strategy-iran-oil-price-midterms/">Bloomberg confirmed the volume spike. Fortune: "By some estimates the oil position alone generated $100M+ in profits within 20 minutes."</a> Iran's Parliament Speaker called it "fake news to manipulate financial markets." SEC has not commented. This is the most significant market integrity story since the war began.</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">📊 Monday Close / Tuesday Setup</div>
+    <div class="card-body"><span class="pill p-amber" style="margin-bottom:8px;display:inline-block">Relief Rally Paring</span><br><a href="https://www.cnbc.com/2026/03/22/stock-market-today-live-updates.html">S&P 500 +1.15% to 6,581 Monday · Dow +631 pts (+1.38%) to 46,208 · Nasdaq +1.38% to 21,947.</a> Gains pared from the +2.7% premarket peak as Iran denied talks. <a href="https://stockmarketwatch.com/live/stock-market-today/">Tuesday futures: S&P −0.23% · Dow −0.28% · Nasdaq −0.17%.</a> VIX fell to 26.15 from 31. Not a panic — but the optimism is cooling.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">🇦🇷 Argentina — Monday's Jump</div>
+    <div class="card-body"><span class="pill p-green" style="margin-bottom:8px;display:inline-block">Country Risk 555 bps · Bonds +1.5%</span><br><a href="https://www.riotimesonline.com/merval-surges-2-56-to-lead-latam-as-argentina-country/">Merval surged 2.56% Monday to 2,700,255 — strongest LatAm session. Country risk collapsed 28 bps to 555.</a> BCRA bought $67M, reserves rose to $46,043M. MEP fell $8 to 1,422. <strong>The ceasefire signal is Argentina's most important macro catalyst of 2026.</strong> Sub-500 country risk = sovereign market re-access. Watch whether Merval holds above 2,700K today.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📋 Action Items — Tuesday</div>
+  <ul class="act-list">
+    <li><div class="dot"></div><span><strong>Flash PMI at 9:45 AM ET (10:45 AM ART) — the first real-economy read on the oil shock.</strong> <a href="https://stockmarketwatch.com/live/stock-market-today/">S&P Flash US PMI due today alongside ADP employment and Q4 productivity revisions.</a> A soft PMI (below 50) confirms oil is damaging real activity → stagflation narrative strengthens. Above 52 = economy absorbing shock → Fed holds comfortably. This is the data point that will define Tuesday's direction.</span></li>
+    <li><div class="dot"></div><span><strong>NVDA — Jensen Huang's $1 trillion Blackwell/Vera Rubin order announcement.</strong> <a href="https://stockmarketwatch.com/live/stock-market-today/">NVDA CEO announced the company expects over $1 trillion in purchase orders for its Blackwell and Vera Rubin AI products through 2027.</a> Despite this, NVDA is seeing profit-taking in premarket. GTC 2026 conference continues. This is a structural positive for your semiconductor cluster but market may sell the news today.</span></li>
+    <li><div class="dot"></div><span><strong>Argentina country risk — watch the 555 level hold.</strong> Monday's 28-bps compression to 555 was the largest single-day drop in weeks. Sub-500 is the target for sovereign market re-access and Merval re-rating. If talks extend and Brent stays below $105, a move to sub-500 this week is feasible. Maintain Argentine bond exposure (GD38/AL30).</span></li>
+    <li><div class="dot"></div><span><strong>The 5-day window countdown: 4 days remaining.</strong> The pause expires ~March 28. Every day of silence from the battlefield is constructive. Watch for: (1) actual tanker movements through Hormuz, (2) any formal statement from Iran acknowledging talks, (3) Oman/Turkey/Egypt mediator announcements. Those are the three signals that a deal is real.</span></li>
+    <li><div class="dot"></div><span><strong>Suspicious trade investigation — do not ignore this.</strong> If the SEC opens a formal investigation into Monday's pre-announcement trades, market confidence in the integrity of Trump's policy communications takes a structural hit. Adds tail risk to any future Trump de-escalation announcements — markets will discount them more heavily.</span></li>
+  </ul>
+</div>
+
+<!-- GEOPOLITICS -->
+<div class="sec-label">⚔️ Geopolitics — War Day 25</div>
+
+<div class="geo">
+  <div class="geo-head blue">
+    <div class="geo-name">💬 Talks: Iran Walks Back Full Denial — Mediators Active, 4 Days Remaining</div>
+    <span class="pill p-teal">5-DAY WINDOW · Day 2 of 5</span>
+  </div>
+  <div class="geo-dark-body">
+    <strong>What changed overnight:</strong> <a href="https://www.cnn.com/world/live-news/iran-war-us-israel-trump-03-24-26">Iran's Foreign Ministry acknowledged receiving messages through "friendly countries" and confirmed proposals are under review</a> — a significant softening from Monday's flat denial. This confirms back-channel communication is real, even if direct talks are disputed.<br><br>
+    <strong>The mediator network:</strong> <a href="https://www.theweek.in/news/middle-east/2026/03/24/trump-shelved-iran-strikes-us-rethinking-strategy-amid-energy-price-surge-pressure-from-allies.html">Pakistan, Oman, Turkey, Egypt, and Qatar are actively shuttling messages between Washington and Tehran.</a> Oman's FM is working to secure Hormuz passage. This is a substantial diplomatic infrastructure — more than just talk.<br><br>
+    <strong>The gap:</strong> Iran wants (1) sanctions relief and (2) a permanent guarantee the US/Israel won't attack again. US wants (1) full halt of uranium enrichment and (2) Hormuz reopened. <a href="https://www.bloomberg.com/news/articles/2026-03-23/trump-backs-off-from-iran-threat-as-ceasefire-talks-get-underway">Trump told reporters there are already "major points of agreement."</a> The nuclear question is the hardest — Iran has built its deterrence around the enrichment program.<br><br>
+    <strong>Timeline pressure:</strong> 5-day pause expires ~March 28. If no deal by then, Trump must either extend the pause (politically difficult) or resume strikes (market crash). The pressure to show progress is enormous on both sides.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🔍 The $1.5B Pre-Announcement Trade — Insider Trading Under Scrutiny</div>
+    <span class="pill p-red">Market Integrity Risk</span>
+  </div>
+  <div class="geo-body">
+    <a href="https://www.cnbc.com/2026/03/23/volume-in-stock-and-oil-futures-surged-minutes-before-trumps-market-turning-post.html">At 6:49–6:50 AM Monday, S&P 500 e-Mini futures recorded their largest volume spike of the pre-market session. Simultaneously, $580M in oil futures changed hands — 4–6x normal volume for that hour.</a> Trump posted on Truth Social at 7:05 AM. Markets moved exactly as the trades predicted: S&P +2.5%, oil −6%.<br><br>
+    <a href="https://fortune.com/2026/03/24/trump-exit-strategy-iran-oil-price-midterms/">Fortune reported the oil position alone could have generated $100M+ in profits within 20 minutes.</a> Iran's Parliament Speaker explicitly called it market manipulation. <strong>Why this matters for your portfolio:</strong> If the SEC investigates and this becomes a political scandal, it creates a credibility discount on all future Trump de-escalation signals. Markets will be slower to rally on the next announcement, knowing that insiders may already have positioned. The "Trump trade" premium gets a structural haircut.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇦🇷 Argentina — Best LatAm Session Monday, Country Risk 555, AO27 Licitación</div>
+    <span class="pill p-green">Constructive · Momentum Building</span>
+  </div>
+  <div class="geo-body">
+    <a href="https://www.riotimesonline.com/merval-surges-2-56-to-lead-latam-as-argentina-country/">Merval +2.56% to 2,700,255 Monday — strongest in LatAm, outperforming Colombia (+2.11%), Brazil (+1.40%), Mexico (+0.76%).</a> Country risk collapsed 28 bps to 555 — its largest single-day compression in weeks. BCRA bought $67M (Monday), reserves rose $275M to $46,043M.<br><br>
+    <strong>The AO27 licitación:</strong> Treasury targeting $2B from this dollar-denominated bond reopening to fund July 2026 maturities. Oversubscription would be a powerful confidence signal. Previous placement raised $250M at sub-6% yield. If ceasefire talks progress, this licitación becomes materially easier.<br><br>
+    <strong>Technical levels:</strong> Merval needs to hold above 2,700K today. Clear 2,776K = correction officially ending. Sub-500 country risk = full re-rating potential toward ATH (3,296,502 — 22% upside from here).
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇺🇸 US — NVDA $1T Order Announcement · Flash PMI Today · Suspicious Trades</div>
+    <span class="pill p-amber">Data Day · Market Testing Gains</span>
+  </div>
+  <div class="geo-body">
+    <a href="https://stockmarketwatch.com/live/stock-market-today/">NVDA CEO Jensen Huang announced $1 trillion in purchase orders for Blackwell and Vera Rubin AI products through 2027</a> — a staggering number that validates the AI infrastructure buildout narrative. Despite this, NVDA is seeing premarket profit-taking. GTC 2026 continues through Thursday. This is the most positive AI demand signal of 2026 and directly supports your semiconductor cluster's long-term thesis.<br><br>
+    <strong>Today's data:</strong> Flash US PMI (9:45 AM ET) + ADP employment + Q4 productivity revisions. First major post-war economic data. <a href="https://www.fortune.com/2026/03/24/trump-exit-strategy-iran-oil-price-midterms/">Morgan Stanley CIO Lisa Shalett warned of "chaotic melt toward stagflation" with oil shock "slowly undermining the 2026 bull case."</a> A PMI above 52 challenges that narrative; below 50 confirms it.<br><br>
+    <strong>Goldman Sachs bottom line:</strong> If Hormuz flows remain at 5% for 10 weeks, daily Brent will likely exceed its 2008 record of ~$147. The 5-day window matters more than any PMI number.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇧🇷 Brazil — Ibovespa Recovering, PBR Mixed, Selic 14.75% Now Operative</div>
+    <span class="pill p-amber">Recovery Mode · BRL Watching</span>
+  </div>
+  <div class="geo-body">
+    Ibovespa recovered strongly Monday from last week's lows. PBR faces a structural crosscurrent: Brent partially retraced Monday's drop (back to $101) — net neutral for Petrobras vs Friday's $112. BRL strengthened on ceasefire optimism Monday; watch for pullback Tuesday as Brent bounces. Selic cut to 14.75% now operative — first rate cut since May 2024. The BCB-Fed policy divergence is the dominant BRL driver. Watch USD/BRL R$5.10 as the key bull-scenario target; R$5.30 as stress level.
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="sec-label">💼 Portfolio — Tuesday Update</div>
+
+<div class="qs">
+  <div class="qs-title">1. Factor Performance — Day After the Relief Rally</div>
+  <div class="metric"><div class="ml">🛢️ Energy (VIST/YPFD/PBR)</div><div class="mv ok">PARTIAL TRIM EXECUTED? · Brent $101 · Hold remainder</div></div>
+  <div class="metric"><div class="ml">📈 US tech (SPY/QQQ/NVDA ~30%)</div><div class="mv ok">CONSOLIDATING · S&P 6,581 · NVDA $1T order = structural +</div></div>
+  <div class="metric"><div class="ml">🇦🇷 Argentine equities (~20%)</div><div class="mv good">STRONG · Merval 2,700K · Country risk 555 · Momentum</div></div>
+  <div class="metric"><div class="ml">🇧🇷 Brazil (NU/PBR/VALE/STNE ~25%)</div><div class="mv ok">RECOVERING · PBR mixed · BRL watch · VALE on China risk-on</div></div>
+  <div class="metric"><div class="ml">💱 ARS carry (Letes/FCI ~12%)</div><div class="mv good">STRENGTHENING · MEP fell to 1,422 · Country risk compressing</div></div>
+  <div class="metric"><div class="ml">☀️ Gold</div><div class="mv ok">ADD WINDOW OPEN · Gold bouncing off worst-week-since-1983</div></div>
+  <div class="metric"><div class="ml">🔬 Semiconductors (NVDA/TSM ~12%)</div><div class="mv good">STRUCTURAL POSITIVE · NVDA $1T backlog · Profit-taking Tuesday</div></div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">2. Scenarios — 5-Day Window (Day 2)</div>
+  <div class="scen scen-green"><strong>🟢 Deal this week (35% probability):</strong> Formal ceasefire announced by ~March 28. Hormuz reopens. Brent retraces $75–85. S&P rallies to 6,800–7,000. Argentina country risk sub-500. Fed cuts return. <strong>Portfolio: +20–25% recovery.</strong> Trim remaining energy, full tech add, Argentina bonds.</div>
+  <div class="scen scen-amber"><strong>🟡 Talks extend past March 28 (45% probability):</strong> Trump extends pause again, negotiations continue. Oil stabilizes $95–105. Markets in holding pattern. Argentina country risk 520–550. <strong>Portfolio: flat to −5% USD.</strong> The diplomatic channel stays open — this is the most likely outcome.</div>
+  <div class="scen scen-red"><strong>🔴 Talks collapse, war escalates (20% probability):</strong> Pause expires with no deal, strikes resume. Oil back to $115+. Markets give back all Monday gains + more. <a href="https://www.cnbc.com/2026/03/23/oil-prices-trump-iran-strait-of-hormuz-wti-crude-middle-east-lng-gas.html">Goldman: if Hormuz stays closed 10 weeks, Brent exceeds 2008 record of $147.</a> <strong>Portfolio: −25–35% USD.</strong></div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">3. Ranked Recommendations</div>
+  <div class="rec"><div class="rec-n">1</div><div class="rec-body"><strong>If you haven't trimmed VIST/YPFD/PBR yet — do it today on any Brent bounce.</strong> Brent is back at $101 — you have a second chance at yesterday's exit levels. Trim 30–50% of war-accumulated energy positions. Keep the rest for optionality. <a href="https://www.cnbc.com/2026/03/23/oil-prices-trump-iran-strait-of-hormuz-wti-crude-middle-east-lng-gas.html">Goldman forecasts Brent averages $110 in March–April</a> — you're not selling at the bottom. You're locking in a 50%+ war premium.</div></div>
+  <div class="rec"><div class="rec-n">2</div><div class="rec-body"><strong>Argentina sovereign bonds (GD38/AL30) — hold and add.</strong> Country risk at 555 (from 602 peak) with momentum. The mediator network is active, the foreign ministry acknowledged messages, and BCRA reserves are at $46B. Sub-500 country risk is now a realistic 2-week target if talks progress. Argentina bonds are your highest-conviction de-escalation play.</div></div>
+  <div class="rec"><div class="rec-n">3</div><div class="rec-body"><strong>NVDA — don't sell into premarket profit-taking.</strong> $1 trillion in purchase orders through 2027 is not a number you sell. The AI infrastructure buildout continues regardless of the Iran war. NVDA's GTC announcements (Vera Rubin, Blackwell) are generational product cycle signals. Today's dip is noise. If anything, add on weakness.</div></div>
+  <div class="rec"><div class="rec-n">4</div><div class="rec-body"><strong>Flash PMI is the most important data point this week (aside from Hormuz news).</strong> <a href="https://stockmarketwatch.com/live/stock-market-today/">9:45 AM ET / 10:45 AM ART.</a> Above 52 = economy absorbing oil shock → buy SPY. Below 50 = stagflation is real → cautious on tech, defensive on energy/utilities. Set up your positions before this number drops.</div></div>
+  <div class="rec"><div class="rec-n">5</div><div class="rec-body"><strong>Gold — the window to add at $4,188 (yesterday's Asia low) may not reopen.</strong> Gold is bouncing. The worst-week-since-1983 was the bottom. <a href="https://www.theweek.in/news/middle-east/2026/03/24/trump-shelved-iran-strikes-us-rethinking-strategy-amid-energy-price-surge-pressure-from-allies.html">Even Morgan Stanley sees stagflation risk.</a> 3–5% GLD/IAU CEDEAR is structurally right. Don't wait for another panic low to add.</div></div>
+</div>
+
+<!-- MARKETS -->
+<div class="sec-label">📊 Markets — Monday Close / Tuesday Setup</div>
+
+<div class="g4">
+  <div class="tc cgreen"><div class="tl">S&P 500 (Mon close)</div><div class="tv">6,581</div><div class="tc-ch up">▲ +1.15% Mon</div><div class="tc-note">Futures: −0.23% Tue · Gains paring</div></div>
+  <div class="tc cgreen"><div class="tl">Dow Jones (Mon close)</div><div class="tv">46,208</div><div class="tc-ch up">▲ +631 pts (+1.38%) Mon</div><div class="tc-note">Futures: −0.28% Tue</div></div>
+  <div class="tc cgreen"><div class="tl">Nasdaq (Mon close)</div><div class="tv">21,947</div><div class="tc-ch up">▲ +1.38% Mon</div><div class="tc-note">NVDA $1T order · Profit-taking</div></div>
+  <div class="tc camber"><div class="tl">Brent Crude</div><div class="tv">~$101</div><div class="tc-ch up">▲ +1.6% Tue AM · Bouncing</div><div class="tc-note">Iran denial → partial rebound</div></div>
+</div>
+
+<div class="g4">
+  <div class="tc cblue"><div class="tl">VIX (Mon close)</div><div class="tv">26.15</div><div class="tc-ch dn">▼ From 31 Fri · Fear easing</div><div class="tc-note">Still elevated · Watch 25 level</div></div>
+  <div class="tc cgold" style="--ac:#d97706"><div class="tl">Gold</div><div class="tv">~$4,300+</div><div class="tc-ch up">▲ Bouncing from $4,188 low</div><div class="tc-note">Add window still open</div></div>
+  <div class="tc cgreen"><div class="tl">Merval (Mon close)</div><div class="tv">2,700,255</div><div class="tc-ch up">▲ +2.56% · Best LatAm</div><div class="tc-note">Country risk 555 · Hold 2,700K</div></div>
+  <div class="tc cblue"><div class="tl">Country Risk AR</div><div class="tv">555 bps</div><div class="tc-ch up">▼ −28 bps Mon · Compressing</div><div class="tc-note">Target: sub-500 · 55 bps away</div></div>
+</div>
+
+<div class="g4">
+  <div class="tc cblue"><div class="tl">BCRA Reserves</div><div class="tv">$46,043M</div><div class="tc-ch up">▲ +$275M Mon · $67M purchased</div><div class="tc-note">50+ consecutive buying sessions</div></div>
+  <div class="tc cblue"><div class="tl">USD MEP</div><div class="tv">~1,422</div><div class="tc-ch dn">▼ Fell $8 Mon · Peso strong</div><div class="tc-note">Brecha stable · Carry intact</div></div>
+  <div class="tc camber"><div class="tl">USD/BRL</div><div class="tv">~R$5.10–5.20</div><div class="tc-ch up">BRL strengthened Mon</div><div class="tc-note">Watch R$5.10 bull target</div></div>
+  <div class="tc cblue"><div class="tl">10Y Treasury</div><div class="tv">~4.25%</div><div class="tc-ch dn">▼ Fell Mon · Bonds rallied</div><div class="tc-note">Ceasefire → yields easing</div></div>
+</div>
+
+<!-- REGULATION -->
+<div class="sec-label">⚖️ Regulation — Active Clocks</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-red">🔴 131 days</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">EU AI Act</span><div class="reg-title" style="margin-left:8px"> · HRAI Aug 2 — PAST Safe Window</div></div>
+  <div class="reg-body">131 days to August 2. <strong>A 6-month conformity assessment started today completes October 2 — two months late.</strong> You need an expedited (3–4 month) process started this week at the absolute latest. Commission still has not published Annex III guidance. Joule in HR/Finance = Annex III. Penalties: €35M or 7% global turnover. De-escalation in Iran does not change this deadline.</div>
+  <div class="reg-foot"><span class="dl dl-r">Aug 2 · 131 days · ESCALATE THIS WEEK</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-red">⚡ ~10 days</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">NIS2 — Germany</span><div class="reg-title" style="margin-left:8px"> · BSI Registration — Last Chance</div></div>
+  <div class="reg-body">~10 days to BSI registration deadline. If not initiated, this is the last business week to file. Fines €10M or 2% global turnover. Management personally liable. No extension.</div>
+  <div class="reg-foot"><span class="dl dl-r">~Apr 2026 · LAST CHANCE</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-amber">Active</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">DORA</span><div class="reg-title" style="margin-left:8px"> · Q1 Audits Wrapping</div></div>
+  <div class="reg-body">Q1 audit cycle closing out. SAP as Critical Third-Party Provider. War-context: financial sector clients accelerated operational resilience requirements — DORA audits more intense than pre-war baseline.</div>
+  <div class="reg-foot"><span class="dl dl-r">Live · Q1 closing</span></div>
+</div>
+
+<!-- SAP -->
+<div class="sec-label">🔷 SAP Intelligence</div>
+
+<div class="card">
+  <div class="sap-item green">
+    <div class="sap-title">Ceasefire Momentum = Gulf Client Pipeline Thawing</div>
+    <div class="sap-body">Monday's ceasefire announcement was enough to restart conversations at Saudi Aramco, QatarEnergy, and ADNOC — clients don't need a signed deal to re-engage, they need certainty that procurement decisions won't be disrupted. The 5-day window provides exactly that minimum certainty. <strong>SAP's energy vertical should be proactively reaching out to Gulf clients this week.</strong> The post-war capex supercycle (NOC modernization at Brent $90+) is the most significant energy IT opportunity since 2008.</div>
+  </div>
+  <div class="sap-item green">
+    <div class="sap-title">NVDA $1T Backlog — AI Infrastructure Demand Confirmed Through 2027</div>
+    <div class="sap-body"><a href="https://stockmarketwatch.com/live/stock-market-today/">Jensen Huang announced $1 trillion in purchase orders for Blackwell and Vera Rubin through 2027 at GTC 2026.</a> For SAP: enterprise clients now have confirmed AI infrastructure spending plans through 2027, which directly underpins the Joule adoption pipeline. CIOs who were hesitating on Joule commitments pending AI ROI proof now have NVDA's order book as confirmation the AI buildout is real. <strong>SAP's Joule pipeline should accelerate in H2 2026 as enterprise customers act on their AI commitments.</strong></div>
+  </div>
+  <div class="sap-item red">
+    <div class="sap-title">EU AI Act — 131 Days · This Week Is the Last Viable Entry Point</div>
+    <div class="sap-body">131 days to August 2. HRAI conformity assessments: 3 months minimum (expedited) to 6 months (standard). <strong>Starting today: 3-month expedited process completes June 24 — 5 weeks before deadline, barely viable. Starting next week: completion falls after the deadline.</strong> Joule in HR/Finance = Annex III. This is not a risk to monitor — it is an execution decision that must be made this week. Penalties: €15M or 3% global turnover for non-compliance.</div>
+  </div>
+  <div class="sap-item amber">
+    <div class="sap-title">BofA $308 Target · Q1 Results Late April · Ceasefire Adds Upside</div>
+    <div class="sap-body"><a href="https://www.cnbc.com/2026/03/16/stock-market-today-live-updates.html">BofA projects 11.5% revenue and 15% EBIT growth for Q1, $308 target (+60% upside).</a> War de-escalation removes the headwind on SAP's multiple. Gulf client pipeline thawing adds potential Q2 upside. <strong>Q1 results late April are the definitive test — CCB recovery from Q4's miss validates the entire BofA thesis.</strong></div>
+  </div>
+  <div class="sap-item amber">
+    <div class="sap-title">Morgan Stanley "Stagflation" Warning — Enterprise IT Budget Risk</div>
+    <div class="sap-body"><a href="https://fortune.com/2026/03/24/trump-exit-strategy-iran-oil-price-midterms/">Morgan Stanley Wealth Management CIO Lisa Shalett warned of a "chaotic melt toward stagflation" with the oil shock "slowly undermining the 2026 bull case."</a> Stagflation scenario = enterprise CFOs freeze IT capex. SAP cloud migration deals face the same scrutiny as other long-term commitments. The 5-day window outcome will determine whether this warning becomes a Q2 reality or remains a tail risk.</div>
+  </div>
+</div>
+
+<!-- WEEK AHEAD -->
+<div class="sec-label">📅 This Week</div>
+<div class="card">
+  <ul class="act-list">
+    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">TODAY Tue 24</div><div><strong>Flash PMI (9:45 AM ET) · ADP employment · NVDA GTC 2026 continues.</strong> PMI above 52 = economy resilient; below 50 = stagflation. Watch Iran/Hormuz news throughout the day.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">WED Mar 25</div><div><strong>US Durable Goods Orders.</strong> Read on corporate capex — are companies still investing or pulling back? Key for SAP enterprise pipeline.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">FRI Mar 27</div><div><strong>US PCE Inflation (February).</strong> Fed's preferred inflation measure. Hot above 2.8% = Macquarie hike narrative gains traction. In-line = rate cuts return for late 2026.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">~SAT Mar 28</div><div><strong>5-day pause expires.</strong> The single most important date of 2026. Deal = bull scenario. Extension = muddling through. Talks collapse = war resumes. Watch actual tanker movements as the definitive signal.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">LATE APR</div><div><strong>SAP Q1 2026 Results.</strong> BofA projects 11.5% revenue and 15% EBIT. CCB trajectory is the key metric — recovery validates the de-escalation thesis.</div></li>
+  </ul>
+</div>
+
+<footer>
+  Generated by Claude · Tuesday March 24, 2026 · 7:00 AM ART · War Day 25<br>
+  Not investment advice · Verify all data independently · <a href="https://claude.ai">claude.ai</a>
+</footer>
+
+</div>
+</body>
+</html>

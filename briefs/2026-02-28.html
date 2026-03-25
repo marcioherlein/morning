@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Morning Brief · 28 Feb 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:400;background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);min-height:100vh;color:#0f172a}
+.max-w{max-width:1120px;margin:0 auto;padding:0 24px}
+main{padding:32px 0 64px}
+header{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06);position:sticky;top:0;z-index:100}
+.header-inner{padding:24px 24px 0;max-width:1120px;margin:0 auto}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.header-title{font-size:30px;font-weight:600;color:#111827;letter-spacing:-0.03em;line-height:1.2}
+.header-date{font-size:14px;color:#6b7280;margin-top:4px}
+.header-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#3b82f6 0%,#8b5cf6 100%);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 4px 12px rgba(59,130,246,0.35)}
+nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:0}
+nav::-webkit-scrollbar{display:none}
+.tab{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:9999px;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;color:#4b5563;transition:all 0.2s ease;position:relative;border:none;cursor:pointer;background:transparent;flex-shrink:0}
+.tab:hover{color:#111827;background:rgba(0,0,0,0.04)}
+.tab.active{color:#fff;background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%);box-shadow:0 2px 8px rgba(37,99,235,0.4)}
+.tab-icon{font-size:16px}
+.tab-underline-spacer{height:12px}
+.section{display:none}
+.section.active{display:block}
+.hero-card{border-radius:24px;padding:32px;color:#fff;box-shadow:0 10px 40px rgba(0,0,0,0.12);margin-bottom:24px;display:flex;gap:16px;align-items:flex-start}
+.hero-icon{font-size:32px;padding-top:2px;flex-shrink:0}
+.hero-card h2{font-size:24px;font-weight:600;margin-bottom:12px;letter-spacing:-0.02em}
+.hero-card p{font-size:15px;line-height:1.7;opacity:0.9}
+.gradient-blue{background:linear-gradient(135deg,#2563eb 0%,#7c3aed 100%)}
+.gradient-amber{background:linear-gradient(135deg,#f59e0b 0%,#ea580c 100%)}
+.gradient-indigo{background:linear-gradient(135deg,#4f46e5 0%,#2563eb 100%)}
+.gradient-teal{background:linear-gradient(135deg,#0891b2 0%,#0d9488 100%)}
+.gradient-red{background:linear-gradient(135deg,#dc2626 0%,#9f1239 100%)}
+.grid{display:grid;gap:20px;margin-bottom:24px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:1fr 1fr 1fr}
+.grid-4{grid-template-columns:1fr 1fr 1fr 1fr}
+@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.06);transition:box-shadow 0.2s ease,transform 0.2s ease}
+.card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.1);transform:translateY(-2px)}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.card-title-row{display:flex;align-items:center;gap:12px}
+.card-icon-wrap{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#eff6ff 0%,#f5f3ff 100%);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.card-title{font-size:15px;font-weight:600;color:#111827}
+.pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:9999px;white-space:nowrap;flex-shrink:0}
+.pill-up{background:#f0fdf4;color:#15803d}
+.pill-down{background:#fef2f2;color:#dc2626}
+.pill-neutral{background:#f9fafb;color:#374151}
+.pill-amber{background:#fffbeb;color:#d97706}
+.pill-blue{background:#eff6ff;color:#1d4ed8}
+.pill-red{background:#fef2f2;color:#dc2626}
+.pill-purple{background:#faf5ff;color:#7e22ce}
+.card-body{font-size:14px;color:#4b5563;line-height:1.7}
+.card-body strong{color:#111827;font-weight:600}
+.wide-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.06);margin-bottom:24px}
+.wide-card-title{font-size:16px;font-weight:600;color:#111827;margin-bottom:20px;letter-spacing:-0.01em}
+.section-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#9ca3af;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #f3f4f6;margin-top:8px}
+.ticker-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:768px){.ticker-grid{grid-template-columns:repeat(2,1fr)}}
+.ticker-card{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+.ticker-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:var(--accent,#e5e7eb)}
+.ticker-card.c-blue{--accent:linear-gradient(90deg,#3b82f6,#8b5cf6)}
+.ticker-card.c-green{--accent:#22c55e}
+.ticker-card.c-red{--accent:#ef4444}
+.ticker-card.c-amber{--accent:#f59e0b}
+.ticker-card.c-teal{--accent:#14b8a6}
+.ticker-card.c-gold{--accent:linear-gradient(90deg,#d97706,#f59e0b)}
+.ticker-label{font-size:11px;font-weight:500;color:#9ca3af;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+.ticker-value{font-size:24px;font-weight:700;letter-spacing:-0.04em;color:#111827;line-height:1}
+.ticker-change{font-size:12px;font-weight:500;margin-top:6px}
+.ticker-note{font-size:11px;color:#9ca3af;margin-top:4px;line-height:1.4}
+.up{color:#16a34a}
+.down{color:#dc2626}
+.flat{color:#6b7280}
+.alert{display:flex;gap:12px;padding:14px 16px;border-radius:12px;margin-bottom:16px;align-items:flex-start}
+.alert-red{background:#fef2f2;border:1px solid #fecaca}
+.alert-amber{background:#fffbeb;border:1px solid #fde68a}
+.alert-green{background:#f0fdf4;border:1px solid #bbf7d0}
+.alert-blue{background:#eff6ff;border:1px solid #bfdbfe}
+.alert-purple{background:#faf5ff;border:1px solid #e9d5ff}
+.alert-icon{font-size:14px;padding-top:1px;flex-shrink:0}
+.alert-text{font-size:13px;line-height:1.65;color:#374151}
+.alert-text strong{color:#111827}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#9ca3af;padding:10px 12px;border-bottom:1px solid #f3f4f6}
+thead th.r{text-align:right}
+tbody td{padding:10px 12px;border-bottom:1px solid #f9fafb;color:#4b5563;vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:#fafafa}
+.t-ticker{font-size:12px;font-weight:600;color:#111827;white-space:nowrap}
+.t-name{color:#6b7280}
+.t-num{font-size:12px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.t-total{font-weight:600;color:#111827}
+tfoot td{padding:12px;border-top:2px solid #f3f4f6;font-weight:700;color:#111827;font-size:13px}
+.wbar-wrap{width:64px;height:5px;background:#f3f4f6;border-radius:9px;overflow:hidden}
+.wbar{height:100%;border-radius:9px}
+.wbar-blue{background:linear-gradient(90deg,#3b82f6,#8b5cf6)}
+.wbar-green{background:#22c55e}
+.wbar-red{background:#ef4444}
+.wbar-amber{background:#f59e0b}
+.wbar-teal{background:#14b8a6}
+.reg-item{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:16px;margin-bottom:16px;overflow:hidden}
+.reg-item:last-child{margin-bottom:0}
+.reg-item-head{padding:16px 20px;background:#fafafa;border-bottom:1px solid #f3f4f6;display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.reg-item-title{font-size:14px;font-weight:600;color:#111827;line-height:1.4;flex:1;min-width:200px}
+.reg-item-body{padding:16px 20px;font-size:13px;color:#4b5563;line-height:1.7}
+.reg-item-body p{margin-bottom:10px}
+.reg-item-body p:last-child{margin-bottom:0}
+.reg-item-body strong{color:#111827;font-weight:600}
+.reg-item-footer{padding:10px 20px;border-top:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.reg-source{font-size:11px;color:#9ca3af}
+.reg-source a{color:#3b82f6;text-decoration:none}
+.deadline-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:4px 10px;border-radius:9999px;white-space:nowrap}
+.dl-red{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.dl-amber{background:#fffbeb;color:#d97706;border:1px solid #fde68a}
+.dl-blue{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.dl-green{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.dl-teal{background:#f0fdfa;color:#0f766e;border:1px solid #99f6e4}
+.geo-row{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #f3f4f6}
+.geo-row:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.geo-heading{font-size:14px;font-weight:600;color:#111827;margin-bottom:8px}
+.geo-text{font-size:13px;color:#4b5563;line-height:1.7}
+.geo-text strong{color:#111827}
+.action-list{list-style:none}
+.action-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#4b5563;padding:4px 0}
+.action-dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);flex-shrink:0;margin-top:7px}
+.tint-box{background:linear-gradient(135deg,#eff6ff 0%,#f5f3ff 100%);border:1px solid #e0e7ff;border-radius:16px;padding:24px;margin-bottom:24px}
+.tint-box-title{font-size:16px;font-weight:600;color:#111827;margin-bottom:16px}
+.tint-row{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:8px}
+.tint-row:last-child{margin-bottom:0}
+.tint-row-label{font-size:14px;font-weight:500;color:#111827}
+.tint-row-value{font-size:13px;color:#6b7280}
+.signal-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid #f3f4f6}
+.signal-row:last-child{border-bottom:none}
+.signal-ticker{font-size:12px;font-weight:700;color:#111827;min-width:60px;padding-top:2px}
+.signal-body{flex:1;font-size:13px;color:#4b5563;line-height:1.6}
+.signal-body strong{color:#111827}
+.signal-move{font-size:12px;font-weight:600;min-width:60px;text-align:right;padding-top:2px}
+.sap-item{border-left:3px solid #3b82f6;padding-left:16px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #f3f4f6}
+.sap-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.sap-item-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:8px}
+.sap-item-body{font-size:13px;color:#4b5563;line-height:1.7}
+.sap-item-body strong{color:#111827}
+.sap-item.red{border-left-color:#ef4444}
+.sap-item.amber{border-left-color:#f59e0b}
+.sap-item.green{border-left-color:#22c55e}
+.divider{height:1px;background:#f3f4f6;margin:20px 0}
+footer{border-top:1px solid rgba(0,0,0,0.06);padding:20px 24px;background:rgba(255,255,255,0.7);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-text{font-size:12px;color:#9ca3af}
+.footer-text strong{color:#6b7280}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.section.active>*{animation:fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) both}
+.section.active>*:nth-child(1){animation-delay:0s}
+.section.active>*:nth-child(2){animation-delay:0.06s}
+.section.active>*:nth-child(3){animation-delay:0.1s}
+.section.active>*:nth-child(4){animation-delay:0.14s}
+.section.active>*:nth-child(5){animation-delay:0.18s}
+.section.active>*:nth-child(6){animation-delay:0.22s}
+.table-wrap{overflow-x:auto}
+.new-badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:9999px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;text-transform:uppercase;letter-spacing:0.05em;margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="header-title">Morning Brief</div>
+        <div class="header-date">Saturday, February 28, 2026 · Buenos Aires, ART · Post-close edition</div>
+      </div>
+      <div class="header-avatar">☀️</div>
+    </div>
+    <nav>
+      <button class="tab active" onclick="switchTab('overview',this)"><span class="tab-icon">🌅</span> Overview</button>
+      <button class="tab" onclick="switchTab('portfolio',this)"><span class="tab-icon">💼</span> Portfolio</button>
+      <button class="tab" onclick="switchTab('markets',this)"><span class="tab-icon">📊</span> Markets</button>
+      <button class="tab" onclick="switchTab('regulation',this)"><span class="tab-icon">⚖️</span> Regulation</button>
+      <button class="tab" onclick="switchTab('country',this)"><span class="tab-icon">🌐</span> Country</button>
+      <button class="tab" onclick="switchTab('sap',this)"><span class="tab-icon">🔷</span> SAP</button>
+    </nav>
+    <div class="tab-underline-spacer"></div>
+  </div>
+</header>
+
+<main>
+<div class="max-w">
+
+
+<!-- ═══ OVERVIEW ═══════════════════════════════════════════════ -->
+<div class="section active" id="tab-overview">
+
+  <div class="hero-card gradient-red">
+    <div class="hero-icon">🔻</div>
+    <div>
+      <h2>February Ends in a Rout — and Milei Wins Big</h2>
+      <p>February 27 closed as a brutal month-end: the S&amp;P 500 and Nasdaq posted their worst monthly declines since March 2025. The Argentine Merval fell 4.1% Friday to a 4-month low, −18% for the month in ARS. Country risk hit 572 bps. But on the domestic political front, Milei scored his biggest legislative win: the Senate passed the <strong>Ley de Modernización Laboral</strong> (42–28) in the early hours of Saturday. That reform — and the imminent soybean harvest season — are the two catalysts that analysts say could reverse the Merval's underperformance. S16M6 Letes mature in 16 days. Action required this weekend.</p>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row">
+          <div class="card-icon-wrap">📈</div>
+          <div class="card-title">Market Sentiment</div>
+        </div>
+        <span class="pill pill-down">Risk-Off</span>
+      </div>
+      <div class="card-body">February closes ugly. S&amp;P 500 −0.43% Fri, −1% for Feb. Nasdaq −0.92% Fri, −3%+ for Feb — worst since March 2025. Dow −1.05% Fri, +0.2% for Feb. Catalysts: PPI inflation shock (+0.5% MoM vs +0.3% exp.), CoreWeave −20% on weak Q1 guidance, private credit contagion fears hitting Apollo −9%, Goldman −7.6%, Jefferies −8.6%. Fed cuts now priced for H2 2026 at earliest. Your largest exposure — SPY/QQQ/DIA — absorbed the full brunt.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row">
+          <div class="card-icon-wrap">🇦🇷</div>
+          <div class="card-title">Argentina: Reform Passed, Market Sold</div>
+        </div>
+        <span class="pill pill-amber">Divergence</span>
+      </div>
+      <div class="card-body">Merval −4.1% Friday to 2,642,105 — 4-month low, worst monthly drop since September. ADRs −up to 25% in February (BBVA −24.8%, Macro −22%+). Country risk 572 bps, highest since Jan 14. Yet Senate passed Milei's labor reform at 42–28. IEB forecasts country risk compression toward LatAm average (287 bps) as BCRA accumulation continues and harvest dollars arrive. <strong>The macro and the market are telling opposite stories</strong> — and you hold both sides.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row">
+          <div class="card-icon-wrap">⚖️</div>
+          <div class="card-title">Regulatory — No Changes This Week</div>
+        </div>
+        <span class="pill pill-amber">6 Active</span>
+      </div>
+      <div class="card-body">No new EU regulatory publications this week. Key clocks: EU AI Act HRAI deadline <strong>Aug 2, 2026</strong> (155 days). Germany NIS2 BSI registration <strong>~April 2026</strong> (5 weeks). CRA CAB notification <strong>June 11</strong> (3.5 months). DORA enforcement audits underway. OFAC new VSD portal operational. Cloud &amp; AI Development Act proposal still overdue from Q1.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row">
+          <div class="card-icon-wrap">🏅</div>
+          <div class="card-title">Bright Spots</div>
+        </div>
+        <span class="pill pill-up">Selective</span>
+      </div>
+      <div class="card-body">Netflix +13.8% Friday (exited Warner bid — disciplined capital allocation). Block +16.8% (50% workforce cut as AI restructuring play). Dell +21.8% (record AI server demand + massive buyback). Gold +11% in Feb, $5,226/oz. Silver +14% in Feb, $90/oz. XLU (utilities) +10% in Feb — your PAMP/CEPU/TGSU2/EDN/METR cluster benefits from same defensive rotation globally. Record corporate buybacks in Feb: $233B, highest ever for the month.</div>
+    </div>
+  </div>
+
+  <div class="wide-card">
+    <div class="wide-card-title">Today's Key Actions <span style="font-size:13px;font-weight:400;color:#6b7280">— Weekend priorities</span></div>
+    <ul class="action-list">
+      <li><div class="action-dot"></div><span><strong>S16M6 Letes (5.2M ARS)</strong> mature March 16 — 16 days. Decide today: rollover into new letes, FCI COCOSPPA, or USD conversion via MEP. CCL ~1,471, MEP ~1,422, blue ~1,425. Carry advantage in ARS is thinning.</span></li>
+      <li><div class="action-dot"></div><span><strong>Labor reform signed into law.</strong> Assess portfolio exposure: LOMA (construction/employment), TXAR (steel labor costs), AUSO (transport). Flexible dismissal and reduced employer contributions structurally positive for listed companies with large headcounts.</span></li>
+      <li><div class="action-dot"></div><span><strong>NVDA CEDEAR position (180 shares):</strong> stock now −8%+ over two sessions post-earnings. Decide dip-add vs trim tech concentration. QQQ+SPY+ARKK+NVDA overlap is meaningful. Dell's AI server demand print is positive read-through for data center capex thesis.</span></li>
+      <li><div class="action-dot"></div><span><strong>Argentina February inflation (INDEC)</strong> due March 10. Market expects ~2.5% MoM. Below 2.5% = bonds rally and country risk compresses. Above 3% = further pressure. Position accordingly before that release.</span></li>
+      <li><div class="action-dot"></div><span><strong>Germany NIS2 BSI registration</strong> — confirm process is initiated. Deadline ~April 2026. If BSI registration packet not submitted, escalate internally this Monday.</span></li>
+    </ul>
+  </div>
+
+</div><!-- /overview -->
+
+
+<!-- ═══ PORTFOLIO ════════════════════════════════════════════════ -->
+<div class="section" id="tab-portfolio">
+
+  <div class="hero-card gradient-red">
+    <div class="hero-icon">💼</div>
+    <div>
+      <h2>Portfolio — February Close</h2>
+      <p>February was a painful month across all three exposures: US tech (Nasdaq −3%), Argentine equities (Merval −18% ARS), and Argentine ADRs (−up to 25%). Brazil fintech cluster (NU, STNE, PAGS, BBD) and Argentine utilities (PAMP, TGSU2, EDN, METR, CEPU) were the relative standouts. Estimated portfolio value ~95–100M ARS given month-end markdowns, pending live price update. MEP ended Feb at ~1,422 vs ~1,470 at start of month — peso strengthened ~3.2% vs dollar in Feb.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <div class="alert-icon">🔴</div>
+    <div class="alert-text"><strong>February Performance Summary (estimated):</strong> Merval −18.2% ARS / −10% USD. ADRs −15 to −25% USD. US tech: Nasdaq −3%, S&amp;P −1%. Brazil: Ibovespa +2.2% BRL / stronger in USD terms given BRL +3% on month. Peso appreciation hurt CEDEAR values in ARS (US stock prices in USD ÷ CEDEAR ratio × ARS — all three moved against you simultaneously). Net: portfolio likely −8 to −12% in ARS for February. Live data update via <code style="background:#fef2f2;padding:1px 4px;border-radius:4px;font-size:11px">python3 scripts/update_data.py</code> will confirm.</div>
+  </div>
+
+  <!-- CEDEAR TABLE -->
+  <div class="wide-card">
+    <div class="wide-card-title">CEDEARs — February 27 Close (estimated ARS at MEP 1,422)</div>
+    <div class="section-label">Prices estimated from USD close × CEDEAR ratio × MEP 1,422</div>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th><th>Name</th><th class="r">Qty</th><th class="r">Est. ARS</th><th class="r">Est. Total</th><th>Wt</th><th>Feb signal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="t-ticker">SPY</td><td class="t-name">SPDR S&P 500 ETF</td><td class="t-num">317</td><td class="t-num">~50,200</td><td class="t-num t-total">~15.9M</td><td><div class="wbar-wrap"><div class="wbar wbar-blue" style="width:60%"></div></div></td><td><span class="pill pill-down">−1% Feb</span></td></tr>
+        <tr><td class="t-ticker">NU</td><td class="t-name">Nu Holdings</td><td class="t-num">799</td><td class="t-num">~12,100</td><td class="t-num t-total">~9.7M</td><td><div class="wbar-wrap"><div class="wbar wbar-teal" style="width:37%"></div></div></td><td><span class="pill pill-up">BRL resilient</span></td></tr>
+        <tr><td class="t-ticker">QQQ</td><td class="t-name">Invesco QQQ Trust</td><td class="t-num">183</td><td class="t-num">~44,500</td><td class="t-num t-total">~8.1M</td><td><div class="wbar-wrap"><div class="wbar wbar-red" style="width:31%"></div></div></td><td><span class="pill pill-down">−3% Feb</span></td></tr>
+        <tr><td class="t-ticker">PAGS</td><td class="t-name">PagSeguro Digital</td><td class="t-num">1,419</td><td class="t-num">~5,200</td><td class="t-num t-total">~7.4M</td><td><div class="wbar-wrap"><div class="wbar wbar-teal" style="width:28%"></div></div></td><td><span class="pill pill-up">BRL +</span></td></tr>
+        <tr><td class="t-ticker">TSM</td><td class="t-name">Taiwan Semiconductor</td><td class="t-num">105</td><td class="t-num">~62,300</td><td class="t-num t-total">~6.5M</td><td><div class="wbar-wrap"><div class="wbar wbar-blue" style="width:25%"></div></div></td><td><span class="pill pill-neutral">Flat Feb</span></td></tr>
+        <tr><td class="t-ticker">VALE</td><td class="t-name">Vale S.A.</td><td class="t-num">389</td><td class="t-num">~12,600</td><td class="t-num t-total">~4.9M</td><td><div class="wbar-wrap"><div class="wbar wbar-green" style="width:19%"></div></div></td><td><span class="pill pill-up">China demand</span></td></tr>
+        <tr><td class="t-ticker">DIA</td><td class="t-name">SPDR Dow Jones</td><td class="t-num">113</td><td class="t-num">~35,700</td><td class="t-num t-total">~4.0M</td><td><div class="wbar-wrap"><div class="wbar wbar-blue" style="width:15%"></div></div></td><td><span class="pill pill-down">−1% Fri</span></td></tr>
+        <tr><td class="t-ticker">BBD</td><td class="t-name">Banco Bradesco</td><td class="t-num">624</td><td class="t-num">~5,900</td><td class="t-num t-total">~3.7M</td><td><div class="wbar-wrap"><div class="wbar wbar-teal" style="width:14%"></div></div></td><td><span class="pill pill-up">BRL +</span></td></tr>
+        <tr><td class="t-ticker">VIST</td><td class="t-name">Vista Energy</td><td class="t-num">135</td><td class="t-num">~27,100</td><td class="t-num t-total">~3.7M</td><td><div class="wbar-wrap"><div class="wbar wbar-amber" style="width:14%"></div></div></td><td><span class="pill pill-amber">Brent $71+</span></td></tr>
+        <tr><td class="t-ticker">STNE</td><td class="t-name">StoneCo Ltd</td><td class="t-num">357</td><td class="t-num">~8,100</td><td class="t-num t-total">~2.9M</td><td><div class="wbar-wrap"><div class="wbar wbar-teal" style="width:11%"></div></div></td><td><span class="pill pill-up">BRL +</span></td></tr>
+        <tr><td class="t-ticker">NVDA</td><td class="t-name">NVIDIA Corporation</td><td class="t-num">180</td><td class="t-num">~11,400</td><td class="t-num t-total">~2.1M</td><td><div class="wbar-wrap"><div class="wbar wbar-red" style="width:8%"></div></div></td><td><span class="pill pill-down">−9.6% 2-day</span></td></tr>
+        <tr><td class="t-ticker">EWZ</td><td class="t-name">iShares MSCI Brazil</td><td class="t-num">29</td><td class="t-num">~28,400</td><td class="t-num t-total">~823K</td><td><div class="wbar-wrap"><div class="wbar wbar-teal" style="width:3%"></div></div></td><td><span class="pill pill-up">Solid</span></td></tr>
+        <tr><td class="t-ticker">TSLA</td><td class="t-name">Tesla Inc</td><td class="t-num">17</td><td class="t-num">~37,900</td><td class="t-num t-total">~644K</td><td><div class="wbar-wrap"><div class="wbar" style="width:3%;background:#e5e7eb"></div></div></td><td><span class="pill pill-down">Volatile</span></td></tr>
+        <tr><td class="t-ticker">PBR</td><td class="t-name">Petrobras</td><td class="t-num">32</td><td class="t-num">~24,000</td><td class="t-num t-total">~768K</td><td><div class="wbar-wrap"><div class="wbar wbar-green" style="width:3%"></div></div></td><td><span class="pill pill-up">Brent flat</span></td></tr>
+        <tr><td class="t-ticker">META</td><td class="t-name">Meta Platforms</td><td class="t-num">18</td><td class="t-num">~39,100</td><td class="t-num t-total">~704K</td><td><div class="wbar-wrap"><div class="wbar wbar-red" style="width:3%"></div></div></td><td><span class="pill pill-down">Tech drag</span></td></tr>
+        <tr><td class="t-ticker">LAR</td><td class="t-name">Lithium Americas Arg</td><td class="t-num">92</td><td class="t-num">~12,400</td><td class="t-num t-total">~1.1M</td><td><div class="wbar-wrap"><div class="wbar" style="width:4%;background:#e5e7eb"></div></div></td><td><span class="pill pill-neutral">Monitor</span></td></tr>
+        <tr><td class="t-ticker">BABA</td><td class="t-name">Alibaba Group</td><td class="t-num">16</td><td class="t-num">~24,300</td><td class="t-num t-total">~389K</td><td><div class="wbar-wrap"><div class="wbar wbar-amber" style="width:2%"></div></div></td><td><span class="pill pill-amber">Tariff risk</span></td></tr>
+        <tr><td class="t-ticker">AMZN</td><td class="t-name">Amazon.com</td><td class="t-num">250</td><td class="t-num">~2,110</td><td class="t-num t-total">~528K</td><td><div class="wbar-wrap"><div class="wbar wbar-red" style="width:2%"></div></div></td><td><span class="pill pill-down">Tech drag</span></td></tr>
+        <tr><td class="t-ticker">ARKK</td><td class="t-name">ARK Innovation ETF</td><td class="t-num">43</td><td class="t-num">~10,700</td><td class="t-num t-total">~460K</td><td><div class="wbar-wrap"><div class="wbar wbar-red" style="width:2%"></div></div></td><td><span class="pill pill-down">IGV −10% Feb</span></td></tr>
+        <tr><td class="t-ticker">CAAP</td><td class="t-name">Corp America Airports</td><td class="t-num">3</td><td class="t-num">~165,000</td><td class="t-num t-total">~495K</td><td><div class="wbar-wrap"><div class="wbar" style="width:2%;background:#e5e7eb"></div></div></td><td><span class="pill pill-neutral">Monitor</span></td></tr>
+        <tr><td class="t-ticker">AAPL</td><td class="t-name">Apple Inc</td><td class="t-num">20</td><td class="t-num">~19,700</td><td class="t-num t-total">~394K</td><td><div class="wbar-wrap"><div class="wbar" style="width:2%;background:#e5e7eb"></div></div></td><td><span class="pill pill-neutral">Watch</span></td></tr>
+        <tr><td class="t-ticker">SHOP</td><td class="t-name">Shopify Inc</td><td class="t-num">231</td><td class="t-num">~1,620</td><td class="t-num t-total">~374K</td><td><div class="wbar-wrap"><div class="wbar" style="width:1%;background:#e5e7eb"></div></div></td><td><span class="pill pill-neutral">Watch</span></td></tr>
+        <tr><td class="t-ticker">JD</td><td class="t-name">JD.com</td><td class="t-num">31</td><td class="t-num">~9,900</td><td class="t-num t-total">~307K</td><td><div class="wbar-wrap"><div class="wbar wbar-amber" style="width:1%"></div></div></td><td><span class="pill pill-amber">China risk</span></td></tr>
+        <tr><td class="t-ticker">INFY</td><td class="t-name">Infosys Technologies</td><td class="t-num">3</td><td class="t-num">~20,300</td><td class="t-num t-total">~61K</td><td><div class="wbar-wrap"><div class="wbar" style="width:0.5%;background:#e5e7eb"></div></div></td><td><span class="pill pill-neutral">Monitor</span></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4" style="font-weight:700">CEDEAR Subtotal (estimated)</td><td class="t-num" style="font-weight:700">~74M ARS</td><td colspan="2"></td></tr></tfoot>
+    </table>
+    </div>
+  </div>
+
+  <!-- ARG STOCKS TABLE -->
+  <div class="wide-card">
+    <div class="wide-card-title">Argentine Listed Equities — February 27 Close</div>
+    <div class="section-label">Merval final 2,642,105 (−4.1% Fri · −18.2% Feb · −10% Feb USD)</div>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Ticker</th><th>Name</th><th class="r">Qty</th><th class="r">Price ARS</th><th class="r">Total ARS</th><th>Feb signal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="t-ticker">PAMP</td><td class="t-name">Pampa Energía</td><td class="t-num">724</td><td class="t-num">~4,560</td><td class="t-num t-total">~3.3M</td><td><span class="pill pill-up">Utilities defensive</span></td></tr>
+        <tr><td class="t-ticker">YPFD</td><td class="t-name">YPF S.A.</td><td class="t-num">55</td><td class="t-num">~52,500</td><td class="t-num t-total">~2.9M</td><td><span class="pill pill-down">Q4 loss $799M</span></td></tr>
+        <tr><td class="t-ticker">TGSU2</td><td class="t-name">Transportadora Gas Sur</td><td class="t-num">296</td><td class="t-num">~8,500</td><td class="t-num t-total">~2.5M</td><td><span class="pill pill-up">Utilities +</span></td></tr>
+        <tr><td class="t-ticker">METR</td><td class="t-name">Metrogas S.A.</td><td class="t-num">1,032</td><td class="t-num">~1,880</td><td class="t-num t-total">~1.9M</td><td><span class="pill pill-up">Utilities +</span></td></tr>
+        <tr><td class="t-ticker">EDN</td><td class="t-name">Edenor S.A.</td><td class="t-num">893</td><td class="t-num">~1,930</td><td class="t-num t-total">~1.7M</td><td><span class="pill pill-up">Utilities +</span></td></tr>
+        <tr><td class="t-ticker">CEPU</td><td class="t-name">Central Puerto</td><td class="t-num">530</td><td class="t-num">~2,250</td><td class="t-num t-total">~1.2M</td><td><span class="pill pill-up">Defensive bid</span></td></tr>
+        <tr><td class="t-ticker">LOMA</td><td class="t-name">Loma Negra</td><td class="t-num">315</td><td class="t-num">~3,060</td><td class="t-num t-total">~964K</td><td><span class="pill pill-amber">Labor reform +</span></td></tr>
+        <tr><td class="t-ticker">AUSO</td><td class="t-name">Autopistas del Sol</td><td class="t-num">239</td><td class="t-num">~3,290</td><td class="t-num t-total">~786K</td><td><span class="pill pill-neutral">Monitor</span></td></tr>
+        <tr><td class="t-ticker">TXAR</td><td class="t-name">Ternium Argentina</td><td class="t-num">434</td><td class="t-num">~603</td><td class="t-num t-total">~262K</td><td><span class="pill pill-amber">Labor reform +</span></td></tr>
+        <tr><td class="t-ticker">ECOG</td><td class="t-name">Ecogas Inv.</td><td class="t-num">28</td><td class="t-num">~2,750</td><td class="t-num t-total">~77K</td><td><span class="pill pill-neutral">Monitor</span></td></tr>
+        <tr><td class="t-ticker">CELU</td><td class="t-name">Celulosa Argentina</td><td class="t-num">248</td><td class="t-num">~287</td><td class="t-num t-total">~71K</td><td><span class="pill pill-neutral">Monitor</span></td></tr>
+        <tr><td class="t-ticker">IRSA</td><td class="t-name">IRSA Inversiones</td><td class="t-num">1</td><td class="t-num">~2,270</td><td class="t-num t-total">~2,270</td><td><span class="pill pill-neutral">Nominal</span></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="4" style="font-weight:700">Arg Equities Subtotal</td><td class="t-num" style="font-weight:700">~15.5M ARS</td><td></td></tr></tfoot>
+    </table>
+    </div>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card">
+      <div class="card-head"><div class="card-title-row"><div class="card-icon-wrap">🏦</div><div class="card-title">COCOSPPA</div></div><span class="pill pill-blue">FCI</span></div>
+      <div class="card-body">FCI Cocos Ret. Total III · 516K units @ ARS ~1,290<br><strong>Total: ~ARS 666K</strong> · Rollover destination candidate for S16M6.</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title-row"><div class="card-icon-wrap">📅</div><div class="card-title">S16M6 Letes</div></div><span class="pill pill-red">16 days</span></div>
+      <div class="card-body">Matures <strong>March 16, 2026 — 16 days</strong>.<br><strong>5.2M ARS</strong> · Rollover destination must be decided this weekend. Options: new letra, FCI, or MEP conversion at ~1,422.</div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title-row"><div class="card-icon-wrap">💱</div><div class="card-title">FX Close Feb 27</div></div><span class="pill pill-neutral">Converging</span></div>
+      <div class="card-body">Oficial BNA ~$1,420 · MEP ~$1,422 · CCL ~$1,471 · Blue ~$1,425<br>Spread oficial-blue near 0. Peso −3.1% vs dollar in Feb (ARS strengthened). Band ceiling $1,607.</div>
+    </div>
+  </div>
+
+</div><!-- /portfolio -->
+
+
+<!-- ═══ MARKETS ════════════════════════════════════════════════ -->
+<div class="section" id="tab-markets">
+
+  <div class="hero-card gradient-amber">
+    <div class="hero-icon">⚡</div>
+    <div>
+      <h2>Markets — February Closes the Books</h2>
+      <p>A brutal Friday to close a brutal month. PPI shock, CoreWeave −20%, private credit contagion, and Nvidia's extended selloff (−4.1% Fri, −9.6% 2-day) drove the worst US tech month since March 2025. Argentine Merval fell 4.1% to a 4-month low. Country risk hit 572. But the peso is the world's surprise star — dollar fell 3.1% vs ARS in February. Brazil ended a solid month despite a rough Friday (Ibovespa −1.15%) on hotter-than-expected IPCA-15 data.</p>
+    </div>
+  </div>
+
+  <div class="section-label">US Equities — February 27 Close</div>
+  <div class="ticker-grid">
+    <div class="ticker-card c-red">
+      <div class="ticker-label">S&P 500</div>
+      <div class="ticker-value">6,878</div>
+      <div class="ticker-change down">▼ −0.43% · −30 pts</div>
+      <div class="ticker-note">−1% for Feb · worst since Mar 2025</div>
+    </div>
+    <div class="ticker-card c-red">
+      <div class="ticker-label">Nasdaq Composite</div>
+      <div class="ticker-value">22,668</div>
+      <div class="ticker-change down">▼ −0.92% · −210 pts</div>
+      <div class="ticker-note">−3%+ for Feb · worst since Mar 2025</div>
+    </div>
+    <div class="ticker-card c-amber">
+      <div class="ticker-label">Dow Jones</div>
+      <div class="ticker-value">48,978</div>
+      <div class="ticker-change down">▼ −1.05% · −521 pts</div>
+      <div class="ticker-note">+0.2% for Feb · 10th straight monthly gain</div>
+    </div>
+    <div class="ticker-card c-red">
+      <div class="ticker-label">NVDA</div>
+      <div class="ticker-value">~$113</div>
+      <div class="ticker-change down">▼ −4.1% Fri · −9.6% 2-day</div>
+      <div class="ticker-note">Beat Q4 but sold the news. 180 shares in portfolio.</div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <div class="alert-icon">🔴</div>
+    <div class="alert-text"><strong>Private Credit Contagion (Friday's new story):</strong> Apollo −8.6%, Goldman −7.6%, Jefferies −9.3%, Blackstone/Ares/BlackRock/Blue Owl all fell sharply. CoreWeave −20% on weak Q1 guidance — its first post-IPO report disappointed. Block +16.8% on 50% workforce AI restructuring (the market rewarding cost cuts). Dell +21.8% on record AI server demand + $29B buyback. Netflix +13.8% on disciplined exit from Warner bid. The market is bifurcating hard: cost-cutters and infrastructure winners vs AI model companies losing narrative.</div>
+  </div>
+
+  <div class="section-label" style="margin-top:24px">Argentina — February 27 Close</div>
+  <div class="ticker-grid">
+    <div class="ticker-card c-red">
+      <div class="ticker-label">Merval ARS</div>
+      <div class="ticker-value">2,642,105</div>
+      <div class="ticker-change down">▼ −4.1% Fri · −18.2% Feb</div>
+      <div class="ticker-note">4-month low · worst monthly drop since Sep 2025</div>
+    </div>
+    <div class="ticker-card c-red">
+      <div class="ticker-label">Country Risk (EMBI)</div>
+      <div class="ticker-value">572 bps</div>
+      <div class="ticker-change down">▲ +18 Fri · +15% in Feb</div>
+      <div class="ticker-note">Highest since Jan 14 · erased 2026 compression gains</div>
+    </div>
+    <div class="ticker-card c-blue">
+      <div class="ticker-label">USD/ARS Oficial</div>
+      <div class="ticker-value">~1,400</div>
+      <div class="ticker-change up">▲ Peso strongest Feb in years</div>
+      <div class="ticker-note">−$45 for Feb · 3.1% ARS appreciation vs dollar</div>
+    </div>
+    <div class="ticker-card c-teal">
+      <div class="ticker-label">BCRA Reservas</div>
+      <div class="ticker-value">$46.9B</div>
+      <div class="ticker-change up">▲ 37 consecutive buying days</div>
+      <div class="ticker-note">+$2.68B YTD · 26%+ of annual target reached</div>
+    </div>
+  </div>
+
+  <div class="alert alert-purple">
+    <div class="alert-icon">⚡</div>
+    <div class="alert-text"><strong>Labor Reform — Law:</strong> Senate passed 42–28 early Saturday. Key provisions: severance calculated only on base salary (excluding aguinaldo/vacaciones), flexible working hours, gig worker statute, reduced employer contributions (1pt large / 2.5pt SME), instalment payment of labour judgments. Milei: "HISTÓRICO. Tenemos modernización laboral." IEB and Balanz argue this is structurally positive for listed companies with large headcounts. Harvest season dollars arriving in weeks — both catalysts could trigger country risk compression. IEB target: 287 bps (LatAm average).</div>
+  </div>
+
+  <div class="section-label" style="margin-top:24px">Brazil — February 27 Close</div>
+  <div class="ticker-grid">
+    <div class="ticker-card c-red">
+      <div class="ticker-label">Ibovespa</div>
+      <div class="ticker-value">188,805</div>
+      <div class="ticker-change down">▼ −1.15% Fri</div>
+      <div class="ticker-note">+2.2% for Feb · 7th consecutive monthly gain</div>
+    </div>
+    <div class="ticker-card c-green">
+      <div class="ticker-label">USD/BRL</div>
+      <div class="ticker-value">5.1645</div>
+      <div class="ticker-change up">BRL +3% for Feb vs USD</div>
+      <div class="ticker-note">Strongest since May 2024 · carry trade intact</div>
+    </div>
+    <div class="ticker-card c-amber">
+      <div class="ticker-label">Selic Rate</div>
+      <div class="ticker-value">15.0%</div>
+      <div class="ticker-change flat">Unchanged</div>
+      <div class="ticker-note">IPCA-15 +0.8% hotter than expected — cuts pushed further</div>
+    </div>
+    <div class="ticker-card c-gold">
+      <div class="ticker-label">Gold</div>
+      <div class="ticker-value">$5,226</div>
+      <div class="ticker-change up">▲ +11% for Feb</div>
+      <div class="ticker-note">Silver $90/oz +14% Feb · safe-haven bid strong</div>
+    </div>
+  </div>
+
+  <div class="wide-card">
+    <div class="wide-card-title">Portfolio Signals — Weekend Review</div>
+    <div class="signal-row">
+      <div class="signal-ticker">NVDA</div>
+      <div class="signal-body">Q4 beat ($68.1B, +73% YoY) but −9.6% over two sessions. Market concerns: hyperscaler capex sustainability (CoreWeave disappointment compounds this). Dell's +21.8% on AI server demand is positive read-through. Decision needed: hold, add on dip, or trim tech concentration.</div>
+      <div class="signal-move down">−9.6%</div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-ticker">SPY/QQQ/DIA</div>
+      <div class="signal-body">Combined ~28M ARS, took direct hit from PPI shock + tech selloff. March opens with no rate cut in sight (priced for H2 at earliest). Record $233B buybacks in Feb provide a floor. Watch NFP report next Friday for whether macro softens.</div>
+      <div class="signal-move down">−1 to −3% Feb</div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-ticker">NU/STNE/PAGS/BBD</div>
+      <div class="signal-body">Brazil fintech cluster held reasonably well despite Friday's Ibovespa −1.15%. BRL strength (+3% Feb) partially offset stock price moves. Selic 15% carry intact — but IPCA-15 +0.8% (hotter than expected) pushed cuts further out, which is marginally negative for domestic consumer credit portfolios at NU/STNE/PAGS.</div>
+      <div class="signal-move flat">Mixed</div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-ticker">YPFD</div>
+      <div class="signal-body">YPF ADR −2.8% Fri, ~$35.28. FY2025 net loss $799M reported. Q4 loss $649M. Brent $71+ provides some support but production cost structure remains challenged. ADR down ~20% from Jan highs. Hold with caution — Vaca Muerta volumes are the key catalyst.</div>
+      <div class="signal-move down">−20% from highs</div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-ticker">Arg utilities cluster</div>
+      <div class="signal-body">PAMP, TGSU2, EDN, METR, CEPU — defensive global rotation (XLU +10% Feb in US) mirrors domestic setup. Labor reform is net positive for opex-heavy utilities. This is the portfolio's best-performing cluster in February on a relative basis.</div>
+      <div class="signal-move up">Relative outperform</div>
+    </div>
+    <div class="signal-row">
+      <div class="signal-ticker">S16M6 Letes</div>
+      <div class="signal-body">Matures March 16. With MEP and blue dollar near the same level (~1,422 vs 1,425), there is virtually no penalty for converting to USD right now. The carry in ARS is ~2.5% TEM — attractive but not if peso weakens. Decide this weekend.</div>
+      <div class="signal-move down">Action needed</div>
+    </div>
+  </div>
+
+</div><!-- /markets -->
+
+
+<!-- ═══ REGULATION ════════════════════════════════════════════ -->
+<div class="section" id="tab-regulation">
+
+  <div class="hero-card gradient-amber">
+    <div class="hero-icon">⚠️</div>
+    <div>
+      <h2>Regulatory Watchdog — EU &amp; US</h2>
+      <p>No new EU regulatory publications this week. All nine active frameworks unchanged. The countdown clock on EU AI Act HRAI compliance (August 2, 2026 — now <strong>155 days</strong>) continues. Germany NIS2 BSI registration is the most proximate deadline — approximately 5 weeks. DORA financial sector audits are live. US export controls saw no changes this week beyond ongoing BIS review of AI chip restrictions.</p>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-red">🔴 Urgent</span>
+      <span class="pill pill-blue">EU AI Act</span>
+      <span class="deadline-badge dl-red">⏰ Aug 2, 2026 — 155 days</span>
+      <div class="reg-item-title">HRAI Compliance Deadline: 2 August 2026. Commission Missed Feb 2 Guidance Deadline. No Extension is Law.</div>
+    </div>
+    <div class="reg-item-body">
+      <p><strong>Status (28 Feb 2026):</strong> The Commission missed its own Feb 2 deadline to publish Article 6 guidance on high-risk AI classification. CEN/CENELEC technical standards still expected end-2026. The August 2026 HRAI deadline remains <strong>legally binding</strong>. Digital Omnibus extension (to Dec 2027 for Annex III) is in trilogue — NOT law. <strong>Plan for August 2026.</strong></p>
+      <p><strong>Penalties:</strong> Up to €35M or 7% global turnover for prohibited AI practices; €15M or 3% for HRAI non-compliance. Extra-territorial.</p>
+      <p><strong>SAP ERM relevance:</strong> Joule in finance, HR, and creditworthiness decisioning likely qualifies as Annex III high-risk. CE marking, conformity assessment, EU database registration, and post-market monitoring must be complete by Aug 2, 2026.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://iapp.org/news/a/european-commission-misses-deadline-for-ai-act-guidance-on-high-risk-systems">IAPP Feb 2026</a> · <a href="https://ai2.work/economics/eu-ai-act-high-risk-rules-hit-august-2026-your-compliance-countdown/">AI2Work Feb 17 2026</a></span>
+      <span class="deadline-badge dl-red">HRAI: Aug 2 2026</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-amber">Active</span>
+      <span class="pill pill-blue">Cyber Resilience Act</span>
+      <div class="reg-item-title">CRA Phase 1: Vulnerability &amp; Incident Reporting Live September 11, 2026. CABs Operational June 11.</div>
+    </div>
+    <div class="reg-item-body">
+      <p><strong>Status:</strong> CRA in force Dec 10, 2024. First CABs operational <strong>June 11, 2026</strong> (3.5 months). Mandatory vulnerability reporting live from <strong>September 11, 2026</strong>. ENISA SRP in testing. SBOMs required for all digital products. Full obligations: <strong>December 11, 2027</strong>.</p>
+      <p>Jan 2026 cybersecurity package proposed single-entry reporting via ENISA satisfying GDPR, NIS2, DORA, CER, and CRA simultaneously. Digital Omnibus model — not yet law.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026">Hogan Lovells 2026</a></span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <span class="deadline-badge dl-teal">CABs: Jun 11 2026</span>
+        <span class="deadline-badge dl-amber">Reporting: Sep 11 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-red">⚡ ~5 Weeks</span>
+      <span class="pill pill-blue">NIS2</span>
+      <div class="reg-item-title">Germany NIS2 BSI Registration Deadline ~April 2026. Personal Management Liability. No Flexibility Announced.</div>
+    </div>
+    <div class="reg-item-body">
+      <p><strong>Germany (Feb 28 update):</strong> Implementation Act in force. Companies must register with BSI within 3 months of the act entering into force — deadline approximately <strong>April 2026 (approx. 5 weeks)</strong>. Fines up to €10M or 2% global turnover. Management bodies personally liable. No extension announced.</p>
+      <p>EU-level NIS2 amendment (Jan 20) proposes streamlined ransomware reporting and "small mid-cap" (≤750 employees / ≤€150M) category — 12-month transposition after adoption, earliest 2027.</p>
+      <p><strong>SAP action required:</strong> Initiate BSI registration process by Monday March 2 if not already done.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://www.mofo.com/resources/insights/260211-european-digital-compliance-key-digital-regulation">Morrison Foerster Feb 2026</a></span>
+      <span class="deadline-badge dl-red">DE Registration: ~Apr 2026</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-amber">Active</span>
+      <span class="pill pill-blue">EU Data Act</span>
+      <div class="reg-item-title">Cloud Switching Obligations In Force Since Sep 2025. Product Design Requirements Sep 12, 2026.</div>
+    </div>
+    <div class="reg-item-body">
+      <p>Cloud switching obligations effective September 12, 2025 — already in force. <strong>Product design requirements</strong> for new connected products apply from September 12, 2026. EU e-Evidence Package from August 17, 2026. Data portability interfaces and interoperability documentation must be in place now for SAP cloud offerings.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://digital-strategy.ec.europa.eu/en/policies/data-act">EU Commission Data Act</a></span>
+      <span class="deadline-badge dl-amber">Product Design: Sep 12 2026</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-red">In Force — Audits Active</span>
+      <span class="pill pill-blue">DORA</span>
+      <div class="reg-item-title">DORA Fully Enforceable Since Jan 2026. SAP as CTPP. Financial Sector Audits Underway.</div>
+    </div>
+    <div class="reg-item-body">
+      <p>DORA full enforcement since January 2026. Financial institutions under ICT resilience audits. SAP as Critical Third-Party Provider (CTPP) faces direct obligations and downstream customer audit pressure. Q1–Q2 2026 will intensify. Digital Omnibus proposes single DORA + NIS2 + GDPR reporting point — not yet law.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://iomete.com/resources/blog/data-sovereignty-compliance-2026-dora-ai-act">IOMETE Jan 2026</a></span>
+      <span class="deadline-badge dl-red">Enforcement: Live Jan 2026</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-red">Enforcement Active</span>
+      <span class="pill pill-blue">GDPR</span>
+      <div class="reg-item-title">EDPB 2026 Coordinated Enforcement: Transparency Arts. 12–14. Joint Opinion on Digital Omnibus Feb 11.</div>
+    </div>
+    <div class="reg-item-body">
+      <p><strong>2026 enforcement topic:</strong> Transparency obligations under Articles 12–14. Third-country transfers must explicitly name each destination country and legal basis. Feb 11 EDPB + EDPS joint opinion welcomed Omnibus GDPR simplification but demanded precise definitions. Changes are not yet law.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://www.globalpolicywatch.com/2026/02/eu-regulators-issue-opinion-on-revisions-of-gdpr-and-other-data-laws/">Global Policy Watch Feb 2026</a></span>
+      <span class="deadline-badge dl-red">Enforcement: Active Now</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-blue">Monitoring</span>
+      <span class="pill pill-neutral">Digital Networks Act</span>
+      <div class="reg-item-title">DNA Proposed Jan 21 2026 — Merges EECC, BEREC, Open Internet Regulation. Network Security Rules Included.</div>
+    </div>
+    <div class="reg-item-body">
+      <p>Commission published DNA proposal January 21, 2026. Would merge 4 acts into single framework with enhanced network security and resilience measures. Final adoption expected 2027–2028. No immediate compliance obligations. Monitor for SAP cloud infrastructure implications.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://cms-lawnow.com/en/ealerts/2026/02/the-digital-networks-act-a-new-framework-for-eu-connectivity-and-investment">CMS Feb 2026</a></span>
+      <span class="deadline-badge dl-blue">Trilogue: 2026–2027</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-amber">Overdue — Watch</span>
+      <span class="pill pill-neutral">Cloud &amp; AI Dev Act</span>
+      <div class="reg-item-title">EU Cloud &amp; AI Development Act: Proposal Overdue from Q1 2026. Still Not Published as of Feb 28.</div>
+    </div>
+    <div class="reg-item-body">
+      <p>Commission Work Programme 2026 targeted Q1 2026 — overdue, still no proposal published as of Feb 28. EVP Henna Virkkunen sponsoring. Act aims to mandate European-hosted cloud for regulated sectors. Directly intersects with SAP Delos Cloud and sovereign cloud strategy. Watch for proposal in March.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://www.eu-cloud-ai-act.com/">EU Cloud AI Act Tracker</a></span>
+      <span class="deadline-badge dl-amber">Proposal: Overdue — Still Pending</span>
+    </div>
+  </div>
+
+  <div class="reg-item">
+    <div class="reg-item-head">
+      <span class="pill pill-amber">Operational</span>
+      <span class="pill pill-neutral">US Export Controls</span>
+      <div class="reg-item-title">OFAC VSD Portal Operational. BIS 50% Rule Deferred to Nov 10, 2026. AI Chip Controls Under Review.</div>
+    </div>
+    <div class="reg-item-body">
+      <p><strong>OFAC VSD Portal (Feb 6):</strong> Operational — update internal SOPs. <strong>BIS 50% Rule deferred to November 10, 2026.</strong> AI chip export controls under ongoing tightening review. US-China tariffs: SCOTUS struck IEEPA tariffs; Trump signed new 10% global EO. USTR Greer signaling 35–50% China tariffs. Affects BABA, JD CEDEARs and SAP China operations.</p>
+    </div>
+    <div class="reg-item-footer">
+      <span class="reg-source">Sources: <a href="https://exportcompliancesolutions.com/blog/2026/02/25/export-regulatory-and-policy-update-roundup-february-2026/">Export Compliance Solutions Feb 25 2026</a></span>
+      <span class="deadline-badge dl-amber">BIS 50%: Nov 10 2026</span>
+    </div>
+  </div>
+
+</div><!-- /regulation -->
+
+
+<!-- ═══ COUNTRY ════════════════════════════════════════════════ -->
+<div class="section" id="tab-country">
+
+  <div class="hero-card gradient-indigo">
+    <div class="hero-icon">🌐</div>
+    <div>
+      <h2>Geopolitics &amp; Macro — Post-February Close</h2>
+      <p>Three distinct stories closing February: <strong>US</strong> — worst tech month since March 2025, PPI inflation complicating Fed path, private credit under new stress. <strong>Argentina</strong> — macro paradox deepens: peso at record strength, BCRA reserves highest since 2019, yet Merval hit a 4-month low and country risk erased all 2026 gains. Labor reform signed is a structural positive that the market hasn't priced yet. <strong>Brazil</strong> — solid month despite rough Friday; BRL carry intact but rate cut timing pushed out on hotter inflation. Brent $71+ supports VIST/PBR. Gold and Silver surging as hard-asset bid intensifies.</p>
+    </div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row"><div class="card-icon-wrap">🇺🇸</div><div class="card-title">United States</div></div>
+        <span class="pill pill-down">Risk-Off February</span>
+      </div>
+      <div class="card-body">February closes with S&amp;P −1%, Nasdaq −3%+ — worst since March 2025. Catalysts: PPI shock (+0.5% MoM, core +0.8%), AI moat narrative erosion (CoreWeave −20%), private credit contagion fears. Fed holds — rate cuts pushed to H2 2026. SCOTUS struck IEEPA tariffs but Trump signed new 10% EO; USTR Greer signals 35–50% China tariffs via alternate legal route. Record $233B buybacks in Feb provide a floor. NFP next Friday is key. <strong>Direct impact:</strong> SPY, QQQ, DIA, NVDA, ARKK, BABA, JD.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row"><div class="card-icon-wrap">🇦🇷</div><div class="card-title">Argentina</div></div>
+        <span class="pill pill-amber">Paradox</span>
+      </div>
+      <div class="card-body">The macro is arguably the best it's been in years. BCRA reserves $46.9B (6-year high), 37-day buying streak, $2.68B YTD. Peso −3.1% vs dollar in February (ARS strengthened). Bonar 2027 oversubscribed 5x at 5.89%. Yet: Merval −18% Feb ARS, country risk 572 — back to Jan 14 levels. Two incoming catalysts: <strong>labor reform signed</strong> (reduce corporate labor costs) and <strong>soybean harvest dollars in March–May</strong> (IEB forecasts country risk toward 287 bps). Your utilities and energy names are positioned for the recovery. <strong>ADRs down up to 25% in Feb</strong> — watch for bounce.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row"><div class="card-icon-wrap">🇧🇷</div><div class="card-title">Brazil</div></div>
+        <span class="pill pill-up">Solid month</span>
+      </div>
+      <div class="card-body">Ibovespa +2.2% BRL for Feb (7th consecutive monthly gain). BRL +3% vs dollar — best since May 2024. R$33B+ foreign inflows YTD. SCOTUS ruling limits Brazil tariff exposure to 15% (Section 122). Friday's −1.15% came from hotter IPCA-15 (+0.8%) reducing rate cut expectations — terminal rate now 15.25–15.50% before H2 cuts. BCB Governor Galípolo noted China disinflationary export effect. <strong>Positive for:</strong> NU, STNE, PAGS, BBD, PBR, VALE, EWZ.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row"><div class="card-icon-wrap">🛢️</div><div class="card-title">Oil, Gold &amp; Commodities</div></div>
+        <span class="pill pill-up">Hard assets bid</span>
+      </div>
+      <div class="card-body">Brent $71+ — US-Iran nuclear talks in Geneva continue with Trump signaling impatience. Risk premium holding. Supports VIST, PBR. <strong>Gold $5,226/oz +11% for Feb</strong> — near all-time highs. <strong>Silver $90/oz +14% for Feb</strong> — 10-month winning streak. Mining stocks (Gold Bugs Index) hit record close Friday. Copper +1% in Feb. Defensive commodity rotation is the market's clearest 2026 theme alongside defensive equities.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row"><div class="card-icon-wrap">🇨🇳</div><div class="card-title">China</div></div>
+        <span class="pill pill-down">Tariff risk</span>
+      </div>
+      <div class="card-body">USTR Greer signaling 35–50% China tariffs after SCOTUS struck IEEPA vehicle. BABA and JD CEDEARs carry direct tariff risk. Chinese disinflationary export effect noted globally (BCB, BIS). SAP China operations face dual headwinds: US export controls on AI chips tightening, EU Data Act third-country transfer scrutiny. VALE: watch China iron ore demand signals — BCB's disinflationary comment is a mild headwind for iron ore pricing.</div>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title-row"><div class="card-icon-wrap">🇪🇺</div><div class="card-title">European Union</div></div>
+        <span class="pill pill-amber">Regulatory backlog</span>
+      </div>
+      <div class="card-body">Six active EU regulatory obligations tracked. Cloud &amp; AI Development Act proposal still overdue. Digital Omnibus trilogue ongoing. Netflix's exit from Warner bid is indirectly EU content market relevant. EU-US trade deal ratification vote postponed. ECB on hold — dovish signals but core inflation stickier than expected. SAP's German sovereign cloud (Delos) remains the deal with highest regulatory exposure — increasingly relevant as cepo removal approaches and Argentine sovereign clients increase cloud procurement.</div>
+    </div>
+  </div>
+
+  <div class="tint-box">
+    <div class="tint-box-title">Geographic Exposure Breakdown (by CEDEAR ARS value, estimated Feb 27)</div>
+    <div class="tint-row"><div class="tint-row-label">🇺🇸 US (SPY, QQQ, DIA, NVDA, META, TSLA, AAPL, AMZN, ARKK, CAAP, SHOP, INFY)</div><div class="tint-row-value">~31M ARS · 42%</div></div>
+    <div class="tint-row"><div class="tint-row-label">🇧🇷 Brazil (NU, PAGS, STNE, BBD, PBR, VALE, EWZ)</div><div class="tint-row-value">~28M ARS · 38%</div></div>
+    <div class="tint-row"><div class="tint-row-label">🌏 Asia / Taiwan (TSM, BABA, JD)</div><div class="tint-row-value">~7.2M ARS · 10%</div></div>
+    <div class="tint-row"><div class="tint-row-label">🇦🇷 Argentina local (VIST, LAR + AR equities)</div><div class="tint-row-value">~19M ARS · 26%</div></div>
+  </div>
+
+</div><!-- /country -->
+
+
+<!-- ═══ SAP ════════════════════════════════════════════════════ -->
+<div class="section" id="tab-sap">
+
+  <div class="hero-card gradient-blue">
+    <div class="hero-icon">🔷</div>
+    <div>
+      <h2>SAP &amp; Industry Intelligence — February Close</h2>
+      <p>February 2026 was the month the AI infrastructure investment thesis bifurcated. CoreWeave −20% on weak guidance. Block +16.8% on 50% workforce AI restructuring. Dell +21.8% on record AI server demand. The market is separating AI model companies facing valuation scrutiny from AI infrastructure winners — and is rewarding aggressive cost-cutting in labor as AI absorbs work. The SAP ERM risk narrative for March: sovereign cloud deal cycles lengthening vs. labor reform opening structural opportunity in Argentina.</p>
+    </div>
+  </div>
+
+  <div class="wide-card">
+    <div class="wide-card-title">SAP Developments — Week of Feb 23–28</div>
+
+    <div class="sap-item amber">
+      <div class="sap-item-title">AI Infrastructure Bifurcation: CoreWeave −20% vs Dell +21.8% — What It Means for SAP's Narrative</div>
+      <div class="sap-item-body">CoreWeave's first post-IPO report disappointed on Q1 guidance — raising questions about whether hyperscaler AI capex momentum is sustainable. This directly intersects with SAP's Joule AI narrative: if customers see hyperscalers pulling back on AI investment, the ROI urgency for enterprise AI tools softens. Conversely, Dell's blowout on AI server demand signals infrastructure layer is still accelerating. SAP is positioned in the application layer above infrastructure — meaning it benefits from infrastructure buildout (more compute for Joule) but is at risk if the business case narrative for enterprise AI weakens. <strong>Monitor Joule attach rates in Q1 2026 results for signal.</strong></div>
+    </div>
+
+    <div class="sap-item green">
+      <div class="sap-item-title">Argentina Labor Reform Signed — Direct Relevance to SAP LATAM Deal Cycles</div>
+      <div class="sap-item-body">Senate passed Ley de Modernización Laboral (42–28) early Saturday. Key provisions: reduced employer contributions (1pt large / 2.5pt SME), flexible hours, reduced dismissal cost base, gig platform statute. This is structurally positive for Argentine enterprise customers' ERP investment capacity. Lower labor cost burden = more capital available for tech stack modernization. SAP mid-market expansion in Argentina's formal economy could see deal cycle improvement in H2 2026 as labor reform bedded in. <strong>Factor into Argentina pipeline probability assumptions for Q2–Q3.</strong></div>
+    </div>
+
+    <div class="sap-item red">
+      <div class="sap-item-title">Q4/FY2025 CCB Miss — Still the Core Risk Context for ERM in Q1 2026</div>
+      <div class="sap-item-body">Current Cloud Backlog grew only 16% vs analyst consensus of 26% — shares fell 14% on Jan 29 earnings day, largest single-day drop since Oct 2020. Root cause: sovereign cloud deals with government termination-for-convenience clauses excluded from backlog by accounting definition. CFO Asam: <em>"In some countries, in some industries, customers have more questions around sovereignty."</em> €10B buyback active Feb 2026. FY2026 guidance: Cloud €25.8–26.2B. <strong>The CCB miss is a backlog recognition lag, not a demand collapse — but it creates a Q1 2026 narrative risk if deals continue to take longer to close.</strong></div>
+    </div>
+
+    <div class="sap-item amber">
+      <div class="sap-item-title">Block's 50% Workforce Cut as AI Template — ERM Scenario for SAP's Customer Base</div>
+      <div class="sap-item-body">Block (Jack Dorsey) announced layoffs of nearly 4,200 employees — roughly half its workforce — framing it explicitly as AI-driven productivity replacement. Stock +16.8% on the day. This is the clearest datapoint yet that markets are rewarding AI workforce substitution at scale. For SAP ERM: risk that large SAP customers begin similar restructuring, potentially altering HR module volumes, talent management demand, and payroll complexity (fewer headcount = simpler HRIS needs). Counterpoint: AI restructuring often requires sophisticated HRIS to manage transitions. <strong>Model both directions for HR module ARR sensitivity analysis.</strong></div>
+    </div>
+
+    <div class="sap-item">
+      <div class="sap-item-title">EU AI Act — 155 Days to HRAI Deadline. Joule Classification Assessment Still Required.</div>
+      <div class="sap-item-body">Commission missed Article 6 guidance deadline Feb 2. Do not wait. Joule embedded in finance (FP&amp;A, cash flow prediction), HR (talent scoring, workforce planning), and creditworthiness contexts maps to Annex III high-risk categories. Conformity assessment, CE marking, EU database registration, and post-market monitoring must be in place by <strong>August 2, 2026 — 155 days from today</strong>. This is the highest-urgency SAP compliance action item heading into March.</div>
+    </div>
+
+    <div class="sap-item green">
+      <div class="sap-item-title">Brazil LATAM Revenue Tailwind — BRL +3% in February</div>
+      <div class="sap-item-body">BRL strongest since May 2024 (5.16 intraday high, 5.1645 Friday close). SAP reports LATAM revenues in EUR/USD — every point of BRL appreciation translates directly into higher translated revenue. Ibovespa near ATH through most of February signals strong enterprise business confidence. Selic at 15% (cuts now H2 at earliest per IPCA-15 data) creates some fiscal pressure on IT budgets but supports carry trade inflows that keep BRL strong. <strong>Align Brazil cloud pipeline commentary with Q1 guidance cadence.</strong></div>
+    </div>
+
+  </div>
+
+</div><!-- /sap -->
+
+
+</div><!-- .max-w -->
+</main>
+
+<footer>
+  <div class="footer-text"><strong>SAP ERM · Morning Brief v5.1</strong> · All data sourced and cited · Feb 28 2026 · Post-close edition</div>
+  <div class="footer-text">Buenos Aires, ART · Data as of Feb 27 US/AR/BR market close</div>
+</footer>
+
+<script>
+function switchTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

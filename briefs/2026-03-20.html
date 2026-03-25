@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning Brief · 20 Mar 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f172a;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+.hdr{background:linear-gradient(135deg,#1e1b4b,#7f1d1d);padding:24px 28px;border-radius:0 0 20px 20px;margin-bottom:22px;color:#fff}
+.hdr-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.hdr-title{font-size:28px;font-weight:700;letter-spacing:-.03em}
+.hdr-date{font-size:13px;opacity:.75;margin-top:3px}
+.badge{font-size:11px;font-weight:700;padding:5px 12px;border-radius:9999px;letter-spacing:.04em}
+.badge-war{background:#ef4444;color:#fff}
+.badge-oil{background:#d97706;color:#1c1917}
+.badge-hormuz{background:#7c3aed;color:#fff}
+.hdr-sub{margin-top:16px;font-size:14px;line-height:1.7;opacity:.9}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin:28px 0 12px;padding-bottom:8px;border-bottom:2px solid #f3f4f6}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:18px}
+@media(max-width:680px){.g2,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.g2,.g4{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 4px rgba(0,0,0,.05);margin-bottom:14px}
+.card-title{font-size:13px;font-weight:600;color:#111827;margin-bottom:10px}
+.card-body{font-size:13px;color:#4b5563;line-height:1.75}
+.card-body strong{color:#111827;font-weight:600}
+.card-body a{color:#2563eb;text-decoration:none;font-weight:500;font-size:12px}
+.tc{background:#fff;border-radius:12px;padding:14px 16px;border:1px solid rgba(0,0,0,.07);border-top:3px solid var(--ac,#e5e7eb)}
+.tc.cred{--ac:#ef4444}.tc.cgreen{--ac:#22c55e}.tc.cblue{--ac:#3b82f6}.tc.camber{--ac:#f59e0b}.tc.cgold{--ac:#d97706}.tc.cpurp{--ac:#8b5cf6}
+.tl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9ca3af;margin-bottom:6px}
+.tv{font-size:20px;font-weight:700;color:#111827;letter-spacing:-.04em;line-height:1}
+.tc-ch{font-size:12px;font-weight:500;margin-top:5px}
+.tc-note{font-size:11px;color:#9ca3af;margin-top:3px;line-height:1.4}
+.up{color:#16a34a}.dn{color:#dc2626}.fl{color:#6b7280}
+.alert{display:flex;gap:10px;padding:13px 16px;border-radius:11px;margin-bottom:14px;align-items:flex-start;font-size:13px;line-height:1.7}
+.a-red{background:#fef2f2;border:1px solid #fecaca;color:#374151}
+.a-amber{background:#fffbeb;border:1px solid #fde68a;color:#374151}
+.a-dark{background:#1e1b4b;border:1px solid #4338ca;color:#e0e7ff}
+.a-green{background:#f0fdf4;border:1px solid #bbf7d0;color:#374151}
+.a-purple{background:#f5f3ff;border:1px solid #ddd6fe;color:#374151}
+.alert strong{color:#111827}.a-dark strong,.a-purple strong{color:#111827}
+.a-dark strong{color:#fff}
+.alert a{color:#2563eb;text-decoration:none;font-weight:500;font-size:12px}
+.a-dark a{color:#93c5fd}
+.geo{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:14px}
+.geo-head{padding:13px 18px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#fafafa}
+.geo-head.war{background:linear-gradient(135deg,#1e1b4b,#7f1d1d)}
+.geo-head.war .geo-name{color:#e0e7ff}
+.geo-name{font-size:13.5px;font-weight:700;color:#111827}
+.geo-body{padding:14px 18px;font-size:13px;color:#4b5563;line-height:1.75}
+.geo-body strong{color:#111827;font-weight:600}
+.geo-body a{color:#2563eb;text-decoration:none;font-weight:500}
+.geo-war-body{padding:14px 18px;font-size:13px;color:#fca5a5;line-height:1.75;background:linear-gradient(135deg,#1e1b4b,#450a0a)}
+.geo-war-body strong{color:#fecaca;font-weight:600}
+.geo-war-body a{color:#93c5fd;text-decoration:none;font-weight:500}
+.pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;white-space:nowrap}
+.p-red{background:#fef2f2;color:#dc2626}
+.p-amber{background:#fffbeb;color:#d97706}
+.p-green{background:#f0fdf4;color:#16a34a}
+.p-blue{background:#eff6ff;color:#1d4ed8}
+.p-war{background:#1e1b4b;color:#e0e7ff;border:1px solid #4338ca}
+.p-purple{background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe}
+.p-flat{background:#f9fafb;color:#374151}
+.qs{background:#fff;border-radius:14px;padding:22px;border:1px solid rgba(0,0,0,.07);margin-bottom:14px}
+.qs-title{font-size:14px;font-weight:700;color:#111827;margin-bottom:14px}
+.qs-body{font-size:13px;color:#374151;line-height:1.8}
+.qs-body strong{color:#111827;font-weight:600}
+.metric{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:9px;padding:10px 14px;margin-bottom:7px;border:1px solid #f3f4f6}
+.ml{font-size:13px;font-weight:500;color:#374151}
+.mv{font-size:13px;font-weight:700}
+.mv.bad{color:#dc2626}.mv.ok{color:#d97706}.mv.good{color:#16a34a}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.bar-label{font-size:12px;color:#6b7280;min-width:170px}
+.bar-bg{flex:1;height:7px;background:#f3f4f6;border-radius:9px;overflow:hidden}
+.bar-fill{height:100%;border-radius:9px}
+.b-red{background:linear-gradient(90deg,#ef4444,#dc2626)}
+.b-amber{background:linear-gradient(90deg,#f59e0b,#d97706)}
+.b-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
+.b-blue{background:linear-gradient(90deg,#3b82f6,#2563eb)}
+.b-purple{background:linear-gradient(90deg,#8b5cf6,#7c3aed)}
+.bar-pct{font-size:12px;font-weight:600;min-width:34px;text-align:right}
+.rec{display:flex;gap:11px;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.rec:last-child{border-bottom:none}
+.rec-n{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.rec-body{flex:1;font-size:13px;color:#4b5563;line-height:1.7}
+.rec-body strong{color:#111827;font-weight:600}
+.rec-body a{color:#2563eb;text-decoration:none;font-size:12px;font-weight:500}
+.scen{border-radius:10px;padding:12px 16px;margin-bottom:10px;font-size:13px;line-height:1.7;border:1px solid}
+.scen-red{background:#fef2f2;border-color:#fecaca;color:#374151}
+.scen-red strong{color:#dc2626}
+.scen-amber{background:#fffbeb;border-color:#fde68a;color:#374151}
+.scen-amber strong{color:#d97706}
+.scen-green{background:#f0fdf4;border-color:#bbf7d0;color:#374151}
+.scen-green strong{color:#16a34a}
+.divider{height:1px;background:#f3f4f6;margin:14px 0}
+.reg{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:12px}
+.reg-head{padding:12px 18px;background:#fafafa;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.reg-title{font-size:13px;font-weight:600;color:#111827;flex:1}
+.reg-body{padding:13px 18px;font-size:13px;color:#4b5563;line-height:1.7}
+.reg-body strong{color:#111827;font-weight:600}
+.reg-body a{color:#2563eb;text-decoration:none;font-weight:500}
+.reg-foot{padding:9px 18px;border-top:1px solid #f3f4f6;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.src a{color:#3b82f6;text-decoration:none;font-weight:500;font-size:11px}
+.dl{font-size:11px;font-weight:600;padding:3px 9px;border-radius:9999px}
+.dl-r{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.dl-a{background:#fffbeb;color:#d97706;border:1px solid #fde68a}
+.sap-item{border-left:3px solid #2563eb;padding-left:16px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f3f4f6}
+.sap-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sap-item.red{border-left-color:#ef4444}
+.sap-item.amber{border-left-color:#f59e0b}
+.sap-item.green{border-left-color:#22c55e}
+.sap-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:7px}
+.sap-body{font-size:13px;color:#4b5563;line-height:1.75}
+.sap-body strong{color:#111827}
+.sap-body a{color:#2563eb;text-decoration:none;font-size:12px;font-weight:500}
+.act-list{list-style:none}
+.act-list li{display:flex;gap:10px;padding:7px 0;font-size:13.5px;color:#374151;line-height:1.65;border-bottom:1px solid #f9fafb}
+.act-list li:last-child{border-bottom:none}
+.act-list li strong{color:#111827}
+.dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);flex-shrink:0;margin-top:7px}
+footer{text-align:center;padding:24px 0;font-size:11.5px;color:#9ca3af}
+footer a{color:#6b7280;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-top">
+    <div>
+      <div class="hdr-title">☀️ Morning Brief</div>
+      <div class="hdr-date">Friday, March 20, 2026 · Buenos Aires ART · War Day 21</div>
+    </div>
+    <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
+      <span class="badge badge-war">🔴 WAR DAY 21</span>
+      <span class="badge badge-oil">🛢️ BRENT ~$108</span>
+      <span class="badge badge-hormuz">🚢 HORMUZ: NETANYAHU SIGNALS OPENING</span>
+    </div>
+  </div>
+  <div class="hdr-sub">
+    <strong>A potential de-escalation signal emerged Thursday.</strong> Netanyahu stated Israel is helping the US reopen the Strait of Hormuz and the war "may end sooner than people think" — Brent briefly hit $119 before pulling back sharply to close at $108.65. <strong>S&P −0.27% · Dow −0.44% · Nasdaq −0.28%</strong> — markets pared steep intraday losses (Dow was down 500 pts) on the Netanyahu headline. Argentina's Merval +2.78% Thursday on oil tailwind + BCRA hits 50-session buying streak. The path forward hinges entirely on whether Hormuz actually reopens.
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="sec-label">⚡ Overview — Friday March 20</div>
+
+<div class="alert a-purple">
+  <span>🚢</span>
+  <div><strong>The single most important development since Feb 28:</strong> <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html">Netanyahu stated Israel is actively helping the US reopen the Strait of Hormuz, and that the war "may end sooner than people think."</a> Brent spiked to $119 intraday before reversing to $108.65. This is the first credible signal of potential Hormuz reopening from a principal actor. Opening the Strait is the <em>only</em> thing that structurally changes the current market regime. Watch for follow-through today.</div>
+</div>
+
+<div class="alert a-amber">
+  <span>⚠️</span>
+  <div><strong>But the war is still escalating on the ground.</strong> <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html">Iranian missile strikes inflicted "extensive damage" on Ras Laffan — QatarEnergy CEO said 17% of LNG export capacity was knocked out.</a> Iran struck the facility that supplies ~20% of global LNG. <a href="https://www.aljazeera.com/news/2026/3/19/could-oil-hit-200-a-barrel-analysts-no-longer-think-its-far-fetched">Brent has not dropped below $100 since March 13. Dubai crude already above $150. Analysts are now seriously discussing $200 Brent.</a> Netanyahu's signal and Iran's strikes exist simultaneously — markets must price both.</div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">🌡️ Market Tone — Friday Open</div>
+    <div class="card-body"><span class="pill p-amber" style="margin-bottom:8px;display:inline-block">Cautiously Stabilizing</span><br><a href="https://tradingeconomics.com/united-states/stock-market">S&P 500 ended Thursday at 6,606 (−0.27%), paring losses from a 500-pt Dow intraday low</a> after Netanyahu's comments. Macquarie is now calling the Fed's next move a <strong>hike</strong> in H1 2027. Gold hit its lowest since Feb 2, down ~10% week-to-date on Thursday — its worst week since 1983. Markets discounting all 2026 rate cuts.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">🇦🇷 Argentina — Merval Recovering</div>
+    <div class="card-body"><span class="pill p-green" style="margin-bottom:8px;display:inline-block">Merval +2.78% Thu · Country Risk Easing</span><br><a href="https://tradingeconomics.com/argentina/stock-market">Merval surged to 2,768,682 Thursday (+2.78%)</a>, best session in weeks. Country risk dropped below 600. BCRA hit its 50th consecutive buying session. <strong>Ecogás replaces Telecom Argentina in the S&P Merval index effective Monday March 23</strong> — expanding energy-sector weighting. Vaca Muerta direct beneficiary of $108 Brent.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📋 Action Items — Friday Open</div>
+  <ul class="act-list">
+    <li><div class="dot"></div><span><strong>Netanyahu's Hormuz signal is the trade of the day.</strong> If confirmed by US officials or followed by actual tanker movement, oil retraces sharply — energy positions (VIST/YPFD/PBR) sell off, US tech rallies. Have a mental plan: at what Brent level do you trim VIST? The June 2025 ceasefire precedent saw oil drop 20%+ in 48 hours once peace was announced.</span></li>
+    <li><div class="dot"></div><span><strong>Merval index rebalance Monday March 23: Ecogás replaces Telecom Argentina.</strong> Energy sector weighting increases. If Brent holds $100+, the rebalanced index has higher beta to oil. Review AR utility positions this morning — Ecogás entry gives the index more Vaca Muerta exposure.</span></li>
+    <li><div class="dot"></div><span><strong>Gold's worst week since 1983 — but don't chase the drop.</strong> <a href="https://www.cnbc.com/2026/03/18/stock-market-today-live-updates.html">Gold down ~10% week-to-date Thursday</a> amid global inflation fear liquidation. This is a positioning flush, not a fundamental change. If Hormuz reopens and inflation fears ease, gold normalizes. If Hormuz stays closed, gold recovers. Either way, a 3–5% GLD/IAU CEDEAR position at current levels is better risk/reward than two weeks ago.</span></li>
+    <li><div class="dot"></div><span><strong>Macquarie says next Fed move is a hike (H1 2027).</strong> This is the most hawkish call on Wall Street. It means: dollar stays strong longer, EM carry trades (your ARS Letes/FCI) face sustained pressure, and rate-sensitive growth stocks (ARKK, TSLA) have no near-term catalyst. Factor this into your US cluster sizing decisions.</span></li>
+    <li><div class="dot"></div><span><strong>SAP — Bank of America reiterated Buy, $308 target (+60% upside).</strong> <a href="https://www.cnbc.com/2026/03/16/stock-market-today-live-updates.html">BofA cited SAP's "defensive business profile" and projects 11.5% top-line growth with 15% EBIT growth in Q1</a>. SAP has declined ~29% over the past year. This is the clearest institutional signal of an entry point. If you hold SAP stock or options, this is material.</span></li>
+  </ul>
+</div>
+
+<!-- GEOPOLITICS -->
+<div class="sec-label">⚔️ Geopolitics — War Day 21</div>
+
+<div class="geo">
+  <div class="geo-head war">
+    <div class="geo-name">🚢 Netanyahu: Israel Helping Reopen Hormuz — "War May End Sooner Than People Think"</div>
+    <span class="pill p-war">PIVOT SIGNAL · Mar 19</span>
+  </div>
+  <div class="geo-war-body">
+    <strong>What was said:</strong> <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html">Netanyahu stated Israel is helping the US in reopening the vital Strait of Hormuz. He also said Iran had lost the ability to enrich uranium and make ballistic missiles — and that the war may end sooner than people think.</a> These are the most de-escalatory words from any principal actor in 21 days of war.<br><br>
+    <strong>Market reaction:</strong> Brent spiked to $119 intraday then reversed sharply to $108.65 close. The $10 reversal from intraday high to close signals markets are treating this as a possibility, not a certainty. <a href="https://tradingeconomics.com/united-states/stock-market">S&P 500 and Nasdaq pared steep intraday losses</a> from ~1% to ~0.27% on the headline.<br><br>
+    <strong>Critical caveat:</strong> Trump's administration simultaneously disavowed a previous claim that the Navy had escorted a tanker. <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html">The Trump administration confirmed oil and gas export restrictions are NOT under consideration.</a> Reopening Hormuz requires Iran's agreement — and Iran's new Supreme Leader Mojtaba Khamenei has repeatedly vowed to keep it closed. <strong>Netanyahu can signal; Iran must comply.</strong><br><br>
+    <strong>Portfolio implication:</strong> This is the event that triggers the Bull scenario. If Hormuz actually reopens: Brent −20%, VIST/YPFD/PBR selloff 15–25%, US tech relief rally 5–10%, Argentina country risk compresses toward 500. Hold VIST until confirmed — don't sell on a signal, sell on tankers moving.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">💥 Ras Laffan Hit — Qatar LNG Capacity −17%, Iran Targets Named Gulf Infrastructure</div>
+    <span class="pill p-red">Escalation Continues</span>
+  </div>
+  <div class="geo-body">
+    Simultaneously with Netanyahu's signal, <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html">Iranian missile strikes caused "extensive damage" at Ras Laffan Industrial City — the world's largest LNG export facility. QatarEnergy CEO confirmed 17% of LNG export capacity was knocked out.</a> Qatar's Interior Ministry said the blaze was brought under control. No casualties reported.<br><br>
+    <strong>Context:</strong> Ras Laffan had already been targeted March 2 — this is the second strike. Qatar condemned the attacks as "flagrant violation of sovereignty." Iran's target list still includes Saudi Aramco's Samref refinery and Jubail complex, and UAE's Al Hosn gas field. <a href="https://www.aljazeera.com/news/2026/3/19/could-oil-hit-200-a-barrel-analysts-no-longer-think-its-far-fetched">Analysts at Vanda Insights note benchmark Middle Eastern crudes like Oman and Dubai have already crossed $150 — $200 Brent is "within sight" if Hormuz stays closed.</a><br><br>
+    <strong>Portfolio:</strong> LNG exposure means European energy costs spike — headwind for EU manufacturing clients in SAP's pipeline. PBR (Petrobras) and VIST benefit directly from LNG supply shock: Brazil is an LNG net exporter, Argentina is developing LNG export capacity.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇦🇷 Argentina — Merval Recovering, BCRA 50-Session Streak, Ecogás Joins Index Monday</div>
+    <span class="pill p-green">Constructive Recovery</span>
+  </div>
+  <div class="geo-body">
+    <a href="https://tradingeconomics.com/argentina/stock-market">Merval reached 2,768,682 Thursday (+2.78%)</a> — best session since March 10. Country risk dropped below 600 bps. BCRA consecutive buying streak hit 50 sessions — a structural achievement in reserve accumulation. <strong>Ecogás Inversiones replaces Telecom Argentina in the S&P Merval effective March 23</strong>, confirmed by S&P Dow Jones Indices — this increases the index's direct Vaca Muerta weighting.<br><br>
+    <strong>The oil paradox continues:</strong> Brent at $108 is simultaneously pressuring inflation and benefiting Vaca Muerta producers. Pampa Energía (+4.7%), TGS (+4.2%), and Central Puerto (+4.2%) led Thursday's rally. Energy stocks are doing the heavy lifting while banks remain under pressure from the hawkish Fed / dollar strength dynamic. <strong>Support level to defend: 2,737,000</strong>. Clearing 2,776,000 would signal the correction is ending.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇧🇷 Brazil — Copom Cut 25bps to 14.75%, Ibovespa Stabilizing, BRL Watch</div>
+    <span class="pill p-amber">BCB Cutting / Fed Holding</span>
+  </div>
+  <div class="geo-body">
+    Brazil's central bank cut the Selic to 14.75% Thursday as expected. The policy divergence (BCB easing / Fed holding) is now explicit — the question is how much BRL pressure results. <a href="https://www.riotimesonline.com/brazils-financial-morning-call-super-wednesday-copom-fomc/">USD/BRL was at R$5.20 pre-decision</a>; watch whether it holds or pushes toward R$5.30 today. Ibovespa stabilizing near 180,000 — PBR continues to benefit from oil, VALE faces China slowdown pressure, NU/STNE/PAGS mixed on BRL direction.<br><br>
+    <strong>SAP LATAM read-through:</strong> BCB cut at 14.75% with oil-driven inflation risk is a careful balance. BRL at R$5.20 still translates favorably for SAP's LATAM revenues vs the R$5.80+ levels of late 2025. Watch Copom's forward guidance for signals on pace of future cuts — faster cuts = more BRL pressure.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇺🇸 US — Macquarie Calls Next Fed Move a Hike, Gold Worst Week Since 1983</div>
+    <span class="pill p-red">Stagflation Narrative Building</span>
+  </div>
+  <div class="geo-body">
+    <a href="https://www.cnbc.com/2026/03/18/stock-market-today-live-updates.html">Markets are now discounting any interest rate cuts in 2026. Macquarie went further: the firm sees inflationary pressures building that will force the Fed to hike in H1 2027.</a> This is the most hawkish institutional call on the Street and is gaining traction. Meanwhile, gold hit its lowest since February 2, down ~10% week-to-date Thursday — its worst weekly performance since February 1983 — as stagflation fears triggered commodity liquidation. Silver down 10%+ on the week.<br><br>
+    <strong>The BofA positive:</strong> <a href="https://www.cnbc.com/2026/03/16/stock-market-today-live-updates.html">Bank of America reiterated Buy on SAP with a $308 price target (+60.7% upside from Monday's close), citing SAP's "defensive business profile" and projecting 11.5% revenue growth and 15% EBIT growth in Q1</a>. SAP has fallen ~29% over the past year. BofA says AI disruption concerns are "overstated." This is the clearest institutional entry signal on SAP in months.
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="sec-label">💼 Portfolio — Friday Update</div>
+
+<div class="qs">
+  <div class="qs-title">1. Factor Performance — Week Recap</div>
+  <div class="metric"><div class="ml">🛢️ Energy (VIST/YPFD/PBR) — est. 5–8%</div><div class="mv good">STRONG WIN · Brent +80% since war · Hold</div></div>
+  <div class="metric"><div class="ml">🛡️ AR utilities (PAMP/TGS/EDN/METR)</div><div class="mv good">WINNING · Pampa +4.7% Thu · Energy rebalance</div></div>
+  <div class="metric"><div class="ml">📈 US tech (SPY/QQQ/NVDA ~30%)</div><div class="mv ok">STABILIZING · S&P ~6,606 · Paring losses</div></div>
+  <div class="metric"><div class="ml">🇦🇷 Argentine equities (~20%)</div><div class="mv ok">RECOVERING · Merval +2.78% Thu · 2,768K</div></div>
+  <div class="metric"><div class="ml">🇧🇷 Brazil (NU/PBR/VALE/STNE ~25%)</div><div class="mv ok">MIXED · PBR up · VALE pressured · BRL watch</div></div>
+  <div class="metric"><div class="ml">💱 ARS carry (Letes/FCI ~12%)</div><div class="mv ok">STABLE · But Macquarie hike call = long tail risk</div></div>
+  <div class="metric"><div class="ml">☀️ Gold</div><div class="mv bad">ZERO · Gold worst week since 1983 — missed both ways</div></div>
+  <div class="metric"><div class="ml">🔬 Semiconductors (NVDA/TSM ~12%)</div><div class="mv ok">PARING LOSSES · NVDA China H200 approval structural +</div></div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">2. Hormuz Scenarios — The Only Variable That Matters</div>
+  <div class="scen scen-green"><strong>🟢 Bull — Hormuz Opens (Netanyahu signal materializes):</strong> Oil retraces to $80–90 within weeks. S&P rallies 5–10%. Argentina country risk compresses toward 500 bps — Merval re-rates. Tech cluster recovers. Fed cuts return to 2026 agenda. <strong>Your portfolio: +15 to +20% recovery from lows.</strong> Trim VIST/YPFD aggressively. ARKK/TSLA re-entry point. This is now a 30% probability scenario vs 20% two days ago.</div>
+  <div class="scen scen-amber"><strong>🟡 Base — Partial de-escalation, Hormuz partially reopens:</strong> Some tankers move with escorts. Brent stabilizes $90–105. Markets partially recover. Argentina oil tailwind + country risk steady. <a href="https://www.realclearenergy.org/2026/03/18/iran_war_goldman_raises_oil_price_forecast_1170108.html">Goldman sees Q4 Brent at $71</a> — this path requires 3–4 months. <strong>Portfolio: −5 to −10% USD vs current.</strong> 45% probability.</div>
+  <div class="scen scen-red"><strong>🔴 Bear — Hormuz stays closed, Iran hits Saudi/UAE targets:</strong> If Samref, Jubail, or Al Hosn are struck: Brent $130–$150+. <a href="https://www.aljazeera.com/news/2026/3/19/could-oil-hit-200-a-barrel-analysts-no-longer-think-its-far-fetched">Oxford Economics: $140/bbl for 2 months triggers severe global recession.</a> Fed hikes instead of cutting. Argentina fiscal windfall from oil but EM selloff overwhelms. <strong>Portfolio: −25 to −35% USD.</strong> 25% probability.</div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">3. Ranked Recommendations</div>
+  <div class="rec"><div class="rec-n">1</div><div class="rec-body"><strong>Hold VIST — don't sell on Netanyahu's signal, sell on tankers moving.</strong> The June 2025 precedent: oil dropped 20%+ when ceasefire was announced, not when it was signaled. Netanyahu is one actor; Iran's new Supreme Leader controls Hormuz. Hold energy positions until actual tanker movement is confirmed. Set a trailing stop if you want downside protection.</div></div>
+  <div class="rec"><div class="rec-n">2</div><div class="rec-body"><strong>SAP — BofA's $308 target deserves serious attention.</strong> <a href="https://www.cnbc.com/2026/03/16/stock-market-today-live-updates.html">+60.7% upside from Monday's close, 11.5% revenue growth projected for Q1.</a> SAP −29% past year. If you have direct SAP equity exposure or manage SAP clients' capex decisions, this is the most actionable institutional signal in months. AI disruption narrative on SAP appears overpriced.</div></div>
+  <div class="rec"><div class="rec-n">3</div><div class="rec-body"><strong>Watch Merval 2,737,000 as the line in the sand today.</strong> Thursday's +2.78% brought the index to 2,768K. Holding above 2,737K this session confirms the base is forming. A close above 2,776,000 would be the technical signal that the correction is ending and the bull scenario is gaining probability. Below 2,634,000 the sell-off resumes.</div></div>
+  <div class="rec"><div class="rec-n">4</div><div class="rec-body"><strong>Gold at current levels (post-worst-week-since-1983) is a better entry than two weeks ago.</strong> The positioning flush is largely complete. If Hormuz stays closed: gold recovers on inflation fears. If it opens: gold stabilizes on risk-on relief. GLD/IAU CEDEAR at 3–5% allocation — the asymmetry has improved after this week's selloff.</div></div>
+  <div class="rec"><div class="rec-n">5</div><div class="rec-body"><strong>Monitor USD/BRL R$5.30 as the key level today.</strong> Copom cut (BCB easing) + Fed hawkish hold (zero 2026 cuts) + Macquarie hike call = three simultaneous BRL headwinds. If USD/BRL breaks R$5.30 on Friday, your Brazil cluster (~25%) faces compounding dollar pressure. NU/STNE/PAGS are the most BRL-sensitive positions.</div></div>
+</div>
+
+<!-- MARKETS -->
+<div class="sec-label">📊 Markets — Thursday Close / Friday Setup</div>
+
+<div class="alert a-amber">
+  <span>📊</span>
+  <div><strong>Thursday close:</strong> <a href="https://www.cnbc.com/2026/03/18/stock-market-today-live-updates.html">S&P 500 −0.27% to 6,606 · Dow −0.44% (−203 pts) to 46,021 · Nasdaq −0.28% to 22,090.</a> Both S&P and Dow gapped below their 200-day MAs. S&P's 200-day now at 6,619 — closed below it for first time since May 2025. <a href="https://www.cnbc.com/2026/03/19/oil-jumps-iran-strikes-qatar-lng-facility-supply-worries.html">Brent settled at $108.65 after $119 intraday peak on Netanyahu signal.</a></div>
+</div>
+
+<div class="g4">
+  <div class="tc cred"><div class="tl">S&P 500 Close</div><div class="tv">6,606</div><div class="tc-ch dn">▼ −0.27% · Below 200d MA</div><div class="tc-note">200d MA at 6,619 · May 2025 low</div></div>
+  <div class="tc cred"><div class="tl">Dow Jones Close</div><div class="tv">46,021</div><div class="tc-ch dn">▼ −0.44% · −203 pts</div><div class="tc-note">Below 200d MA · YTD low</div></div>
+  <div class="tc cred"><div class="tl">Nasdaq Close</div><div class="tv">22,090</div><div class="tc-ch dn">▼ −0.28%</div><div class="tc-note">4th losing week in a row</div></div>
+  <div class="tc camber"><div class="tl">Brent Crude</div><div class="tv">$108.65</div><div class="tc-ch dn">▼ From $119 intraday peak</div><div class="tc-note">Netanyahu signal · +80% since war</div></div>
+</div>
+
+<div class="g4">
+  <div class="tc cgold" style="--ac:#d97706"><div class="tl">Gold</div><div class="tv">~$4,874</div><div class="tc-ch dn">▼ −10% week · Worst since 1983</div><div class="tc-note">Positioning flush · Better entry now</div></div>
+  <div class="tc cgreen"><div class="tl">Merval (Thu)</div><div class="tv">2,768,682</div><div class="tc-ch up">▲ +2.78% best session in weeks</div><div class="tc-note">Country risk dropped below 600</div></div>
+  <div class="tc cred"><div class="tl">Country Risk AR</div><div class="tv">&lt;600 bps</div><div class="tc-ch up">▼ Dropped Thu · Improving</div><div class="tc-note">Target: sub-500 for mkt re-access</div></div>
+  <div class="tc cblue"><div class="tl">BCRA Reserves</div><div class="tv">~$45.6B</div><div class="tc-ch up">50 consecutive buying sessions</div><div class="tc-note">$3.3B+ accumulated 2026</div></div>
+</div>
+
+<div class="g4">
+  <div class="tc cblue"><div class="tl">Ibovespa</div><div class="tv">~180,000</div><div class="tc-ch fl">Stabilizing · Copom cut 25bps</div><div class="tc-note">Selic now 14.75%</div></div>
+  <div class="tc camber"><div class="tl">USD/BRL</div><div class="tv">~R$5.20</div><div class="tc-ch dn">Watch R$5.30 · BCB cutting / Fed hold</div><div class="tc-note">Policy divergence pressure on BRL</div></div>
+  <div class="tc cblue"><div class="tl">USD MEP</div><div class="tv">~1,394–1,421</div><div class="tc-ch fl">Peso at new 2026 low vs mayorista</div><div class="tc-note">BCRA band ceiling: ARS 1,634</div></div>
+  <div class="tc cpurp" style="--ac:#8b5cf6"><div class="tl">WTI Crude</div><div class="tv">$96.14</div><div class="tc-ch dn">▼ −0.19% Thu · Post-Netanyahu</div><div class="tc-note">Fell in extended hours on signal</div></div>
+</div>
+
+<!-- REGULATION -->
+<div class="sec-label">⚖️ Regulation — Active Clocks</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-red">🔴 135 days</span><span class="pill p-blue">EU AI Act</span><div class="reg-title">HRAI Deadline August 2, 2026 — Commission Still Silent</div></div>
+  <div class="reg-body">135 days to August 2. Commission has not published Annex III guidance since missing the Feb 2 deadline. Digital Omnibus extension to Dec 2027 remains in trilogue — <strong>not law.</strong> Joule in HR/Finance = Annex III HRAI. Conformity assessment typically 3–6 months. <strong>You are at the outer edge of the safe window to begin the process.</strong> War context: EU energy crisis may accelerate digital resilience legislation, potentially expanding HRAI scope to critical infrastructure AI.</div>
+  <div class="reg-foot"><span class="src"><a href="https://iapp.org/news/a/european-commission-misses-deadline-for-ai-act-guidance-on-high-risk-systems">IAPP</a></span><span class="dl dl-r">Aug 2 · 135 days · Urgent</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-red">⚡ ~2–3 weeks</span><span class="pill p-blue">NIS2 — Germany</span><div class="reg-title">BSI Registration ~April 2026 — Critical Window Closing</div></div>
+  <div class="reg-body">Deadline is approximately April 2026 — roughly 2–3 weeks away. If BSI registration has not been initiated, this needs to happen <strong>today</strong>. Fines up to €10M or 2% global turnover. Management personally liable. <a href="https://www.mofo.com/resources/insights/260211-european-digital-compliance-key-digital-regulation">No extension expected — Morrison Foerster confirmed.</a></div>
+  <div class="reg-foot"><span class="src"><a href="https://www.mofo.com/resources/insights/260211-european-digital-compliance-key-digital-regulation">Morrison Foerster</a></span><span class="dl dl-r">~Apr 2026 · Initiate TODAY</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-amber">Active</span><span class="pill p-blue">DORA</span><div class="reg-title">Live Since Jan 2026 — Q1 Customer Audits Peak Week</div></div>
+  <div class="reg-body">Q1 audit season at peak. SAP as Critical Third-Party Provider faces intensifying downstream customer contractual requirements. War-driven operational resilience concerns are accelerating DORA scrutiny across financial sector clients.</div>
+  <div class="reg-foot"><span class="src">DORA live Jan 2026</span><span class="dl dl-r">Live · Q1 audits peak</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head"><span class="pill p-amber">Jun 11</span><span class="pill p-blue">Cyber Resilience Act</span><div class="reg-title">CABs Operational June 11 · SBOMs Required</div></div>
+  <div class="reg-body">Conformity Assessment Bodies operational June 11. Vulnerability reporting mandatory September 11. SBOMs required for all digital products with network connectivity. War context: energy infrastructure cybersecurity attacks during Iran conflict highlight urgency of CRA compliance for industrial/OT software. <a href="https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026">Hogan Lovells CRA guide 2026.</a></div>
+  <div class="reg-foot"><span class="src"><a href="https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026">Hogan Lovells</a></span><div style="display:flex;gap:5px"><span class="dl dl-a">CABs: Jun 11</span><span class="dl dl-a">Reporting: Sep 11</span></div></div>
+</div>
+
+<!-- SAP -->
+<div class="sec-label">🔷 SAP Intelligence</div>
+
+<div class="card">
+  <div class="sap-item green">
+    <div class="sap-title">BofA Buy Rating Reiterated — $308 Target (+60.7% Upside) · Q1 Results Late April</div>
+    <div class="sap-body"><a href="https://www.cnbc.com/2026/03/16/stock-market-today-live-updates.html">Bank of America reiterated its Buy rating on SAP, citing its "defensive business profile." Analyst Frederic Boulan projects 11.5% top-line growth and 15% EBIT growth for Q1 2026, with a $308 price target.</a> Boulan added that concerns over AI disruption are "overstated." SAP has declined ~29% over the past year. <strong>This is the most constructive institutional call on SAP in months and comes ahead of Q1 results in late April — the key test for whether the Q4 2025 CCB miss was a one-quarter issue.</strong></div>
+  </div>
+  <div class="sap-item red">
+    <div class="sap-title">EU AI Act — 135 Days, Joule Conformity Assessment: Outer Edge of Safe Window</div>
+    <div class="sap-body">135 days to August 2. Joule in HR (hiring, performance, dismissal) and Finance (budget, credit) = Annex III High-Risk AI. Commission still has not published guidance since missing Feb 2 deadline. HRAI conformity assessments typically take 3–6 months. <strong>If assessment was not started by early March, Joule's EU regulated-sector launch is at risk.</strong> Penalties: €15M or 3% global turnover for non-compliance with HRAI obligations. This is the highest-priority regulatory item in the ERM tracker.</div>
+  </div>
+  <div class="sap-item amber">
+    <div class="sap-title">Energy Sector Pipeline — War Creates Short-Term Freeze, Long-Term Supercycle</div>
+    <div class="sap-body">Gulf energy clients (Saudi Aramco, QatarEnergy, ADNOC) are in full operational crisis mode — SAP deals frozen. However, <strong>Brent sustaining $100+ for weeks is building the case for the largest energy sector IT investment cycle in a decade.</strong> When the shooting stops, NOC modernization programs will be fast-tracked. SAP's energy vertical should be positioned now for the post-war pipeline. Vaca Muerta (VIST/YPF) clients in Argentina are the near-term bright spot — capex is accelerating, not freezing.</div>
+  </div>
+  <div class="sap-item amber">
+    <div class="sap-title">Macquarie Hike Call — Enterprise IT Budget Implications</div>
+    <div class="sap-body">If Macquarie is right that the Fed hikes in H1 2027, enterprise CFOs will face higher financing costs for longer. SAP's cloud migration deals — particularly large multi-year commitments — face increased scrutiny. <strong>CFOs weighing $50M+ SAP cloud migrations in a 5%+ rate environment will demand faster ROI proof.</strong> This puts pressure on SAP to demonstrate Joule/AI productivity gains quickly. Q1 earnings call tone on pipeline will be the early signal.</div>
+  </div>
+  <div class="sap-item green">
+    <div class="sap-title">NVDA China H200 Approval — SAP APAC AI Adoption Unblocked</div>
+    <div class="sap-body">Nvidia's confirmed purchase orders for China-bound H200 chips removes a key blocker for SAP's AI adoption cycle in APAC. Chinese enterprise clients now have clearer access to the compute infrastructure required to run Joule at scale. SAP's China CCB pipeline was partially stalled by chip uncertainty — this structural change is a medium-term positive for APAC revenue growth.</div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="sec-label">📅 Next Week's Catalysts</div>
+<div class="card">
+  <div style="display:grid;gap:10px">
+    <div style="display:flex;gap:14px;padding:8px 0;border-bottom:1px solid #f3f4f6"><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px">TODAY Fri 20</div><div style="font-size:13px;color:#374151"><strong>Hormuz follow-through.</strong> Does the US confirm Netanyahu's signal? Any confirmed tanker movement = major market event. Watch Brent intraday — the $108/$100 gap is the ceasefire trade range. BYMA open at 11 AM ART will react to overnight developments.</div></div>
+    <div style="display:flex;gap:14px;padding:8px 0;border-bottom:1px solid #f3f4f6"><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px">MON Mar 23</div><div style="font-size:13px;color:#374151"><strong>Merval index rebalance: Ecogás replaces Telecom Argentina.</strong> Energy sector weighting increases. Global PMIs (Manufacturing + Services) — first major post-oil-shock activity data. Will show whether $100+ oil is hitting real economic output.</div></div>
+    <div style="display:flex;gap:14px;padding:8px 0;border-bottom:1px solid #f3f4f6"><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px">WED Mar 25</div><div style="font-size:13px;color:#374151"><strong>US Durable Goods Orders.</strong> Read on capital expenditure — are US corporates still investing or pulling back on oil shock? Key for SAP enterprise pipeline assessment.</div></div>
+    <div style="display:flex;gap:14px;padding:8px 0;border-bottom:1px solid #f3f4f6"><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px">FRI Mar 27</div><div style="font-size:13px;color:#374151"><strong>US PCE Inflation (February).</strong> The Fed's preferred inflation measure. If PCE is hot (above 2.8%), the Macquarie hike narrative gains traction. If in-line or cool, rate cut expectations can creep back for late 2026.</div></div>
+    <div style="display:flex;gap:14px;padding:8px 0"><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px">LATE APR</div><div style="font-size:13px;color:#374151"><strong>SAP Q1 2026 Results.</strong> The most important single event for your SAP ERM role this quarter. BofA projects 11.5% revenue growth and 15% EBIT growth. CCB trajectory is the key metric — if it recovers from Q4's miss, the BofA thesis is validated. If it doesn't, the AI disruption narrative accelerates.</div></div>
+  </div>
+</div>
+
+<footer>
+  <div>Generated by Claude · Friday March 20, 2026 · 7:00 AM ART · War Day 21</div>
+  <div style="margin-top:4px">Not investment advice · Verify all data independently · <a href="https://claude.ai">claude.ai</a></div>
+</footer>
+
+</div>
+</body>
+</html>

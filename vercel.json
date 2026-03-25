@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/archive", "dest": "/archive.html" },
+    { "src": "/briefs/(.*)", "dest": "/briefs/$1" }
+  ]
+}

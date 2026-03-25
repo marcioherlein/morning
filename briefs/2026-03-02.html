@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning Brief · 2 Mar 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f172a;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#1e1b4b,#7f1d1d);padding:24px 28px;border-radius:0 0 20px 20px;margin-bottom:22px;color:#fff}
+.hdr-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
+.hdr-title{font-size:28px;font-weight:700;letter-spacing:-.03em}
+.hdr-date{font-size:13px;opacity:.75;margin-top:3px}
+.war-badge{background:#ef4444;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:9999px;letter-spacing:.04em;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.hdr-sub{margin-top:16px;font-size:14px;line-height:1.7;opacity:.9}
+
+/* SECTION LABELS */
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin:28px 0 12px;padding-bottom:8px;border-bottom:2px solid #f3f4f6}
+
+/* HERO CARDS */
+.hero{border-radius:18px;padding:24px 28px;color:#fff;margin-bottom:18px;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.hero h2{font-size:20px;font-weight:700;margin-bottom:10px;letter-spacing:-.02em;line-height:1.3}
+.hero p{font-size:13.5px;line-height:1.75;opacity:.93}
+.hero a{color:#93c5fd;text-decoration:none;border-bottom:1px dotted rgba(147,197,253,.5)}
+.g-war{background:linear-gradient(135deg,#1e1b4b,#7f1d1d)}
+.g-red{background:linear-gradient(135deg,#dc2626,#9f1239)}
+.g-blue{background:linear-gradient(135deg,#2563eb,#7c3aed)}
+.g-amber{background:linear-gradient(135deg,#d97706,#ea580c)}
+.g-teal{background:linear-gradient(135deg,#0891b2,#0d9488)}
+.g-green{background:linear-gradient(135deg,#16a34a,#0d9488)}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:18px}
+@media(max-width:700px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* CARDS */
+.card{background:#fff;border-radius:14px;padding:18px;border:1px solid rgba(0,0,0,.07);box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.card-title{font-size:13px;font-weight:600;color:#111827;margin-bottom:10px}
+.card-body{font-size:13px;color:#4b5563;line-height:1.7}
+.card-body strong{color:#111827;font-weight:600}
+.card-body a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-weight:500;font-size:12px}
+
+/* TICKER CARDS */
+.tc{background:#fff;border-radius:12px;padding:14px 16px;border:1px solid rgba(0,0,0,.07);border-top:3px solid var(--ac,#e5e7eb)}
+.tc.cred{--ac:#ef4444}.tc.cgreen{--ac:#22c55e}.tc.cblue{--ac:#3b82f6}.tc.camber{--ac:#f59e0b}.tc.cgold{--ac:#d97706}.tc.cwar{--ac:linear-gradient(90deg,#dc2626,#1e1b4b)}
+.tl{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#9ca3af;margin-bottom:6px}
+.tv{font-size:21px;font-weight:700;color:#111827;letter-spacing:-.04em;line-height:1}
+.tc-ch{font-size:12px;font-weight:500;margin-top:5px}
+.tc-note{font-size:11px;color:#9ca3af;margin-top:3px;line-height:1.4}
+.tc-note a{color:#6b7280;text-decoration:none;font-size:11px}
+.up{color:#16a34a}.dn{color:#dc2626}.fl{color:#6b7280}
+
+/* ALERTS */
+.alert{display:flex;gap:10px;padding:13px 16px;border-radius:11px;margin-bottom:14px;align-items:flex-start;font-size:13px;line-height:1.7}
+.a-red{background:#fef2f2;border:1px solid #fecaca;color:#374151}
+.a-amber{background:#fffbeb;border:1px solid #fde68a;color:#374151}
+.a-blue{background:#eff6ff;border:1px solid #bfdbfe;color:#374151}
+.a-green{background:#f0fdf4;border:1px solid #bbf7d0;color:#374151}
+.a-dark{background:#1e1b4b;border:1px solid #4338ca;color:#e0e7ff}
+.alert strong{color:#111827;font-weight:600}
+.a-dark strong{color:#fff}
+.alert a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-weight:500;font-size:12px}
+.a-dark a{color:#93c5fd;border-bottom-color:rgba(147,197,253,.4)}
+
+/* GEO ITEMS */
+.geo{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:14px}
+.geo-head{padding:13px 18px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#fafafa}
+.geo-head.war{background:linear-gradient(135deg,#1e1b4b,#7f1d1d)}
+.geo-head.war .geo-name{color:#e0e7ff}
+.geo-name{font-size:13.5px;font-weight:700;color:#111827;display:flex;align-items:center;gap:8px}
+.geo-body{padding:14px 18px;font-size:13px;color:#4b5563;line-height:1.75}
+.geo-body strong{color:#111827;font-weight:600}
+.geo-body a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-weight:500}
+.geo-war-body{padding:14px 18px;font-size:13px;color:#fca5a5;line-height:1.75;background:linear-gradient(135deg,#1e1b4b,#450a0a)}
+.geo-war-body strong{color:#fecaca;font-weight:600}
+.geo-war-body a{color:#93c5fd;text-decoration:none;border-bottom:1px dotted rgba(147,197,253,.4);font-weight:500}
+
+/* PILL */
+.pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:9999px;white-space:nowrap}
+.p-red{background:#fef2f2;color:#dc2626}
+.p-amber{background:#fffbeb;color:#d97706}
+.p-green{background:#f0fdf4;color:#16a34a}
+.p-blue{background:#eff6ff;color:#1d4ed8}
+.p-war{background:#1e1b4b;color:#e0e7ff;border:1px solid #4338ca}
+.p-flat{background:#f9fafb;color:#374151}
+
+/* QUANT SECTION */
+.qs{background:#fff;border-radius:14px;padding:22px;border:1px solid rgba(0,0,0,.07);margin-bottom:14px}
+.qs-title{font-size:14px;font-weight:700;color:#111827;margin-bottom:14px}
+.qs-body{font-size:13px;color:#374151;line-height:1.8}
+.qs-body strong{color:#111827;font-weight:600}
+.qs-body a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-size:12px;font-weight:500}
+.metric{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:9px;padding:10px 14px;margin-bottom:7px;border:1px solid #f3f4f6}
+.metric:last-child{margin-bottom:0}
+.ml{font-size:13px;font-weight:500;color:#374151}
+.mv{font-size:13px;font-weight:700}
+.mv.bad{color:#dc2626}.mv.ok{color:#d97706}.mv.good{color:#16a34a}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.bar-label{font-size:12px;color:#6b7280;min-width:170px}
+.bar-bg{flex:1;height:7px;background:#f3f4f6;border-radius:9px;overflow:hidden}
+.bar-fill{height:100%;border-radius:9px}
+.b-red{background:linear-gradient(90deg,#ef4444,#dc2626)}
+.b-amber{background:linear-gradient(90deg,#f59e0b,#d97706)}
+.b-green{background:linear-gradient(90deg,#22c55e,#16a34a)}
+.b-blue{background:linear-gradient(90deg,#3b82f6,#2563eb)}
+.b-purple{background:linear-gradient(90deg,#8b5cf6,#7c3aed)}
+.bar-pct{font-size:12px;font-weight:600;min-width:34px;text-align:right}
+.rec{display:flex;gap:11px;padding:10px 0;border-bottom:1px solid #f3f4f6}
+.rec:last-child{border-bottom:none}
+.rec-n{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.rec-body{flex:1;font-size:13px;color:#4b5563;line-height:1.7}
+.rec-body strong{color:#111827;font-weight:600}
+.rec-body a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-size:12px;font-weight:500}
+
+/* REG */
+.reg{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:12px}
+.reg-head{padding:12px 18px;background:#fafafa;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.reg-title{font-size:13px;font-weight:600;color:#111827;flex:1}
+.reg-body{padding:13px 18px;font-size:13px;color:#4b5563;line-height:1.7}
+.reg-body strong{color:#111827;font-weight:600}
+.reg-body a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-weight:500}
+.reg-foot{padding:9px 18px;border-top:1px solid #f3f4f6;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.src{font-size:11px;color:#9ca3af}
+.src a{color:#3b82f6;text-decoration:none;font-weight:500}
+.dl{font-size:11px;font-weight:600;padding:3px 9px;border-radius:9999px}
+.dl-r{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.dl-a{background:#fffbeb;color:#d97706;border:1px solid #fde68a}
+.dl-b{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.dl-g{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+
+/* SAP */
+.sap-item{border-left:3px solid #2563eb;padding-left:16px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid #f3f4f6}
+.sap-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sap-item.red{border-left-color:#ef4444}
+.sap-item.amber{border-left-color:#f59e0b}
+.sap-item.green{border-left-color:#22c55e}
+.sap-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:7px}
+.sap-body{font-size:13px;color:#4b5563;line-height:1.75}
+.sap-body strong{color:#111827}
+.sap-body a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-size:12px;font-weight:500}
+
+/* ACTION LIST */
+.act-list{list-style:none}
+.act-list li{display:flex;gap:10px;padding:6px 0;font-size:13.5px;color:#374151;line-height:1.65}
+.act-list li strong{color:#111827}
+.act-list a{color:#2563eb;text-decoration:none;border-bottom:1px dotted #93c5fd;font-size:12px;font-weight:500}
+.dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);flex-shrink:0;margin-top:7px}
+
+/* SCENARIO BOX */
+.scen{border-radius:10px;padding:12px 16px;margin-bottom:10px;font-size:13px;line-height:1.7;border:1px solid}
+.scen-red{background:#fef2f2;border-color:#fecaca;color:#374151}
+.scen-red strong{color:#dc2626}
+.scen-amber{background:#fffbeb;border-color:#fde68a;color:#374151}
+.scen-amber strong{color:#d97706}
+.scen-green{background:#f0fdf4;border-color:#bbf7d0;color:#374151}
+.scen-green strong{color:#16a34a}
+
+.divider{height:1px;background:#f3f4f6;margin:14px 0}
+
+footer{text-align:center;padding:24px 0;font-size:11.5px;color:#9ca3af}
+footer a{color:#6b7280;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-top">
+    <div>
+      <div class="hdr-title">☀️ Morning Brief</div>
+      <div class="hdr-date">Monday, March 2, 2026 · Buenos Aires ART</div>
+    </div>
+    <div class="war-badge">🔴 WAR: US STRIKES IRAN</div>
+  </div>
+  <div class="hdr-sub">
+    <strong>Khamenei killed. Strait of Hormuz effectively closed.</strong> US-Israeli "Operation Epic Fury" launched Feb 28. Iran retaliating across the Gulf. Brent +9% at open (~$79). S&P futures −1.5%. Gold +2% (~$5,350). This is the single most important geopolitical event since the June 2025 strikes — and unlike June, the retaliation is much wider. This brief covers today's open, your portfolio exposure, and every active risk.
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="sec-label">⚡ Overview — Monday March 2</div>
+
+<div class="alert a-dark">
+  <span>⚠️</span>
+  <div><strong>Monday open consensus (as of 7 AM ART):</strong> <a href="https://www.bloomberg.com/news/articles/2026-03-01/dollar-surges-as-traders-brace-for-war-impact-markets-wrap">S&P 500 futures −1.5% · Nasdaq futures −2% · Brent crude +9% ~$79 (peaked $82 at open) · Gold +2% ~$5,350 · Silver +1.7% ~$95 · UST 10Y yields falling (flight to safety) · VIX spiking above 25</a>. Khamenei is dead. Iran missile barrages hit UAE, Bahrain, Kuwait, Qatar, Iraq and Jordan. <a href="https://www.business-standard.com/markets/news/oil-prices-surge-9-gold-jumps-as-iran-conflict-shakes-global-markets-126030200061_1.html">Strait of Hormuz effectively closed — 20% of world oil supply halted.</a></div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="card-title">🌡️ Market Sentiment</div>
+    <div class="card-body"><span class="pill p-red" style="margin-bottom:8px;display:inline-block">Full Risk-Off</span><br>War + Hormuz closure + already-fragile Feb backdrop. <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-sink-oil-prices-surge-as-markets-react-to-iran-conflict-235000315.html">Dow futures −800 pts, S&P −1.7%, Nasdaq −2%</a>. Energy outperforms — everything else down. Gold &amp; bonds the only safe harbours.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">🇦🇷 Argentina</div>
+    <div class="card-body"><span class="pill p-amber" style="margin-bottom:8px;display:inline-block">Complex — Oil tailwind vs EM selloff</span><br>War is a net positive for Argentina (oil exporter: VIST, YPFD). But global risk-off hits ADRs. Merval was −18.2% in Feb already. Country risk 572 bps Friday. Labor reform passed. BCRA reserves $46.9B. <a href="https://www.cronista.com/columnistas/se-viene-un-excelente-2026-para-argentina-y-merval-aun-no-lo-sabe/">El Cronista: 40–60% discount vs EM peers</a>.</div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:18px">
+  <div class="card-title">📋 Action Items — Before BYMA Open</div>
+  <ul class="act-list">
+    <li><div class="dot"></div><span><strong>S16M6 Letes mature March 16 (14 days).</strong> MEP ~1,422, brecha zero. War risk raises EM carry-unwind probability. Decision window is now — convert to USD MEP or rollover? If you believe in ARS carry, roll. If uncertain, convert at zero cost while brecha is flat.</span></li>
+    <li><div class="dot"></div><span><strong>VIST / YPFD / PBR — oil spike beneficiaries.</strong> Brent +9% at open. Consider adding to VIST (Vista Energy) on any pullback — Argentine oil producer with pure Vaca Muerta exposure. <a href="https://www.cnbc.com/2026/03/01/crude-oil-futures-iran.html">CNBC: analysts see Brent $100+ if Hormuz stays closed</a>.</span></li>
+    <li><div class="dot"></div><span><strong>SPY/QQQ/DIA/NVDA — hedge or trim on any Monday bounce.</strong> Your US tech cluster (~30% of portfolio) is the biggest loser today. No bounce may come. Set mental stops. <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-sink-oil-prices-surge-as-markets-react-to-iran-conflict-235000315.html">S&P futures −1.5% pre-market.</a></span></li>
+    <li><div class="dot"></div><span><strong>Germany NIS2 BSI registration — 5 weeks to deadline.</strong> Initiate today. Personal management liability. No extension is law. <a href="https://www.mofo.com/resources/insights/260211-european-digital-compliance-key-digital-regulation">Morrison Foerster Feb 2026</a>.</span></li>
+    <li><div class="dot"></div><span><strong>Argentina Feb CPI due March 10.</strong> Below 2.5% = country risk compression, Merval recovery. Above 3% = further pressure. Watch before adding more AR equity risk.</span></li>
+  </ul>
+</div>
+
+<!-- GEOPOLITICS -->
+<div class="sec-label">⚔️ Geopolitics</div>
+
+<div class="geo">
+  <div class="geo-head war">
+    <div class="geo-name">🔥 US &amp; Israel Launch "Operation Epic Fury" — Khamenei Killed, Hormuz Closed</div>
+    <span class="pill p-war">BREAKING · Feb 28 → Mar 2</span>
+  </div>
+  <div class="geo-war-body">
+    <strong>What happened:</strong> US and Israeli forces launched coordinated massive airstrikes on Iran late Saturday Feb 28, hitting Tehran, Isfahan, Qom, and missile bases. <a href="https://www.nbcnews.com/world/iran/us-israel-attacks-iran-protests-nuclear-talks-rcna253784">Trump announced "major combat operations" have begun.</a> Supreme Leader Ayatollah Ali Khamenei was killed in the bombing campaign — a historic development. Iran's Supreme National Security Council vowed a "crushing response." <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-sink-oil-prices-surge-as-markets-react-to-iran-conflict-235000315.html">Iran launched missile barrages across the Gulf — targeting UAE, Bahrain, Kuwait, Qatar, Saudi Arabia, Jordan and Iraq.</a>
+    <br><br>
+    <strong>Strait of Hormuz:</strong> <a href="https://www.business-standard.com/markets/news/oil-prices-surge-9-gold-jumps-as-iran-conflict-shakes-global-markets-126030200061_1.html">Most tanker owners, oil majors and trading houses suspended crude oil and LNG shipments</a> after Tehran warned ships against transiting. ~15 million bpd halted. <a href="https://www.investing.com/news/commodities-news/oil-jumps-10-on-iran-conflict-and-could-spike-to-100-a-barrel-analysts-say-4533502">Rystad: $20/bbl rise immediately; Wood Mackenzie cites 1970s embargo as nearest analogue ($100/bbl in 2026 terms).</a>
+    <br><br>
+    <strong>Trump:</strong> "Attacks will continue throughout the week or as long as necessary." Rubio in Israel Monday/Tuesday. <a href="https://www.cnn.com/2026/03/01/business/oil-prices-us-attack-iran-vis">CNN: conflict could last 4+ weeks per Trump comments to Daily Mail.</a>
+    <br><br>
+    <strong>Portfolio impact — direct:</strong> VIST +++ (oil), PBR +++ (oil), YPFD ++ (oil tailwind). SPY/QQQ/DIA/NVDA −− (risk-off). NU/STNE/PAGS −− (EM selloff). TSM — Taiwan deterrence risk (US military bandwidth). BABA/JD −− (China oil shock + tariff). Argentine utilities +/0 (defensive, oil cost).
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇺🇸 US: SCOTUS Struck IEEPA Tariffs → New 10% Flat Tariff + 35–50% China Threat</div>
+    <span class="pill p-amber">Trade War Active</span>
+  </div>
+  <div class="geo-body">
+    SCOTUS 6–3 ruling struck Trump's sweeping IEEPA tariff regime. Trump immediately signed new EO imposing <strong>10% global tariff under Section 122</strong>. USTR Greer simultaneously signaling <strong>35–50% tariffs on China</strong> via Section 301. Net result: bifurcated regime — 10% global baseline, China 3–5x higher. PPI January +0.5% (consensus +0.3%) — tariff pass-through already visible. Fed cuts pushed to H2 2026. <a href="https://tradingeconomics.com/united-states/stock-market">Trading Economics: S&P 500 6,810 Monday (−1%) as war overlays tariff stress.</a>
+    <br><br>
+    <strong>Portfolio:</strong> BABA and JD carry direct China tariff risk. SPY/QQQ ~25% China revenue in top 50 holdings. Inflationary tariffs → Fed holds → rate-sensitive growth stocks (NVDA, ARKK) re-rate lower.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇦🇷 Argentina: Labor Reform Signed, Macro Paradox, ADRs Hammered</div>
+    <span class="pill p-amber">Divergence</span>
+  </div>
+  <div class="geo-body">
+    Senate passed <strong>Ley de Modernización Laboral 42–28</strong> early Saturday — Milei's biggest legislative win. Severance on base salary only, flexible hours, gig platform statute, reduced employer contributions. <a href="https://www.infobae.com/politica/2026/02/28/el-senado-sanciono-la-reforma-laboral-y-el-gobierno-logro-su-mayor-triunfo-en-el-final-de-las-sesiones-extraordinarias/">Infobae: protests outside Congress, 4 detained.</a>
+    <br><br>
+    <strong>The macro paradox:</strong> BCRA bought $2.68B YTD in 37 straight sessions. Reserves $46.9B — 6-year high. Bonar 2027 oversubscribed 5x at 5.89% yield. Peso −3.1% vs dollar in Feb (ARS appreciated). Yet Merval −18.2% Feb, country risk 572 — erased all 2026 gains. <a href="https://www.cronista.com/columnistas/se-viene-un-excelente-2026-para-argentina-y-merval-aun-no-lo-sabe/">El Cronista analyst: "El Merval aún no lo sabe" — 40–60% discount vs EM peers.</a> Soybean harvest dollars arriving March–May as next catalyst.
+    <br><br>
+    <strong>War angle:</strong> Brent spike = fiscal tailwind (oil export revenues). But EM risk-off adds pressure to already-stressed ADRs. Net: VIST/YPFD oil benefit vs BBVA/Macro/Galicia bank ADR pressure.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇧🇷 Brazil: Solid February, Hot Inflation, War = PBR Tailwind vs VALE Headwind</div>
+    <span class="pill p-green">Resilient</span>
+  </div>
+  <div class="geo-body">
+    Ibovespa +2.2% BRL for February — <a href="https://tradingeconomics.com/brazil/stock-market">7th consecutive monthly gain</a>. BRL +3% vs dollar (strongest since May 2024). R$33B+ foreign inflows YTD. SCOTUS tariff ruling limits Brazil's US tariff exposure to 15% flat vs prior 50% threat — significant positive surprise. But IPCA-15 +0.8% MoM (hot) pushed BCB Selic cuts to H2 2026, terminal rate 15.25–15.50%.
+    <br><br>
+    <strong>War impact:</strong> PBR/Petrobras — oil price spike is a direct earnings tailwind. VALE — China oil shock + global slowdown risk = iron ore demand headwind. NU/STNE/PAGS — BRL strength (positive) vs EM risk-off (negative) — net mixed.
+  </div>
+</div>
+
+<div class="geo">
+  <div class="geo-head">
+    <div class="geo-name">🇨🇳 China: Double Headwind — Oil Shock + 35–50% Tariff Threat</div>
+    <span class="pill p-red">High Risk</span>
+  </div>
+  <div class="geo-body">
+    <a href="https://www.business-standard.com/markets/news/oil-prices-surge-9-gold-jumps-as-iran-conflict-shakes-global-markets-126030200061_1.html">Iran supplies ~10% of China's crude</a>. Hormuz closure is a direct cost shock to Chinese manufacturing — world's largest oil importer. Simultaneously facing 35–50% US tariffs via USTR Greer. This is a rare double compression: supply shock + demand destruction. <strong>Portfolio:</strong> BABA and JD are the most exposed positions. TSM (Taiwan) — US military bandwidth argument: prolonged Middle East campaign reduces Taiwan deterrence capacity, increasing tail risk.
+  </div>
+</div>
+
+<!-- PORTFOLIO ANALYSIS -->
+<div class="sec-label">💼 Portfolio — Quantitative Analysis</div>
+
+<div class="qs">
+  <div class="qs-title">1. Concentration Risk — Today's Update</div>
+  <div class="bar-row"><div class="bar-label">🇺🇸 US Equities (SPY/QQQ/DIA/NVDA/etc.)</div><div class="bar-bg"><div class="bar-fill b-red" style="width:30%"></div></div><div class="bar-pct dn">~30%</div></div>
+  <div class="bar-row"><div class="bar-label">🇧🇷 Brazil (NU/PAGS/STNE/BBD/PBR/VALE)</div><div class="bar-bg"><div class="bar-fill b-blue" style="width:25%"></div></div><div class="bar-pct fl">~25%</div></div>
+  <div class="bar-row"><div class="bar-label">🇦🇷 Argentine equities (utilities/energy)</div><div class="bar-bg"><div class="bar-fill b-amber" style="width:20%"></div></div><div class="bar-pct fl">~20%</div></div>
+  <div class="bar-row"><div class="bar-label">Fixed income (Letes + FCI COCOSPPA)</div><div class="bar-bg"><div class="bar-fill b-green" style="width:12%"></div></div><div class="bar-pct up">~12%</div></div>
+  <div class="bar-row"><div class="bar-label">🌏 Asia (TSM/BABA/JD)</div><div class="bar-bg"><div class="bar-fill b-red" style="width:8%"></div></div><div class="bar-pct dn">~8%</div></div>
+  <div class="bar-row"><div class="bar-label">🛢️ Energy (VIST/PBR/LAR)</div><div class="bar-bg"><div class="bar-fill b-purple" style="width:5%"></div></div><div class="bar-pct up">~5%</div></div>
+  <div class="divider"></div>
+  <div class="qs-body">
+    <strong>Critical flag:</strong> US tech cluster (SPY+QQQ+DIA+NVDA+ARKK) = ~30%, correlation ~0.85 within cluster. On a day like today, they all fall simultaneously. Your energy cluster (5%) is the one position that benefits from today's shock — and it's your smallest. Zero gold/commodity hedge. Gold is +2% today to $5,350 — you captured none of it.
+  </div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">2. Factor Exposures — War Scenario Lens</div>
+  <div class="metric"><div class="ml">📈 US Growth/AI beta (~30% exposure)</div><div class="mv bad">LOSING today · Nasdaq −2% futures</div></div>
+  <div class="metric"><div class="ml">🛢️ Oil/Energy (~5% exposure)</div><div class="mv good">WINNING today · Brent +9%</div></div>
+  <div class="metric"><div class="ml">🇦🇷 Argentina risk premium (~20%)</div><div class="mv ok">MIXED · Oil tailwind vs EM selloff</div></div>
+  <div class="metric"><div class="ml">🌊 EM Consumer Credit/Brazil (~18%)</div><div class="mv ok">MIXED · BRL stable vs risk-off pressure</div></div>
+  <div class="metric"><div class="ml">💱 ARS carry (Letes/FCI ~12%)</div><div class="mv ok">STABLE · But EM risk-off is latent threat</div></div>
+  <div class="metric"><div class="ml">🔬 Semiconductors (NVDA/TSM ~12%)</div><div class="mv bad">LOSING · Risk-off + AI capex narrative</div></div>
+  <div class="metric"><div class="ml">🛡️ Defensives / AR utilities (~15%)</div><div class="mv good">OUTPERFORMING · Defensive rotation bid</div></div>
+  <div class="metric"><div class="ml">☀️ Gold / Hard assets</div><div class="mv bad">ZERO exposure · Gold +2% today, missed</div></div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">3. Stress Scenarios — Hormuz Duration is the Key Variable</div>
+
+  <div class="scen scen-red">
+    <strong>🔴 Bear: Extended war, Hormuz stays closed 3–5 weeks.</strong> Brent $100–120. Inflation spike globally. Fed cannot cut. Nasdaq −10 to −15%. EM selloff, country risk 700+. ARS carry unwind. Portfolio loss: <strong>−20 to −30% in USD</strong>. Historical analogue: 1973 oil embargo (+300% oil). <a href="https://www.investing.com/news/commodities-news/oil-jumps-10-on-iran-conflict-and-could-spike-to-100-a-barrel-analysts-say-4533502">Wood Mackenzie: "$90/bbl in 2026 terms" as nearest analogue.</a>
+  </div>
+
+  <div class="scen scen-amber">
+    <strong>🟡 Base: Short conflict, Hormuz reopens within 2 weeks.</strong> Brent retreats to $80–85 after initial spike. Nasdaq recovers half losses. Argentina oil tailwind offsets EM pressure. June 2025 precedent — oil spiked, then fell when ceasefire announced. <a href="https://www.atlanticcouncil.org/dispatches/dont-worry-about-the-iran-conflicts-impact-on-oil-prices-yet/">Atlantic Council: "Markets can tolerate a spike. What they cannot tolerate is prolonged uncertainty."</a> Portfolio: <strong>−8 to −12% USD</strong>, partial recovery by end March.
+  </div>
+
+  <div class="scen scen-green">
+    <strong>🟢 Bull: Rapid ceasefire, deal reached within days.</strong> Oil retraces, risk-on bounce. Argentina labor reform + harvest season catalysts drive Merval recovery from extreme oversold. Tech cluster bounces. Portfolio: <strong>+3 to +8% recovery</strong>. Low probability this week given Khamenei's death and scale of Iranian retaliation.
+  </div>
+</div>
+
+<div class="qs">
+  <div class="qs-title">4. Ranked Recommendations</div>
+  <div class="rec">
+    <div class="rec-n">1</div>
+    <div class="rec-body"><strong>Add oil exposure — VIST is your cleanest play.</strong> Brent +9% today. If Hormuz stays closed even 1 week, energy sector goes to +15–25%. You have ~5% energy exposure. VIST (Vista Energy) is pure Vaca Muerta — no Iran geopolitical risk, benefits from oil price. <a href="https://www.cnbc.com/2026/03/01/crude-oil-futures-iran.html">Barclays: Brent $100+ if situation spirals. UBS: $120 in material disruption scenario.</a> Even modest sizing increase (5% → 10%) meaningfully changes your portfolio's payoff profile today.</div>
+  </div>
+  <div class="rec">
+    <div class="rec-n">2</div>
+    <div class="rec-body"><strong>S16M6 Letes — decide before BYMA open.</strong> 14 days to maturity. MEP ~1,422 (Friday close), brecha ~0. This is the rarest window in Argentine FX history — you can convert to USD at near-official rate. War + EM risk-off raises carry-unwind probability. If not decided by Monday open, you may face a worse brecha later. <a href="https://www.cronista.com/MercadosOnline/dolar.html">Cronista FX data.</a></div>
+  </div>
+  <div class="rec">
+    <div class="rec-n">3</div>
+    <div class="rec-body"><strong>Trim ARKK and TSLA on any Monday bounce — not SPY.</strong> Within your US cluster, SPY is the most diversified and has the lowest war-specific exposure. ARKK (high-beta disruptive tech) and TSLA (consumer discretionary, China exposure) are most vulnerable in a war + rate-holds environment. Trimming these two reduces tech cluster from ~30% toward 25% without abandoning the thesis. <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-sink-oil-prices-surge-as-markets-react-to-iran-conflict-235000315.html">Nasdaq futures −2% pre-market.</a></div>
+  </div>
+  <div class="rec">
+    <div class="rec-n">4</div>
+    <div class="rec-body"><strong>Hold Argentine utilities cluster — PAMP, TGSU2, EDN, METR, CEPU.</strong> Defensive rotation bid globally (XLU +10% in February). Labor reform reduces operating costs. Oil price spike benefits integrated energy names. This is your best-positioned sub-portfolio today. Don't sell into the EM panic — this cluster has genuine fundamental support.</div>
+  </div>
+  <div class="rec">
+    <div class="rec-n">5</div>
+    <div class="rec-body"><strong>Add gold exposure before it moves further.</strong> GLD or IAU CEDEAR available. Gold +11% in Feb, +2% today, set to gap higher Monday. You have zero hard-asset hedge. Even 3–5% allocation provides meaningful protection in the war + inflation scenario. <a href="https://www.financemagnates.com/trending/gold-price-tests-5400-oil-jumps-13-as-strait-of-hormuz-shuts-iran-war-rocks-markets/">Finance Magnates: Gold tested $5,400 at Monday open.</a></div>
+  </div>
+</div>
+
+<!-- MARKETS -->
+<div class="sec-label">📊 Markets — March 2 Open (Live/Futures)</div>
+
+<div class="alert a-red">
+  <span>🔴</span>
+  <div><strong>US futures pre-market (as of early Monday morning):</strong> <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-sink-oil-prices-surge-as-markets-react-to-iran-conflict-235000315.html">S&P 500 futures −1.7% (6,809) · Dow futures −1.6% (−800 pts) · Nasdaq 100 futures −2%.</a> Markets open 10:30 AM ART. This is a genuine war-shock open, not a volatility blip.</div>
+</div>
+
+<div class="g4">
+  <div class="tc cred">
+    <div class="tl">S&P 500 Futures</div>
+    <div class="tv">6,809</div>
+    <div class="tc-ch dn">▼ −1.7% · <a href="https://tradingeconomics.com/united-states/stock-market">TradEcon</a></div>
+    <div class="tc-note">Fri close 6,878 · Feb −1%</div>
+  </div>
+  <div class="tc cred">
+    <div class="tl">Nasdaq 100 Futures</div>
+    <div class="tv">−2.0%</div>
+    <div class="tc-ch dn">▼ Pre-market · <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-sink-oil-prices-surge-as-markets-react-to-iran-conflict-235000315.html">Yahoo</a></div>
+    <div class="tc-note">Fri close 22,668 · Feb −3%</div>
+  </div>
+  <div class="tc camber">
+    <div class="tl">Brent Crude</div>
+    <div class="tv">~$79</div>
+    <div class="tc-ch up">▲ +9% open · peaked $82 · <a href="https://www.business-standard.com/markets/news/oil-prices-surge-9-gold-jumps-as-iran-conflict-shakes-global-markets-126030200061_1.html">BS</a></div>
+    <div class="tc-note">Fri close $72.87 · Hormuz closed</div>
+  </div>
+  <div class="tc" style="border-top:3px solid #d97706">
+    <div class="tl">Gold Spot</div>
+    <div class="tv">~$5,350</div>
+    <div class="tc-ch up">▲ +2% · peaked $5,400 · <a href="https://www.financemagnates.com/trending/gold-price-tests-5400-oil-jumps-13-as-strait-of-hormuz-shuts-iran-war-rocks-markets/">FM</a></div>
+    <div class="tc-note">Fri close $5,226 · +11% Feb</div>
+  </div>
+</div>
+
+<div class="g4">
+  <div class="tc" style="border-top:3px solid #d97706">
+    <div class="tl">Silver Spot</div>
+    <div class="tv">~$95</div>
+    <div class="tc-ch up">▲ +1.7% · <a href="https://www.financemagnates.com/trending/gold-price-tests-5400-oil-jumps-13-as-strait-of-hormuz-shuts-iran-war-rocks-markets/">FM</a></div>
+    <div class="tc-note">Fri close $90 · +14% Feb</div>
+  </div>
+  <div class="tc cred">
+    <div class="tl">Merval (last Fri close)</div>
+    <div class="tv">2,642,105</div>
+    <div class="tc-ch dn">▼ −18.2% Feb · <a href="https://es.investing.com/indices/merv-historical-data">Investing</a></div>
+    <div class="tc-note">4-month low · BYMA opens 11 AM ART</div>
+  </div>
+  <div class="tc cred">
+    <div class="tl">Country Risk AR</div>
+    <div class="tv">572 bps</div>
+    <div class="tc-ch dn">▲ +18 Fri · erased 2026 gains</div>
+    <div class="tc-note">War = EM risk-off pressure Monday</div>
+  </div>
+  <div class="tc cblue">
+    <div class="tl">USD MEP / CCL</div>
+    <div class="tv">~1,422</div>
+    <div class="tc-ch fl">Brecha ~0 · historic convergence</div>
+    <div class="tc-note">Blue ~1,425 · Official ~1,420</div>
+  </div>
+</div>
+
+<div class="g4">
+  <div class="tc cgreen">
+    <div class="tl">Ibovespa (Fri close)</div>
+    <div class="tv">188,805</div>
+    <div class="tc-ch up">+2.2% BRL for Feb · <a href="https://tradingeconomics.com/brazil/stock-market">TradEcon</a></div>
+    <div class="tc-note">7th consecutive monthly gain</div>
+  </div>
+  <div class="tc cblue">
+    <div class="tl">USD/BRL (Fri close)</div>
+    <div class="tv">5.1645</div>
+    <div class="tc-ch up">BRL strongest since May 2024</div>
+    <div class="tc-note">BRL +3% vs USD in Feb</div>
+  </div>
+  <div class="tc camber">
+    <div class="tl">Selic Rate</div>
+    <div class="tv">15.0%</div>
+    <div class="tc-ch fl">Hold · IPCA-15 +0.8% (hot)</div>
+    <div class="tc-note">Cuts pushed to H2 2026</div>
+  </div>
+  <div class="tc" style="border-top:3px solid #1e1b4b">
+    <div class="tl">BCRA Reserves</div>
+    <div class="tv">$46.9B</div>
+    <div class="tc-ch up">37 buying sessions · 6yr high</div>
+    <div class="tc-note">$2.68B YTD · 26% of annual target</div>
+  </div>
+</div>
+
+<!-- REGULATION -->
+<div class="sec-label">⚖️ Regulation — Active Clocks</div>
+
+<div class="reg">
+  <div class="reg-head">
+    <span class="pill p-red">🔴 154 days</span>
+    <span class="pill p-blue">EU AI Act</span>
+    <div class="reg-title">HRAI Deadline August 2, 2026 — No Extension Is Law</div>
+  </div>
+  <div class="reg-body">Commission missed its Feb 2 guidance deadline. CEN/CENELEC standards expected end-2026 — after your deadline. Digital Omnibus HRAI extension (to Dec 2027) is in trilogue, <strong>not law.</strong> Penalties: up to €35M or 7% global turnover for prohibited AI systems. <a href="https://iapp.org/news/a/european-commission-misses-deadline-for-ai-act-guidance-on-high-risk-systems">IAPP Feb 2026: Commission missed deadline.</a> Joule in finance/HR maps to Annex III. CE marking + conformity assessment + EU database registration must be complete August 2.
+  </div>
+  <div class="reg-foot"><span class="src"><a href="https://iapp.org/news/a/european-commission-misses-deadline-for-ai-act-guidance-on-high-risk-systems">IAPP</a> · <a href="https://ai2.work/economics/eu-ai-act-high-risk-rules-hit-august-2026-your-compliance-countdown/">AI2Work</a></span><span class="dl dl-r">Aug 2 2026 · 154 days</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head">
+    <span class="pill p-red">⚡ ~5 weeks</span>
+    <span class="pill p-blue">NIS2 — Germany</span>
+    <div class="reg-title">BSI Registration ~April 2026 — Management Personally Liable</div>
+  </div>
+  <div class="reg-body">
+    German NIS2 Implementation Act in force. BSI registration required within 3 months of act entering force — <strong>deadline approximately April 2026.</strong> Fines up to €10M or 2% global turnover. <strong>Management bodies personally liable.</strong> <a href="https://www.mofo.com/resources/insights/260211-european-digital-compliance-key-digital-regulation">Initiate Monday if not done. Morrison Foerster Feb 2026.</a>
+  </div>
+  <div class="reg-foot"><span class="src"><a href="https://www.mofo.com/resources/insights/260211-european-digital-compliance-key-digital-regulation">Morrison Foerster</a></span><span class="dl dl-r">~Apr 2026 · Action today</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head">
+    <span class="pill p-amber">Active</span>
+    <span class="pill p-blue">DORA</span>
+    <div class="reg-title">Fully Enforceable Since January 2026 — SAP as CTPP, Audits Underway</div>
+  </div>
+  <div class="reg-body">SAP as Critical Third-Party Provider faces direct obligations and downstream customer audit pressure. Q1–Q2 2026 audits intensifying. <a href="https://iomete.com/resources/blog/data-sovereignty-compliance-2026-dora-ai-act">Digital Omnibus proposes DORA + NIS2 + GDPR single reporting — not yet law.</a></div>
+  <div class="reg-foot"><span class="src"><a href="https://iomete.com/resources/blog/data-sovereignty-compliance-2026-dora-ai-act">IOMETE</a></span><span class="dl dl-r">Live since Jan 2026</span></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head">
+    <span class="pill p-amber">June 11</span>
+    <span class="pill p-blue">Cyber Resilience Act</span>
+    <div class="reg-title">CABs Operational June 11 · Vulnerability Reporting September 11</div>
+  </div>
+  <div class="reg-body">SBOMs required for all digital products. ENISA SRP in testing. Jan 2026 single-entry reporting proposal (GDPR + NIS2 + DORA + CRA simultaneously) not yet law. <a href="https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026">Hogan Lovells CRA guide 2026.</a></div>
+  <div class="reg-foot"><span class="src"><a href="https://www.hoganlovells.com/en/publications/eu-cyber-resilience-act-getting-ready-for-cra-compliance-in-2026">Hogan Lovells</a></span><div style="display:flex;gap:5px"><span class="dl dl-a">CABs: Jun 11</span><span class="dl dl-a">Reporting: Sep 11</span></div></div>
+</div>
+
+<div class="reg">
+  <div class="reg-head">
+    <span class="pill p-amber">Overdue</span>
+    <span class="pill p-flat">Cloud &amp; AI Dev Act</span>
+    <div class="reg-title">Proposal Overdue from Q1 2026 — Not Published Yet</div>
+  </div>
+  <div class="reg-body">Commission Work Programme 2026 targeted Q1 — overdue as of March 2. EVP Virkkunen sponsoring. Would mandate European-hosted cloud for regulated sectors. <strong>War context:</strong> energy sector crisis may accelerate digital resilience legislation timelines. <a href="https://www.eu-cloud-ai-act.com/">EU Cloud AI Act Tracker.</a></div>
+  <div class="reg-foot"><span class="src"><a href="https://www.eu-cloud-ai-act.com/">EU Cloud AI Act</a></span><span class="dl dl-a">Overdue Q1 2026</span></div>
+</div>
+
+<!-- SAP -->
+<div class="sec-label">🔷 SAP Intelligence</div>
+
+<div class="card" style="margin-bottom:18px">
+  <div class="sap-item red">
+    <div class="sap-title">Iran War — SAP Government &amp; Energy Sector Deal Risk</div>
+    <div class="sap-body">Every government client in the Middle East and Europe is now in crisis posture. SAP's government cloud pipeline (key CCB recovery driver) faces extended procurement cycles. Energy sector clients (Saudi Aramco, Shell, BP) have immediate operational priorities — SAP deals go to back of queue. On the upside: <strong>prolonged energy sector capex = long-term SAP ERP demand tailwind</strong>. National oil companies will need to modernize operations at scale if Brent sustains $80+. Watch for SAP energy sector announcements in Q2 2026.</div>
+  </div>
+
+  <div class="sap-item amber">
+    <div class="sap-title">CCB Miss Context — Q4 2025 Was Recognition Lag, Not Demand Collapse</div>
+    <div class="sap-body">Current Cloud Backlog grew 16% vs 26% consensus in Q4 2025. SAP shares fell 14% on Jan 29. Root cause: sovereign cloud deals with government termination-for-convenience clauses excluded from backlog calculation. <strong>€10B buyback active February 2026.</strong> FY2026 guidance: Cloud €25.8–26.2B. War context: government deals now face even more uncertainty. Q1 2026 results (late April) will be the key test — is this a one-quarter recognition issue or a sustained pipeline problem?</div>
+  </div>
+
+  <div class="sap-item red">
+    <div class="sap-title">EU AI Act — Joule Conformity Assessment: 154 Days</div>
+    <div class="sap-body">Joule in HR (hiring, performance review, dismissal support) and Finance (credit decisions, budget allocation) maps to Annex III High-Risk AI. August 2, 2026 deadline requires: completed conformity assessment, CE marking, EU database registration, post-market monitoring system. Commission missed Feb 2 guidance — no additional clarity on Annex III definitions. <strong>Risk: Joule launch in regulated EU sectors may need to be paused if conformity assessment not complete.</strong> Penalties up to €15M or 3% global turnover for HRAI non-compliance.</div>
+  </div>
+
+  <div class="sap-item green">
+    <div class="sap-title">LATAM Revenue Tailwind — BRL +3% Feb, Oil Exports Accelerating</div>
+    <div class="sap-body">SAP reports LATAM revenues in EUR/USD — BRL +3% vs dollar in February translates directly to higher translated revenues. Argentina labor reform reduces payroll complexity (short-term SAP HR module volume dip) but increases enterprise investment capacity medium-term. <strong>Argentine energy sector (VIST/YPFD/PBR customers) will see capex expansion at Brent $80+</strong> — new SAP implementation cycles possible H2 2026.</div>
+  </div>
+
+  <div class="sap-item amber">
+    <div class="sap-title">AI Workforce Restructuring — Block's 50% Cut as SAP Customer Precedent</div>
+    <div class="sap-body">Block cut 50% of workforce citing AI productivity replacement — stock +16.8%. Markets are explicitly rewarding AI-driven headcount reduction at scale. ERM scenario: large SAP customers begin similar restructuring programs in H1 2026. Short-term: HR/Payroll module volumes decrease as headcount falls. Medium-term: SAP SuccessFactors talent management demand rises as remaining workforce management becomes more complex. Monitor Q1 earnings calls for enterprise AI restructuring language.</div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="sec-label">📅 Week Ahead</div>
+<div class="card">
+  <div style="display:grid;gap:10px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:12px;font-weight:600;color:#6b7280;min-width:80px">TODAY</div>
+      <div style="flex:1;font-size:13px;color:#374151"><strong>US/BYMA markets open into war shock.</strong> ISM Manufacturing PMI. Watch Brent intraday — Hormuz status is the key variable. VIX target: above 25 = sustained fear, below 22 = partial relief rally possible.</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:12px;font-weight:600;color:#6b7280;min-width:80px">WED Mar 4</div>
+      <div style="flex:1;font-size:13px;color:#374151"><strong>Broadcom (AVGO) earnings · ADP Employment · ISM Services · Fed Beige Book.</strong> AVGO gives read-through on AI chip demand after NVDA selloff. Fed Beige Book will reference war inflation risk.</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:12px;font-weight:600;color:#6b7280;min-width:80px">FRI Mar 7</div>
+      <div style="flex:1;font-size:13px;color:#374151"><strong>US Non-Farm Payrolls (February).</strong> Consensus: ~60K. Unemployment: expected 4.4%. War + tariffs = stagflation risk if payrolls weak + oil elevated.</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:12px;font-weight:600;color:#6b7280;min-width:80px">MAR 10</div>
+      <div style="flex:1;font-size:13px;color:#374151"><strong>Argentina Feb CPI (INDEC).</strong> Market expects ~2.5% MoM. Below = bond rally, country risk compression. Above 3% = further pressure.</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0">
+      <div style="font-size:12px;font-weight:600;color:#dc2626;min-width:80px">MAR 16</div>
+      <div style="flex:1;font-size:13px;color:#374151"><strong>S16M6 Letes mature — 5.2M ARS.</strong> Decision needed before open today. Options: rollover into new letra, FCI COCOSPPA, or USD MEP conversion (brecha ~0 now).</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Generated by Claude · Monday, March 2, 2026 · Data as of market open + Friday Feb 27 close</div>
+  <div style="margin-top:4px">Not investment advice · Verify all prices and breaking news independently · <a href="https://claude.ai">claude.ai</a></div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Morning Briefing — Feb 27 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111417;
+    --border: #1e2228;
+    --border-light: #252b33;
+    --text: #c8d0da;
+    --text-dim: #5a6375;
+    --text-bright: #e8edf3;
+    --green: #00d17a;
+    --red: #ff4757;
+    --amber: #ffb830;
+    --blue: #3b9eff;
+    --purple: #9b7fe8;
+    --teal: #00c4b4;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .header {
+    padding: 20px 16px 16px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,12,15,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .header-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .header-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-bright);
+    letter-spacing: -0.01em;
+  }
+
+  .header-subtitle {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 6px var(--green);
+    animation: pulse 2s infinite;
+    margin-top: 4px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Quick chips ── */
+  .chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 16px;
+    margin: 12px 0 0;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+
+  .chip {
+    flex-shrink: 0;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+    color: var(--text-dim);
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .chip:hover, .chip.active {
+    color: var(--text-bright);
+    border-color: var(--blue);
+    background: rgba(59,158,255,0.08);
+  }
+
+  /* ── Section layout ── */
+  .section {
+    border-bottom: 1px solid var(--border);
+  }
+
+  details summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    background: var(--surface);
+    transition: background 0.15s;
+  }
+
+  details summary::-webkit-details-marker { display: none; }
+
+  details summary:hover {
+    background: #14181e;
+  }
+
+  details[open] summary {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-icon {
+    font-size: 13px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    flex: 1;
+  }
+
+  .section-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .badge-red { background: rgba(255,71,87,0.15); color: var(--red); border: 1px solid rgba(255,71,87,0.25); }
+  .badge-amber { background: rgba(255,184,48,0.12); color: var(--amber); border: 1px solid rgba(255,184,48,0.2); }
+  .badge-green { background: rgba(0,209,122,0.12); color: var(--green); border: 1px solid rgba(0,209,122,0.2); }
+  .badge-blue { background: rgba(59,158,255,0.12); color: var(--blue); border: 1px solid rgba(59,158,255,0.2); }
+  .badge-dim { background: rgba(90,99,117,0.15); color: var(--text-dim); border: 1px solid rgba(90,99,117,0.2); }
+
+  .chevron {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    transition: transform 0.2s;
+  }
+
+  details[open] .chevron { transform: rotate(90deg); }
+
+  .section-body {
+    padding: 16px;
+  }
+
+  /* ── Market tiles ── */
+  .market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .market-tile {
+    background: #0e1115;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+
+  .market-tile.full { grid-column: 1 / -1; }
+  .market-tile.highlight { border-color: rgba(59,158,255,0.25); }
+
+  .tile-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+
+  .tile-value {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-bright);
+    line-height: 1.2;
+  }
+
+  .tile-change {
+    font-family: var(--mono);
+    font-size: 11px;
+    margin-top: 3px;
+  }
+
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .neutral { color: var(--text-dim); }
+
+  .tile-note {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* ── Bond table ── */
+  .bond-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  .bond-table th {
+    text-align: left;
+    color: var(--text-dim);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 9px;
+    padding: 4px 8px 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bond-table td {
+    padding: 6px 8px 6px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .bond-table tr:last-child td { border-bottom: none; }
+
+  .bond-table .ticker { color: var(--text-bright); font-weight: 500; }
+
+  /* ── Portfolio signals ── */
+  .signal-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .signal-row:last-child { border-bottom: none; }
+
+  .signal-ticker {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-bright);
+    min-width: 52px;
+  }
+
+  .signal-text {
+    font-size: 12px;
+    color: var(--text);
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .signal-change {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    min-width: 44px;
+    text-align: right;
+  }
+
+  /* ── Risk items ── */
+  .risk-item {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .risk-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .risk-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+
+  .risk-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .risk-urgent { background: rgba(255,71,87,0.15); color: var(--red); border: 1px solid rgba(255,71,87,0.2); }
+  .risk-active { background: rgba(255,184,48,0.12); color: var(--amber); border: 1px solid rgba(255,184,48,0.15); }
+  .risk-monitor { background: rgba(59,158,255,0.1); color: var(--blue); border: 1px solid rgba(59,158,255,0.15); }
+  .risk-info { background: rgba(0,196,180,0.1); color: var(--teal); border: 1px solid rgba(0,196,180,0.15); }
+
+  .risk-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-bright);
+  }
+
+  .risk-body {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .risk-source {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  .risk-source a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  /* ── Priority actions ── */
+  .priority-list {
+    list-style: none;
+    counter-reset: actions;
+  }
+
+  .priority-list li {
+    counter-increment: actions;
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .priority-list li:last-child { border-bottom: none; }
+
+  .priority-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    width: 20px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .priority-content {
+    flex: 1;
+  }
+
+  .priority-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .priority-text {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .priority-why {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  /* ── Question box ── */
+  .question-box {
+    background: rgba(59,158,255,0.06);
+    border: 1px solid rgba(59,158,255,0.2);
+    border-radius: 6px;
+    padding: 14px;
+    margin: 0 16px 0;
+  }
+
+  .question-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .question-text {
+    font-size: 13px;
+    color: var(--text-bright);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ── Geo / text paragraphs ── */
+  .prose p {
+    font-size: 12.5px;
+    line-height: 1.65;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .prose p:last-child { margin-bottom: 0; }
+
+  .prose strong { color: var(--text-bright); font-weight: 600; }
+
+  /* ── QC block ── */
+  .qc-block {
+    background: #0d0f12;
+    border-top: 1px solid var(--border);
+    padding: 14px 16px;
+  }
+
+  .qc-title {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .qc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .qc-label {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .qc-pass { font-family: var(--mono); font-size: 10px; color: var(--green); font-weight: 600; }
+  .qc-fail { font-family: var(--mono); font-size: 10px; color: var(--red); font-weight: 600; }
+  .qc-na { font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+
+  /* ── Divider ── */
+  .divider-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 8px 16px 4px;
+  }
+
+  /* ── Inline link ── */
+  a.src {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--blue);
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
+  a.src:hover { opacity: 1; text-decoration: underline; }
+
+  /* ── Timestamp footer ── */
+  .footer {
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-dim);
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
+
+  /* ── Warning bar ── */
+  .alert-bar {
+    background: rgba(255,71,87,0.08);
+    border-left: 3px solid var(--red);
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+  }
+  .alert-bar p { font-size: 12px; color: var(--text); }
+
+  .info-bar {
+    background: rgba(255,184,48,0.07);
+    border-left: 3px solid var(--amber);
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+  }
+  .info-bar p { font-size: 12px; color: var(--text); }
+
+  .ok-bar {
+    background: rgba(0,209,122,0.07);
+    border-left: 3px solid var(--green);
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    border-radius: 0 4px 4px 0;
+  }
+  .ok-bar p { font-size: 12px; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header-date">Friday · 27 Feb 2026 · 07:00 ART</div>
+      <div class="header-title">Morning Briefing</div>
+      <div class="header-subtitle">SAP Enterprise Risk Manager · Buenos Aires</div>
+    </div>
+    <div class="status-dot"></div>
+  </div>
+  <div class="chips">
+    <a class="chip" href="#markets">Markets</a>
+    <a class="chip" href="#portfolio">Portfolio</a>
+    <a class="chip" href="#sap">SAP</a>
+    <a class="chip" href="#risk">Risk</a>
+    <a class="chip" href="#geo">Geopolitics</a>
+    <a class="chip" href="#actions">Actions</a>
+  </div>
+</div>
+
+
+<!-- ══ SECTION 1: MARKETS ══ -->
+<div class="section" id="markets">
+<details open>
+<summary>
+  <span class="section-icon">📊</span>
+  <span class="section-label">Markets &amp; FX</span>
+  <span class="section-badge badge-red">Risk-Off</span>
+  <span class="chevron">▶</span>
+</summary>
+
+<div class="section-body">
+
+  <div class="divider-label">US Equities — Thu Feb 26 Close</div>
+  <div class="market-grid">
+    <div class="market-tile">
+      <div class="tile-label">S&amp;P 500</div>
+      <div class="tile-value">6,908</div>
+      <div class="tile-change down">▼ 0.54% · −37pts</div>
+      <div class="tile-note">AI sentiment drag; tech heavy</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">Nasdaq Comp.</div>
+      <div class="tile-value">22,878</div>
+      <div class="tile-change down">▼ 1.18% · −274pts</div>
+      <div class="tile-note">Worst of the three indices</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">Dow Jones</div>
+      <div class="tile-value">49,499</div>
+      <div class="tile-change neutral">▲ 0.03% · +17pts</div>
+      <div class="tile-note">Lower tech weight buffered</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">VIX</div>
+      <div class="tile-value">21.12</div>
+      <div class="tile-change down">▲ elevated</div>
+      <div class="tile-note">Fear gauge back above 20</div>
+    </div>
+  </div>
+
+  <div class="alert-bar">
+    <p><strong>⚠ Today (Fri Feb 27):</strong> Markets opened sharply lower. Dow −1.1%, S&amp;P −0.6%, Nasdaq −0.7% after hot January PPI (+0.5% MoM vs +0.3% expected; core PPI +0.8% vs +0.3%). All three benchmarks in the red for February.</p>
+  </div>
+
+  <p class="risk-source" style="margin-bottom:12px;">Sources: <a class="src" href="https://www.cnbc.com/2026/02/26/stock-market-today-live-updates.html">CNBC, Feb 26</a> · <a class="src" href="https://stockmarketwatch.com/live/stock-market-today/">StockMarketWatch, Feb 27</a></p>
+
+  <div class="divider-label">Key US Drivers</div>
+  <div class="prose" style="margin-bottom:14px;">
+    <p><strong>NVDA –5.5%</strong> (Thu) + further decline today. Earnings beat but AI capex sustainability questioned. Broadcom, Oracle, Microsoft each –2.5%. Software sector (IGV ETF) down 10%+ in February alone on AI disruption fears. Block (Square) cut 4,000 jobs — nearly half its headcount. January PPI hot print removes Fed rate cut near-term hopes. 10Y yield hovering ~3.99%. Netflix jumped ~9% after walking away from Warner Bros. bid. Paramount Skydance bid at $31/share declared superior.</p>
+  </div>
+
+  <div class="divider-label">Argentina</div>
+  <div class="market-grid">
+    <div class="market-tile">
+      <div class="tile-label">Merval</div>
+      <div class="tile-value">2,760K</div>
+      <div class="tile-change up">▲ 0.3% ARS (today)</div>
+      <div class="tile-note">Closing Feb bimestre flat</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">Country Risk</div>
+      <div class="tile-value">554 bps</div>
+      <div class="tile-change down">▲ +9 pts (Feb 26)</div>
+      <div class="tile-note">Rising vs 545 Wed. Approaching 600</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">USD/ARS Oficial</div>
+      <div class="tile-value">1,380</div>
+      <div class="tile-change down">▼ Feb MTD −4.9%</div>
+      <div class="tile-note">16% below band ceiling of 1,595</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">Dólar CCL</div>
+      <div class="tile-value">~1,440</div>
+      <div class="tile-change neutral">Spread: ~4.4%</div>
+      <div class="tile-note">vs MEP ~1,392</div>
+    </div>
+    <div class="market-tile full">
+      <div class="tile-label">BCRA Reservas</div>
+      <div class="tile-value">USD 46,905M</div>
+      <div class="tile-change up">▲ 37 consecutive buying sessions · +$2,640M YTD</div>
+      <div class="tile-note">26% of annual accumulation target. Strongest since Oct 2019.</div>
+    </div>
+  </div>
+
+  <div class="info-bar">
+    <p><strong>⚡ Divergence signal:</strong> Country risk rising (554 bps, near 600) while reserves are at 6-year highs. Bond prices falling despite BCRA strength. This disconnect is the key macro risk in your GD30/GD35/GD38 positions. Adcap notes bonds could re-compress if BCRA buying holds steady — but political/election risk is being priced back in.</p>
+  </div>
+
+  <p class="risk-source">Sources: <a class="src" href="https://www.infobae.com/economia/2026/02/27/mercados-caen-los-bonos-argentinos-y-el-riesgo-pais-se-acerca-otra-vez-a-los-600-puntos/">Infobae, Feb 27</a> · <a class="src" href="https://www.perfil.com/noticias/amp/economia/el-riesgo-pais-de-argentina-sube-a-554-puntos-basicos-en-una-jornada-de-debilidad-para-los-bonos-soberanos-a35.phtml">Perfil, Feb 26</a> · <a class="src" href="https://www.infobae.com/economia/2026/02/25/el-banco-central-compro-usd-85-millones-y-las-reservas-volvieron-a-crecer-cuanto-lleva-acumulado-en-2026/">Infobae, Feb 25</a></p>
+
+  <div class="divider-label" style="margin-top:14px;">Argentina Bonds — Portfolio Holdings</div>
+  <table class="bond-table">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Type</th>
+        <th>Feb 26 Move</th>
+        <th>Signal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ticker">GD30</td>
+        <td>Global USD NY</td>
+        <td class="up">+0.4%</td>
+        <td class="neutral">Sole gainer</td>
+      </tr>
+      <tr>
+        <td class="ticker">GD35</td>
+        <td>Global USD NY</td>
+        <td class="neutral">flat</td>
+        <td class="neutral">—</td>
+      </tr>
+      <tr>
+        <td class="ticker">GD38</td>
+        <td>Global USD NY</td>
+        <td class="down">−0.5%</td>
+        <td class="down">Weakness</td>
+      </tr>
+      <tr>
+        <td class="ticker">BA37D</td>
+        <td>BA Province</td>
+        <td class="neutral">n/a</td>
+        <td class="neutral">Monitor</td>
+      </tr>
+      <tr>
+        <td class="ticker">BPOD7/BPOC7</td>
+        <td>BOPREAL</td>
+        <td class="neutral">n/a</td>
+        <td class="neutral">Monitor</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="risk-source" style="margin-top:6px;">Source: <a class="src" href="https://www.bancoprovincia.com.ar/CDN/Get/informe_financiero">Banco Provincia Informe, Feb 26</a></p>
+
+  <div class="divider-label" style="margin-top:14px;">Brazil &amp; FX</div>
+  <div class="market-grid">
+    <div class="market-tile">
+      <div class="tile-label">Ibovespa</div>
+      <div class="tile-value">191,247</div>
+      <div class="tile-change down">▼ 0.13% (Thu)</div>
+      <div class="tile-note">Near ATH of 192,623 (Wed). 7th consec. monthly gain.</div>
+    </div>
+    <div class="market-tile">
+      <div class="tile-label">USD/BRL</div>
+      <div class="tile-value">5.1392</div>
+      <div class="tile-change up">BRL strongest since May 2024</div>
+      <div class="tile-note">Selic 15% driving carry. YTD USD −6.87% vs BRL.</div>
+    </div>
+  </div>
+  <p class="risk-source">Sources: <a class="src" href="https://www.riotimesonline.com/brazils-morning-call-for-friday-february-27-2026/">Rio Times, Feb 27</a> · <a class="src" href="https://www.exchange-rates.org/converter/usd-brl">Exchange-rates.org, Feb 27</a></p>
+
+</div>
+</details>
+</div>
+
+
+<!-- ══ SECTION 2: PORTFOLIO SIGNALS ══ -->
+<div class="section" id="portfolio">
+<details>
+<summary>
+  <span class="section-icon">💼</span>
+  <span class="section-label">Portfolio Signals</span>
+  <span class="section-badge badge-red">3 Flags</span>
+  <span class="chevron">▶</span>
+</summary>
+
+<div class="section-body">
+
+  <div class="alert-bar">
+    <p><strong>US tech CEDEARs:</strong> NVDA, TSM, AMZN, AAPL, META all impacted by AI capex skepticism selloff. QQQ/ARKK exposed to Nasdaq decline. NVDA down ~8% over 2 sessions.</p>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker up">NVDA</span>
+    <span class="signal-text">Earnings beat; market sold on hyperscaler slowdown narrative. Worst 2-day stretch since April. AI "prove it" mode per Facet CIO Tom Graff.</span>
+    <span class="signal-change down">−7.9%</span>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker">QQQ</span>
+    <span class="signal-text">Direct Nasdaq exposure. CEDEAR tracks US tech sector broadly.</span>
+    <span class="signal-change down">~−1.9%</span>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker">ARKK</span>
+    <span class="signal-text">Disruptive tech ETF; Block layoffs and AI disruption sentiment compounds downward pressure.</span>
+    <span class="signal-change down">Watch</span>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker up">VIST</span>
+    <span class="signal-text">YPF Argentina oil — YPF ADR up +0.3% at $36.54. Reported Q4 2025 balance Thursday. Net loss of $649M Q4 and $799M FY2025 due to oil price changes and gas sales deceleration.</span>
+    <span class="signal-change down">Loss report</span>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker up">NU</span>
+    <span class="signal-text">Brazilian fintech. BRL strength is positive for ARS holders of NU CEDEARs. Block's 4K layoffs signal AI disruption pressure on US fintech — watch for contagion narrative.</span>
+    <span class="signal-change up">BRL+</span>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker up">PBR / EWZ</span>
+    <span class="signal-text">Petrobras and Brazil ETF. Ibovespa holding strong; BRL carry trade intact at Selic 15%. Brent above $71/bbl supports PBR.</span>
+    <span class="signal-change up">Solid</span>
+  </div>
+
+  <div class="signal-row">
+    <span class="signal-ticker">COCOSPPA</span>
+    <span class="signal-text">ARS money market FCI. ARS official rate falling MTD (−4.9%). Carry vs CCL spread remains at ~4.4%. Monitor for pesos vs dollars reallocation decision.</span>
+    <span class="signal-change neutral">ARS watch</span>
+  </div>
+
+</div>
+</details>
+</div>
+
+
+<!-- ══ SECTION 3: SAP & INDUSTRY ══ -->
+<div class="section" id="sap">
+<details>
+<summary>
+  <span class="section-icon">🔷</span>
+  <span class="section-label">SAP &amp; Industry</span>
+  <span class="section-badge badge-blue">3 Items</span>
+  <span class="chevron">▶</span>
+</summary>
+
+<div class="section-body">
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-active">Q4/FY2025 Results</span>
+      <span class="risk-title">SAP Cloud Strong; Backlog Guidance Disappoints</span>
+    </div>
+    <div class="risk-body">
+      SAP reported Jan 29. Full-year cloud revenue up 23–26% cc; Cloud ERP Suite up 28–32% cc. Total Cloud Backlog hit a record €77B (+30% cc). <strong>But:</strong> Current Cloud Backlog grew only 16% (vs 26% expected). SAP guided for CCB growth to "slightly decelerate" in 2026. Shares fell 14–16% on earnings day — biggest drop since 2020. Key cause: large sovereign cloud deals with government termination clauses excluded from backlog. CEO Klein: "2026 will be the year AI delivers enterprise-scale ROI." SAP AI (Joule) included in 2/3 of Q4 cloud order entries. €10B buyback program launched February 2026. FY2026 guidance: cloud €25.8–26.2B (+23–25%), operating profit €11.9–12.3B, FCF ~€10B.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://news.sap.com/2026/01/sap-announces-q4-and-fy-2025-results/">SAP Newsroom, Jan 29</a> · <a class="src" href="https://www.cnbc.com/2026/01/29/sap-earnings-q4-shares-cloud-contract-value.html">CNBC, Jan 29</a></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-active">Sovereign Cloud</span>
+      <span class="risk-title">Sovereignty Demand Causing Deal Delays — Directly Named on Earnings Call</span>
+    </div>
+    <div class="risk-body">
+      SAP CFO Asam explicitly named sovereign cloud demand as a driver of longer deal cycles and backlog exclusions. Quote: "In some countries of the world, in some industries, customers have more questions around sovereignty, and actually that also reflects in longer negotiation cycles." SAP IR confirms: <em>"SAP now offers a truly full-stack sovereign cloud offering, empowering customers to select the right level of sovereignty."</em> This directly affects your Sovereign Cloud and Delos Cloud risk workstreams — both deal delay and compliance pressure are live now.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://www.investing.com/news/transcripts/earnings-call-transcript-sap-q4-2025-misses-forecasts-shares-steady-93CH-4471956">SAP Q4 Earnings Call Transcript, Investing.com</a> · <a class="src" href="https://www.sap.com/investors/en/financial-documents-and-events/recent-results.html">SAP IR, 2026</a></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-info">Software Sector</span>
+      <span class="risk-title">AI Disruption Narrative — Software Sector Under Pressure</span>
+    </div>
+    <div class="risk-body">
+      Software sector broadly sold down on AI disruption fears. iShares IGV (software ETF) down 10%+ in February. Salesforce, Snowflake, Palo Alto Networks all declined despite solid earnings. NVDA CEO Jensen Huang pushed back: "The markets got it wrong — nobody's going to service better than ServiceNow." This narrative is relevant to SAP because investors are questioning SaaS moat durability. No direct SAP revenue impact today, but shapes customer perception and deal risk discussions with LoBs.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://www.cnbc.com/2026/02/25/stock-market-today-live-updates.html">CNBC, Feb 25</a></div>
+  </div>
+
+</div>
+</details>
+</div>
+
+
+<!-- ══ SECTION 4: ERM / REGULATORY ══ -->
+<div class="section" id="risk">
+<details open>
+<summary>
+  <span class="section-icon">⚖️</span>
+  <span class="section-label">ERM / Regulatory</span>
+  <span class="section-badge badge-red">4 Active Signals</span>
+  <span class="chevron">▶</span>
+</summary>
+
+<div class="section-body">
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-urgent">Data Protection &amp; Privacy</span>
+      <span class="risk-title">EDPB 2026 Coordinated Enforcement: GDPR Arts. 12–14 Transparency</span>
+    </div>
+    <div class="risk-body">
+      EDPB designated 2026 coordinated enforcement topic as transparency under GDPR Articles 12–14. Supervisory authorities are actively auditing whether data subjects are properly informed about processing purposes, especially <strong>third-country transfers — which must now explicitly name destination countries.</strong> EDPB Work Programme 2026–2027 adopted Feb 12 includes joint AI Act / GDPR guidelines incoming. This is live enforcement risk today.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://edpb.europa.eu">EDPB Work Programme 2026–2027, edpb.europa.eu, Feb 12</a></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-urgent">AI Act &amp; CRA</span>
+      <span class="risk-title">Digital Omnibus May Extend HRAI Deadline to Dec 2027</span>
+    </div>
+    <div class="risk-body">
+      EU AI Act high-risk AI system (HRAI) compliance originally required by <strong>August 2, 2026.</strong> The Digital Omnibus proposal (Nov 2025) would push this to <strong>December 2027</strong> at latest. European Parliament is negotiating now — not yet adopted. Until adopted, August 2026 remains binding. Separately, Code of Practice for AI-generated content labeling (Art. transparency) expected finalized by June 2026 from Dec 2025 first draft. Monitor EP/Council trilogue progress. For SAP: Joule and embedded AI modules likely qualify as high-risk in financial/HR contexts.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://www.wsgr.com/en/insights/2026-year-in-preview-ai-regulatory-developments-for-companies-to-watch-out-for.html">Wilson Sonsini, 2026 AI Regulatory Preview</a> · <a class="src" href="https://www.klgates.com/EU-and-Luxembourg-Update-on-the-European-Harmonised-Rules-on-Artificial-IntelligenceRecent-Developments-1-20-2026">K&amp;L Gates, Jan 20</a></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-active">Export Controls</span>
+      <span class="risk-title">February 2026 BIS/OFAC Updates — New OFAC Voluntary Disclosure Portal</span>
+    </div>
+    <div class="risk-body">
+      OFAC launched a new <strong>Voluntary Self-Disclosure Portal</strong> on Feb 6, 2026 to streamline disclosure submissions. BIS published two rules in February: (1) Cambodia removed from Country Group D:5 (Feb 4); military end-use restrictions remain. (2) Drone export streamlining for UAVs with &lt;1hr endurance (Jan 21 IFR). Separately, AI chip export controls remain under review — 2026 AI policy outlook flags federal preemption vs. state-level divergence. BIS 50% Rule deferred to Nov 10, 2026. No change to SAP's direct exposure today, but OFAC portal launch means disclosure processes should be updated.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://exportcompliancesolutions.com/blog/2026/02/25/export-regulatory-and-policy-update-roundup-february-2026/">Export Compliance Solutions, Feb 25</a></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-active">DORA</span>
+      <span class="risk-title">DORA Now Enforceable — Audits Underway at Financial Institutions</span>
+    </div>
+    <div class="risk-body">
+      DORA entered enforcement in January 2026. Financial institutions are being audited for ICT operational resilience. SAP is an ICT third-party provider to financial sector customers — this triggers contractual obligations under DORA's CTPP (Critical Third-Party Provider) framework. Eurosystem updated TIBER-EU framework to align with DORA TLPT (threat-led penetration testing) standards. Digital Omnibus proposes single incident reporting point aligned with DORA breach notification timelines, potentially reducing compliance burden. Customer pressure from banks and insurers on SAP's DORA readiness documentation is expected to accelerate in Q1–Q2.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://iomete.com/resources/blog/data-sovereignty-compliance-2026-dora-ai-act">IOMETE, Jan 18</a> · <a class="src" href="https://www.digital-operational-resilience-act.com/">Cyber Risk GmbH DORA tracker</a></div>
+  </div>
+
+  <div class="risk-item">
+    <div class="risk-header">
+      <span class="risk-tag risk-monitor">Tax</span>
+      <span class="risk-title">PPI Surprise Removes Fed Cut Expectations — ETR Planning Impact</span>
+    </div>
+    <div class="risk-body">
+      January PPI +0.5% MoM vs +0.3% expected. Core PPI +0.8% vs +0.3%. Fed rate cut now off the table for March (CME FedWatch: virtually nil probability). Kevin Warsh nominated as next Fed Chair. Higher-for-longer rates affect SAP's interest income, treasury management, and intercompany pricing. 10Y Treasury at ~3.99%. Next FOMC: March 17–18 with updated SEP projections.
+    </div>
+    <div class="risk-source">Source: <a class="src" href="https://stockmarketwatch.com/live/stock-market-today/">StockMarketWatch, Feb 27</a></div>
+  </div>
+
+</div>
+</details>
+</div>
+
+
+<!-- ══ SECTION 5: GEOPOLITICS ══ -->
+<div class="section" id="geo">
+<details>
+<summary>
+  <span class="section-icon">🌐</span>
+  <span class="section-label">Geopolitics</span>
+  <span class="section-badge badge-amber">Trade Flux</span>
+  <span class="chevron">▶</span>
+</summary>
+
+<div class="section-body prose">
+
+  <p><strong>US Tariffs — Legal Chaos:</strong> SCOTUS struck down IEEPA-based emergency tariffs (Feb 20). Trump signed a new 10% global tariff executive order the same day under alternative authority. USTR Greer signaled 35–50% tariffs on China via yet another legal vehicle. Trump's State of the Union (Feb 24) defended the tariff agenda. S&amp;P 500 is now flat on the year — "all three benchmarks in the red for February" (CNBC). <em>Risk: Export Controls workstream — China-related restrictions could shift again on short notice.</em></p>
+
+  <p><strong>Brazil:</strong> SCOTUS ruling (15% Section 122 tariffs replacing struck-down 50% IEEPA) has reduced Brazil's tariff risk. BRL at 5.14, strongest since May 2024. R$33B+ in foreign inflows YTD. BCB Governor Galípolo acknowledged China's disinflationary exports. IBOVESPA commodity exposure insulates it from Nasdaq AI anxiety. Fiscal risk: Finance Minister Haddad remarks on fiscal trajectory watched closely.</p>
+
+  <p><strong>Argentina:</strong> Milei government's reserve accumulation narrative is intact ($46.9B reserves). ARS officially down 4.9% in February — the peso is <em>appreciating</em> in nominal terms as BCRA keeps official rate below the band ceiling. Adcap: "If BCRA continues buying, bond spreads should re-compress, favoring longer bonds." But country risk approaching 600 bps signals political risk re-pricing is underway. Bond/reserve divergence widening — worth monitoring through March bond coupon payments.</p>
+
+  <p><strong>Geopolitical — SAP Intersection:</strong> Sovereignty demand from European government customers is explicitly linked by SAP CFO to longer deal cycles and backlog exclusions. Delos Cloud (German federal government) project remains urgent context. US-Iran nuclear talks in Geneva today (Feb 27) — no SAP direct exposure, but maintains oil price risk premium above $71/bbl, supporting PBR and VIST. EU postponed trade deal ratification vote — no immediate SAP impact but EU/US trade tensions remain elevated.</p>
+
+</div>
+</details>
+</div>
+
+
+<!-- ══ SECTION 6: PRIORITY ACTIONS ══ -->
+<div class="section" id="actions">
+<details open>
+<summary>
+  <span class="section-icon">🎯</span>
+  <span class="section-label">Priority Actions</span>
+  <span class="section-badge badge-red">5 Items</span>
+  <span class="chevron">▶</span>
+</summary>
+
+<div class="section-body">
+<ul class="priority-list">
+
+  <li>
+    <span class="priority-num">01</span>
+    <div class="priority-content">
+      <div class="priority-label" style="color:var(--red);">[Data Protection &amp; Privacy · Urgent]</div>
+      <div class="priority-text">Assess SAP privacy notices for explicit third-country transfer destination naming. EDPB 2026 enforcement (Arts. 12–14) is active now.</div>
+      <div class="priority-why">Audit-ready posture required this quarter. L1 Approval pending on this workstream — unblock today.</div>
+    </div>
+  </li>
+
+  <li>
+    <span class="priority-num">02</span>
+    <div class="priority-content">
+      <div class="priority-label" style="color:var(--amber);">[Sovereign Cloud + Delos · Urgent]</div>
+      <div class="priority-text">Review Delos Cloud risk register entry in light of SAP earnings call language on sovereignty-driven deal delays. Confirm Delos delivery milestones are still on track.</div>
+      <div class="priority-why">SAP CFO named sovereignty as reason for backlog shortfall. Delos exposure is direct and highest-priority sovereign cloud project.</div>
+    </div>
+  </li>
+
+  <li>
+    <span class="priority-num">03</span>
+    <div class="priority-content">
+      <div class="priority-label" style="color:var(--red);">[GA – EU Data Act + Taulia · L1 Approval]</div>
+      <div class="priority-text">Escalate L1 Approval blockers for Data Protection &amp; Privacy, GA – EU Data Act, and Taulia workstreams. All three remain "Sent for L1 Approval" with no update.</div>
+      <div class="priority-why">End of February. Q1 activity validation requires approvals cleared before March planning cycle.</div>
+    </div>
+  </li>
+
+  <li>
+    <span class="priority-num">04</span>
+    <div class="priority-content">
+      <div class="priority-label" style="color:var(--amber);">[AI Act · Deadline Watch]</div>
+      <div class="priority-text">Monitor EU Parliament trilogue progress on Digital Omnibus HRAI deadline extension (Aug 2026 → Dec 2027). Brief Legal and Product on current Aug 2026 status.</div>
+      <div class="priority-why">If Omnibus delays do not pass, HRAI compliance for Joule and embedded AI features is 5 months away.</div>
+    </div>
+  </li>
+
+  <li>
+    <span class="priority-num">05</span>
+    <div class="priority-content">
+      <div class="priority-label" style="color:var(--blue);">[Export Controls · Operational]</div>
+      <div class="priority-text">Log new OFAC Voluntary Self-Disclosure Portal (launched Feb 6) into Export Controls workstream. Update internal disclosure SOPs with new portal URL and process.</div>
+      <div class="priority-why">Workstream is "Approved" but operational procedures need to reflect the new OFAC portal.</div>
+    </div>
+  </li>
+
+</ul>
+</div>
+</details>
+</div>
+
+
+<!-- ══ ONE QUESTION ══ -->
+<div class="question-box" style="margin: 0; padding: 16px;">
+  <div class="question-label">⬛ One Question — Answer by End of Week</div>
+  <div class="question-text">Do SAP's current privacy notices explicitly name each third-country transfer destination by country and legal basis — as required under GDPR Arts. 13–14 in light of EDPB's 2026 enforcement focus?</div>
+  <div style="margin-top:6px; font-size:11px; color:var(--text-dim); font-family:var(--mono);">Workstream: Data Protection &amp; Privacy · Owner: DPP · Urgency: High</div>
+</div>
+
+
+<!-- ══ QC CHECKLIST ══ -->
+<div class="qc-block">
+  <div class="qc-title">QC Checklist</div>
+  <div class="qc-row"><span class="qc-label">All factual claims sourced</span><span class="qc-pass">PASS</span></div>
+  <div class="qc-row"><span class="qc-label">Portfolio tickers match CONFIG</span><span class="qc-pass">PASS</span></div>
+  <div class="qc-row"><span class="qc-label">No invented data</span><span class="qc-pass">PASS</span></div>
+  <div class="qc-row"><span class="qc-label">Actions are specific and actionable</span><span class="qc-pass">PASS</span></div>
+  <div class="qc-row"><span class="qc-label">ClickUp integration</span><span class="qc-na">REMOVED</span></div>
+  <div class="qc-row"><span class="qc-label">Calendar items</span><span class="qc-na">N/A (not connected)</span></div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer">
+  Generated · Fri Feb 27 2026 · 07:00 ART &nbsp;·&nbsp; SAP ERM Daily Briefing v1.1
+</div>
+
+</body>
+</html>

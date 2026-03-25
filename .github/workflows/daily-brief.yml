@@ -1,0 +1,38 @@
+name: Morning Brief
+
+on:
+  schedule:
+    # 7:00 AM ART = 10:00 UTC (ART is UTC-3, no DST)
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:   # manual trigger from GitHub UI any time
+
+permissions:
+  contents: write      # needed to push the brief back to the repo
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate brief
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
+          GITHUB_TOKEN:       ${{ secrets.GITHUB_TOKEN }}
+        run: python generate_brief.py

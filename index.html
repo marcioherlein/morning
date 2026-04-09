@@ -9,14 +9,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f172a;-webkit-font-smoothing:antialiased}
 .wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
-.hdr{background:linear-gradient(135deg,#065f46,#0f766e);padding:24px 28px;border-radius:0 0 20px 20px;margin-bottom:22px;color:#fff}
+.hdr{background:linear-gradient(135deg,#065f46,#1c3a5e);padding:24px 28px;border-radius:0 0 20px 20px;margin-bottom:22px;color:#fff}
 .hdr-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px}
 .hdr-title{font-size:28px;font-weight:700;letter-spacing:-.03em}
 .hdr-date{font-size:13px;opacity:.75;margin-top:3px}
 .badge{font-size:11px;font-weight:700;padding:5px 12px;border-radius:9999px;letter-spacing:.03em}
-.badge-cease{background:#22c55e;color:#052e16}
-.badge-byma{background:#fbbf24;color:#1c1917}
-.badge-dal{background:#3b82f6;color:#fff}
+.badge-a{background:#22c55e;color:#052e16}.badge-b{background:#f59e0b;color:#1c1917}.badge-c{background:#3b82f6;color:#fff}
 .hdr-sub{margin-top:16px;font-size:14px;line-height:1.7;opacity:.9}
 .sec-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin:28px 0 12px;padding-bottom:8px;border-bottom:2px solid #f3f4f6}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
@@ -40,13 +38,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f17
 .a-amber{background:#fffbeb;border:1px solid #fde68a;color:#374151}
 .a-green{background:#f0fdf4;border:1px solid #bbf7d0;color:#374151}
 .a-blue{background:#eff6ff;border:1px solid #bfdbfe;color:#374151}
-.alert strong{color:#111827}
-.alert a{color:#2563eb;text-decoration:none;font-weight:500;font-size:12px}
+.alert strong{color:#111827}.alert a{color:#2563eb;text-decoration:none;font-weight:500;font-size:12px}
 .geo{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:14px}
-.geo-head{padding:13px 18px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.geo-head{padding:13px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .geo-head.green{background:linear-gradient(135deg,#065f46,#0f766e)}.geo-head.green .geo-name{color:#d1fae5}
 .geo-head.blue{background:linear-gradient(135deg,#1c3a5e,#1e1b4b)}.geo-head.blue .geo-name{color:#bfdbfe}
 .geo-head.warn{background:linear-gradient(135deg,#78350f,#92400e)}.geo-head.warn .geo-name{color:#fef3c7}
+.geo-head.plain{background:#fafafa;border-bottom:1px solid #f3f4f6}
 .geo-name{font-size:13.5px;font-weight:700;color:#111827}
 .geo-body{padding:14px 18px;font-size:13px;color:#4b5563;line-height:1.75}
 .geo-body strong{color:#111827;font-weight:600}.geo-body a{color:#2563eb;text-decoration:none;font-weight:500}
@@ -58,6 +56,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f17
 .p-red{background:#fef2f2;color:#dc2626}.p-amber{background:#fffbeb;color:#d97706}
 .p-green{background:#f0fdf4;color:#16a34a}.p-blue{background:#eff6ff;color:#1d4ed8}
 .p-teal{background:#f0fdf4;color:#0f766e;border:1px solid #99f6e4}
+.p-war{background:#1e1b4b;color:#e0e7ff;border:1px solid #4338ca}
 .qs{background:#fff;border-radius:14px;padding:22px;border:1px solid rgba(0,0,0,.07);margin-bottom:14px}
 .qs-title{font-size:14px;font-weight:700;color:#111827;margin-bottom:14px}
 .metric{display:flex;justify-content:space-between;align-items:center;background:#f8fafc;border-radius:9px;padding:10px 14px;margin-bottom:7px;border:1px solid #f3f4f6}
@@ -74,8 +73,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f17
 .reg{background:#fff;border-radius:14px;border:1px solid rgba(0,0,0,.07);overflow:hidden;margin-bottom:12px}
 .reg-head{padding:12px 18px;background:#fafafa;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .reg-title{font-size:13px;font-weight:600;color:#111827;flex:1}
-.reg-body{padding:13px 18px;font-size:13px;color:#4b5563;line-height:1.7}
-.reg-body strong{color:#111827}
+.reg-body{padding:13px 18px;font-size:13px;color:#4b5563;line-height:1.7}.reg-body strong{color:#111827}
 .reg-foot{padding:9px 18px;border-top:1px solid #f3f4f6}
 .dl{font-size:11px;font-weight:600;padding:3px 9px;border-radius:9999px}
 .dl-r{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
@@ -90,7 +88,6 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f17
 .act-list li{display:flex;gap:10px;padding:7px 0;font-size:13px;color:#374151;line-height:1.65;border-bottom:1px solid #f9fafb}
 .act-list li:last-child{border-bottom:none}.act-list li strong{color:#111827}
 .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:7px;background:#059669}
-/* STOCK SIGNALS */
 .sig-wrap{overflow-x:auto}
 .sig-table{width:100%;border-collapse:collapse;font-size:12.5px}
 .sig-table thead th{background:#f8fafc;padding:9px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9ca3af;border-bottom:2px solid #e5e7eb;white-space:nowrap}
@@ -108,7 +105,7 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#f8fafc;color:#0f17
 .r-add{background:#dcfce7;color:#15803d}.r-hold{background:#e0e7ff;color:#3730a3}
 .r-trim{background:#fef2f2;color:#dc2626}.r-wait{background:#fffbeb;color:#92400e}.r-watch{background:#f3f4f6;color:#374151}
 .sig-note{font-size:11px;color:#6b7280;line-height:1.5}
-.new-badge{background:#fef9c3;border-radius:4px;padding:1px 5px;font-size:10px;font-weight:700;color:#854d0e;margin-right:4px}
+.nb{background:#fef9c3;border-radius:4px;padding:1px 5px;font-size:10px;font-weight:700;color:#854d0e;margin-right:4px}
 .sig-narrative{background:#f8fafc;border-radius:12px;padding:16px 18px;border:1px solid #e5e7eb;margin-top:14px}
 .sig-narrative p{font-size:13px;color:#374151;line-height:1.75;margin-bottom:10px}
 .sig-narrative p:last-child{margin-bottom:0}.sig-narrative strong{color:#111827}
@@ -124,154 +121,152 @@ footer a{color:#6b7280;text-decoration:none}
   <div class="hdr-top">
     <div>
       <div class="hdr-title">☀️ Morning Brief</div>
-      <div class="hdr-date">Thursday, April 9, 2026 · Buenos Aires ART · Ceasefire Day 1 · Islamabad Talks Tomorrow</div>
+      <div class="hdr-date">Thursday, April 9, 2026 · Buenos Aires ART · Ceasefire Day 1 (Contested) · Islamabad Saturday</div>
     </div>
     <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
-      <span class="badge badge-cease">🕊️ CEASEFIRE DAY 1 — BYMA OPENS TODAY</span>
-      <span class="badge badge-byma">🇦🇷 BYMA 11AM — FIRST REACTION</span>
-      <span class="badge badge-dal">✈️ DAL Q1 REPORTING NOW</span>
+      <span class="badge badge-a">🇦🇷 MERVAL +1.30% → 3,011,186</span>
+      <span class="badge badge-b">⚠️ CEASEFIRE CONTESTED · OIL REBOUND $97</span>
+      <span class="badge badge-c">✈️ DAL +12% · EPS $0.64 BEAT</span>
     </div>
   </div>
   <div class="hdr-sub">
-    <strong>Buenos Aires prices in the ceasefire for the first time today.</strong> BYMA closed Tuesday at 2,972,629 (−1.12%) before the ceasefire was announced. Today's 11 AM open is the first chance for Argentine markets to react to: Brent −14% to ~$94, S&P futures +2.5%, gold +2.2% to $4,803, and 10Y yields −9bps. <strong>Expected Merval open: +3–5%. Country risk compression toward 550–560 bps.</strong> Delta Air Lines reports Q1 at 6:30 AM ET — this is the first major airline earnings in the oil-crisis era and will set tone for travel/consumer recovery. Islamabad talks begin tomorrow.
+    <strong>Wednesday confirmed the rotation thesis — banks surged, energy fell — but overnight complications added friction.</strong> S&P +2.51% to 6,782. Dow +1,325 pts (+2.8%). Nasdaq +2.8%. Brent settled −13.3% to $94.75 — biggest oil drop since 2020. <strong>Merval +1.30% to 3,011,186: Banco Macro +7.6%, GGAL +5%, YPF −4.9%, TGS −5.3%.</strong> Delta beat: EPS $0.64 (+44%), revenue $14.2B (+9.4%). But overnight: Iran's Parliament Speaker claimed 3 ceasefire violations, Hormuz "halted" again, oil rebounded to ~$97. Vance, Witkoff, and Kushner confirmed for Islamabad talks starting Saturday. Ceasefire is stressed, not broken.
   </div>
 </div>
 
-<div class="sec-label">⚡ Overview — Thursday April 9 · Ceasefire Day 1</div>
-
-<div class="alert a-green">
-  <span>🕊️</span>
-  <div><strong>The Islamabad Accords — effective immediately, talks Friday.</strong> <a href="https://www.npr.org/2026/04/07/nx-s1-5776377/iran-war-updates">Two-week ceasefire. Iran allows Hormuz passage under its military coordination. US/Israel suspend all bombing.</a> <a href="https://www.aljazeera.com/news/2026/4/8/iran-says-talks-with-us-will-begin-in-pakistans-islamabad-on-friday">Islamabad talks begin April 10 — Friday.</a> Both sides declared victory. Iran's SNSC: "our hands remain on the trigger." Netanyahu: ceasefire doesn't include Lebanon. The fragility is real — but for the next 14 days, the shooting has stopped.</div>
-</div>
+<div class="sec-label">⚡ Overview — Thursday April 9</div>
 
 <div class="alert a-amber">
   <span>⚠️</span>
-  <div><strong>Gold +2.2% tells the truth markets won't say out loud.</strong> <a href="https://www.cnbc.com/2026/04/08/us-iran-ceasefire-gold-oil-stocks-treasuries.html">Spot gold rose to $4,803 even as oil crashed 14% and stocks rallied.</a> This is the market saying: we're buying the ceasefire relief, but we're keeping our hedge. Treasuries also rallied (10Y −9bps) despite "risk-on." The ceasefire is structural de-escalation, not permanent peace. The Islamabad talks will either confirm or destroy the current market pricing in the next 14 days.</div>
+  <div><strong>The ceasefire was contested within 12 hours — but the structure is holding.</strong> <a href="https://www.cbsnews.com/live-updates/iran-ceasefire-strait-hormuz-israel-war-hezbollah-continues/">Iran's Parliament Speaker Ghalibaf said 3 clauses were violated: Israeli Lebanon strikes, a drone in Iranian airspace, and denial of uranium enrichment rights.</a> <a href="https://stocktwits.com/news-articles/markets/equity/dow-sp-nasdaq-futures-dip-us-iran-ceasefire-doubts-apld-brk-pltr-cost/cZJg8ZfRIAy">Overnight: S&P futures −0.1%, oil rebounded to ~$97 WTI (+2.7%).</a> Iran confirmed it remains willing to negotiate. White House disputed the Hormuz closure claims. <strong>This is political positioning ahead of Islamabad, not a genuine collapse.</strong></div>
+</div>
+
+<div class="alert a-green">
+  <span>🕊️</span>
+  <div><strong>Vance leads Islamabad Saturday — this is the signal that Trump is serious.</strong> <a href="https://www.cbsnews.com/live-updates/iran-ceasefire-strait-hormuz-israel-war-hezbollah-continues/">VP Vance will lead US talks with Special Envoy Steve Witkoff and Jared Kushner. First round starts Saturday morning Islamabad local time.</a> Sending the VP personally is not a throwaway gesture. The US is negotiating seriously. Iran confirmed participation despite claiming violations. <a href="https://time.com/article/2026/04/08/iran-us-ceasefire-proposal-talks/">Iran expert Trita Parsi: "Trump will likely accept Iranian control over Hormuz with tolls, as long as the strait stays open."</a></div>
 </div>
 
 <div class="alert a-blue">
   <span>✈️</span>
-  <div><strong>Delta Air Lines Q1 reports at 6:30 AM ET — the most important airline earnings in years.</strong> <a href="https://news.alphastreet.com/earnings-preview-what-to-expect-when-delta-air-lines-reports-q1-fy26-results/">Consensus: $0.62 EPS (vs $0.46 last year) and $14.8B revenue (+5.3% YoY). DAL guidance range: $0.50–$0.90 EPS.</a> <a href="https://www.tikr.com/blog/delta-air-lines-has-fallen-23-from-its-peak-heres-why-analysts-still-see-a-path-to-80">Key number to watch: Q2 revenue guidance. If above +5% YoY growth, the premium/AmEx thesis holds and DAL flies to $80.</a> The ceasefire drops jet fuel 15% as DAL reports — best possible combination for the stock.</div>
+  <div><strong>Delta beat: EPS $0.64 (+44%), record revenue $14.2B (+9.4%). +12% pre-market.</strong> <a href="https://www.cnbc.com/2026/04/08/delta-air-lines-q1-2026-earnings.html">Q2 guidance: EPS $1.00–$1.50 (vs $1.41 consensus), revenue +low-teens.</a> <a href="https://aviationsourcenews.com/delta-air-lines-announces-strong-q1-2026-results-despite-fuel-headwinds/">Premium revenue +14%, corporate sales record, AmEx remuneration +10%, net debt lowest since 2019.</a> Fuel Q2 assumption was set at April 2 forward curves ($4.30/gallon). If ceasefire holds and oil falls below $90, DAL hits $1.50 upper guidance. Add on the post-earnings consolidation today.</div>
 </div>
 
 <div class="g2">
   <div class="card">
-    <div class="card-title">🔑 Key Numbers This Morning</div>
+    <div class="card-title">📊 Wednesday Close / Thursday Setup</div>
     <div class="card-body">
-      S&P futures: <strong class="up">+2.5% → ~6,980</strong> · Nasdaq futures: <strong class="up">+3.2%</strong><br>
-      Brent: <strong class="dn">~$94 (−14% from yesterday)</strong> · Gold: <strong class="up">$4,803 (+2.2%)</strong><br>
-      10Y yield: <strong class="dn">4.25% (−9bps)</strong> · VIX: <strong class="dn">~22 (from 31 peak)</strong><br>
-      Nikkei: <strong class="up">+5.1%</strong> · Hang Seng: <strong class="up">+2.4%</strong> · SK Hynix: <strong class="up">+12%</strong><br>
-      Merval (Tue close): <strong>2,972,629 — ceasefire NOT priced yet</strong><br>
-      Merval today open (est): <strong class="up">+3–5% → ~3,050,000–3,120,000</strong>
+      <strong>US close:</strong> S&P 6,782 (+2.51%) · Dow 47,909 (+2.8%) · Nasdaq 22,635 (+2.8%)<br>
+      <strong>WTI settled:</strong> $94.41 (−16.4%) · <strong>Brent:</strong> $94.75 (−13.3%)<br>
+      <strong>Overnight rebound:</strong> WTI ~$97 (+2.7%) on Iran/Lebanon posturing<br>
+      <strong>S&P futures:</strong> −0.1% · <strong>10Y yield:</strong> 4.29% · <strong>VIX:</strong> ~20<br>
+      <strong>Merval Wed:</strong> 3,011,186 (+1.30%) · Banks +5–7.6% · Energy −5%<br>
+      <strong>DAL:</strong> +12% pre-market on Q1 beat
     </div>
   </div>
   <div class="card">
-    <div class="card-title">📋 Three Things That Matter Today</div>
+    <div class="card-title">🇦🇷 Argentina — The Rotation Confirmed</div>
     <div class="card-body">
-      <strong>1. BYMA 11 AM open:</strong> First AR market reaction to ceasefire. Watch VIST/YPFD (sell energy), GGAL/BMA (buy banks on CR compression), bonds (global 2038/2041 target: +2–3%).<br><br>
-      <strong>2. DAL Q1 at 6:30 AM ET:</strong> Q2 guidance is the number that matters. Above +5% YoY = confirmation that premium travel is absorbing the oil shock. Buy DAL pre-earnings or on dip post-print.<br><br>
-      <strong>3. Iran fragility watch:</strong> <a href="https://www.pbs.org/newshour/world/irans-supreme-national-security-council-says-it-has-accepted-two-week-ceasefire-in-the-war">Iran's SNSC stated explicitly "this does not signify the termination of the war."</a> Netanyahu's Lebanon exclusion is the active tripwire.
+      <a href="https://buenosairesherald.com/economics/markets/country-risk-falls-stocks-and-bonds-soar-due-to-middle-east-truce">Wednesday: Banco Macro +7.6%, Supervielle +7.5%, BBVA +7.3%, GGAL +5% (ADRs). Energy: YPF −4.9%, TGS −5.3%, Pampa −3.3%. Country risk fell — bonds AND stocks both rallied for first time since the war began.</a><br><br>
+      This is the ceasefire playbook executing exactly as modeled. The equity-bond divergence that defined the war has closed. <strong>GGAL is the add of the week.</strong>
     </div>
   </div>
 </div>
 
 <div class="card">
-  <div class="card-title">📋 Action Items — Thursday Open</div>
+  <div class="card-title">📋 Action Items — Thursday</div>
   <ul class="act-list">
-    <li><div class="dot"></div><span><strong>BYMA open 11 AM — execute the ceasefire rotation.</strong> Trim VIST/YPFD 50–70% at market open on the energy pop. Brent at $94 with Goldman's Q4 target at $67. The war premium unwinds over weeks, not months. Don't wait for a "better price" — the open is the best price.</span></li>
-    <li><div class="dot"></div><span><strong>Add NVDA, TSM, QQQ on the first 30-minute intraday pullback from the open gap.</strong> <a href="https://stockanalysis.com/stocks/nvda/">NVDA target $265 (+49% upside). 38 analysts: Strong Buy. FY26 revenue $215.9B (+65%).</a> The ceasefire removes the only structural headwind that wasn't fundamental. Add staged: 50% today, 25% post-Islamabad result, 25% May 20 NVDA earnings.</span></li>
-    <li><div class="dot"></div><span><strong>Watch country risk print — GGAL add trigger is &lt;580 bps.</strong> Pre-ceasefire was ~603. Ceasefire + April agro soybean season + BCRA reserve accumulation = target 540–560 by end of next week. If CR breaks 580 today on the BYMA open, add GGAL. Analyst target $66–72 vs ~$45 current = 47–60% upside.</span></li>
-    <li><div class="dot"></div><span><strong>DAL Q1 — buy before print or wait 30 min after.</strong> <a href="https://www.tikr.com/blog/delta-air-lines-has-fallen-23-from-its-peak-heres-why-analysts-still-see-a-path-to-80">AmEx co-brand $9B 2026 target is war-insensitive. DAL fell only 5.7% during the war vs peers −18–25%.</a> The stock is at 10.4× P/E — cheap for a best-in-class franchise. The ceasefire drops its single largest cost (jet fuel) by 15% the same morning it reports. If it guides Q2 above +5%, add aggressively.</span></li>
-    <li><div class="dot"></div><span><strong>SAP Gulf pipeline — send proposals this week.</strong> Gulf clients (Aramco, QatarEnergy, ADNOC) restart procurement within 48 hours of a ceasefire. The window to be first mover is narrow. Every competitor is thinking the same thing.</span></li>
+    <li><div class="dot"></div><span><strong>Complete the energy trim if not done Wednesday.</strong> Oil rebounded to $97 overnight — that's your window. <a href="https://www.investingdaily.com/143964/3-stocks-to-set-to-rally-as-a-result-of-the-ceasefire/">Goldman Q4 WTI target remains $67.</a> Iran's Hormuz threat is political, not operational. Trim VIST/YPFD at BYMA 11 AM. Keep 25% stub for the 15% collapse scenario. This oil rebound is a gift, not a reason to hold.</span></li>
+    <li><div class="dot"></div><span><strong>GGAL — add now if country risk is below 580 bps.</strong> GGAL ADR was +5% Wednesday before any BYMA session. Country risk compressed. April agro harvest is underway. BCRA eased encajes. Three independent tailwinds converging. Target $66–72 vs ~$47 current = 40–53% upside. This is the trade of Q2 in Argentina.</span></li>
+    <li><div class="dot"></div><span><strong>NVDA and tech — buy the overnight ceasefire-doubt dip.</strong> S&P futures slightly negative on Iran noise. That's not a fundamental change — it's Ghalibaf posturing before Islamabad. <a href="https://stockanalysis.com/stocks/nvda/">$265 consensus target. FY26 revenue $215.9B (+65%). Rubin GPU H2 2026.</a> Add 50% today, hold 50% for post-Islamabad outcome.</span></li>
+    <li><div class="dot"></div><span><strong>DAL — buy the post-earnings consolidation.</strong> Stock will gap up and then consolidate during the day. <a href="https://qz.com/delta-air-lines-q1-2026-earnings-fuel-costs-040826">Q2 guidance: revenue +low-teens, EPS $1.00–$1.50 — above consensus on revenue.</a> Fuel assumptions set at pre-ceasefire oil prices. Any oil decline below $90 makes this guidance conservative. Add on the first intraday pullback from the open gap.</span></li>
+    <li><div class="dot"></div><span><strong>Position before the Islamabad weekend.</strong> Vance personally leading means Trump has skin in the game. Don't be caught in a defensive posture if Islamabad produces even a basic ceasefire extension framework Saturday. The Monday open following a positive Islamabad outcome will be +2% minimum.</span></li>
   </ul>
 </div>
 
-<div class="sec-label">🕊️ Geopolitics — Ceasefire Day 1</div>
+<div class="sec-label">⚔️ Geopolitics — Ceasefire Day 1 Status</div>
 
 <div class="geo">
-  <div class="geo-head green">
-    <div class="geo-name">🕊️ Islamabad Accords — Day 1 Status Check</div>
-    <span class="pill p-teal">HOLDING · Talks Tomorrow</span>
+  <div class="geo-head warn">
+    <div class="geo-name">⚠️ Lebanon Tripwire — Ceasefire Contested, Not Broken</div>
+    <span class="pill p-amber">STRESSED · VANCE HEADING TO ISLAMABAD</span>
   </div>
-  <div class="geo-green-body">
-    <strong>What was agreed Tuesday night (6:32 PM ET, 1h28m before the deadline):</strong> Two-week ceasefire effective immediately. Iran opens Hormuz passage under its Armed Forces coordination. US/Israel suspend all bombing. Talks in Islamabad April 10.<br><br>
-    <strong>Current status:</strong> <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-trump-hormuz-deadline-energy-crisis-gulf-power-rcna267039">US military ordered all offensive operations in Iran to cease. Iran's Armed Forces ceased "defensive operations."</a> <a href="https://www.bloomberg.com/news/articles/2026-04-08/shipowners-eye-hormuz-ceasefire-window-for-800-trapped-vessels">800+ tankers trapped in the Gulf are now beginning coordination with Iranian Armed Forces to exit.</a> Physical Hormuz normalization timeline: 2–4 weeks.<br><br>
-    <strong>World reaction:</strong> <a href="https://www.aljazeera.com/news/2026/4/8/world-welcomes-us-iran-ceasefire-urges-lasting-peace-in-the-middle-east">China, Russia, EU, France, India, Australia all welcomed the ceasefire.</a> Even Russia's Zakharova called it evidence that "common sense has prevailed" — while warning "there'll be no cheap oil going forward." UN Secretary-General Guterres called on all parties to uphold the terms.
+  <div class="geo-body">
+    <a href="https://www.nbcnews.com/world/iran/live-blog/live-updates-iran-war-ceasefire-trump-hormuz-israel-lebanon-rcna267205">Israel launched its largest coordinated strikes on Lebanon since the war began — within hours of the ceasefire announcement. 182 killed in Lebanon. UN chief condemned the strikes as "carnage that defies belief."</a><br><br>
+    <a href="https://www.cbsnews.com/live-updates/iran-ceasefire-strait-hormuz-israel-war-hezbollah-continues/">Iran's IRGC claimed Hormuz stopped. Iranian Parliament Speaker Ghalibaf: 3 ceasefire clauses violated. Iran: "if the Israeli regime does not commit to a ceasefire in Lebanon, the war will resume within a few hours."</a><br><br>
+    <strong>But the structure is holding:</strong> Iran confirmed participation in Islamabad despite the violations claim. White House disputed the Hormuz closure and said it continues as long as Hormuz stays open. Defense Secretary Hegseth: "The strait is open." <a href="https://www.cnbc.com/2026/04/08/trump-iran-ceasefire-strait-of-hormuz-toll.html">Two bulk carriers passed the strait Wednesday. Traffic remains a trickle, but the principle of passage is established.</a>
   </div>
 </div>
 
 <div class="geo">
   <div class="geo-head blue">
-    <div class="geo-name">📍 Islamabad Talks — Friday April 10 · The Next 14 Days</div>
-    <span class="pill p-teal">TOMORROW</span>
+    <div class="geo-name">📍 Islamabad Saturday — VP Vance Leads · Lebanon Is the Make-or-Break Issue</div>
+    <span class="pill p-teal">VANCE + WITKOFF + KUSHNER</span>
   </div>
   <div class="geo-dark-body">
-    <strong>What Islamabad must resolve:</strong> Iran's 10-point plan includes Hormuz sovereignty, US troop withdrawal, full sanctions relief, war reparations, nuclear enrichment rights, and a binding UN Security Council resolution. Points 4, 5, 6, and 7 are near-certain non-starters for Washington. <a href="https://www.middleeasteye.net/news/full-text-iran-national-security-council-statement-ceasefire">Iran's SNSC said: "within 15 days, Iran's victory on the field shall be consolidated in political negotiations."</a><br><br>
-    <strong>The honest expectation:</strong> Islamabad will produce a communiqué confirming the ceasefire extension and scheduling a next round of talks. A permanent deal on nuclear enrichment, Hormuz governance, and sanctions relief cannot happen in two weeks. The question is whether the two sides can agree on a framework for what comes next — and whether Netanyahu's Lebanon operation derails it.<br><br>
-    <strong>Critical spoiler:</strong> <a href="https://www.npr.org/2026/04/07/nx-s1-5776377/iran-war-updates">Netanyahu's office said "the ceasefire doesn't include Lebanon, despite Pakistan's PM saying otherwise."</a> Hezbollah said it halted attacks. If Israel strikes Lebanon before Islamabad, Iran may cite it as a violation and resume Hormuz interdiction.
+    <a href="https://www.cbsnews.com/live-updates/iran-ceasefire-strait-hormuz-israel-war-hezbollah-continues/">Leavitt confirmed: Vice President Vance will lead US talks in Islamabad with Steve Witkoff (Special Envoy) and Jared Kushner. First round Saturday morning local time.</a><br><br>
+    <strong>What Islamabad must resolve to keep the ceasefire intact:</strong> A Lebanon framework — some agreed language on what Israeli operations are and aren't permitted under the ceasefire. Without it, Iran will continue citing violations to justify Hormuz restrictions.<br><br>
+    <strong>Nuclear enrichment is the harder issue</strong> — Trump said "there will be no enrichment" at his press conference; Iran's 10-point plan explicitly includes enrichment rights. This won't resolve in Islamabad. But a Lebanon de-escalation protocol + ceasefire extension + commitment to further talks is achievable and would be enough for markets.<br><br>
+    <a href="https://time.com/article/2026/04/08/iran-us-ceasefire-proposal-talks/">Expert Trita Parsi: Trump will likely accept "together with the Omani — some sort of a collection system, a toll system in the Strait of Hormuz, as long as they keep the strait open."</a> Iran gets face-saving Hormuz authority; US gets ships moving; deal is done.
   </div>
 </div>
 
 <div class="geo">
-  <div class="geo-head warn">
-    <div class="geo-name">⚠️ Active Risk: Lebanon · Netanyahu's Tripwire</div>
-    <span class="pill p-amber">15% PROBABILITY · WATCH</span>
+  <div class="geo-head plain">
+    <div class="geo-name">🛢️ Hormuz — Trickle of Ships, 800 Tankers Still Waiting</div>
+    <span class="pill p-amber">Physical Normalization: Weeks Away</span>
   </div>
   <div class="geo-body">
-    The Lebanon fault line is the ceasefire's most acute near-term risk. <a href="https://www.wfsu.org/npr-news/2026-04-08/u-s-and-iran-agree-to-2-week-ceasefire">Netanyahu supports the suspension of Iran strikes but explicitly excluded Lebanon.</a> Iran's ceasefire narrative includes all "resistance fronts." Any significant Israeli escalation in Lebanon in the next 14 days gives Iran justification to re-close Hormuz and exit the talks. Watch for Israeli strike announcements in Lebanon — that's the tripwire. If no major Lebanon escalation by April 15, the ceasefire is almost certainly holding through April 22.
+    <a href="https://www.cnbc.com/2026/04/08/trump-iran-ceasefire-strait-of-hormuz-toll.html">Only two bulk carriers — not oil tankers — have transited since the ceasefire. Before the war: 100–120 commercial vessels per day. The shipping industry is waiting for "absolute guarantees" on crew safety before moving the 800+ trapped tankers.</a><br><br>
+    <a href="https://edition.cnn.com/2026/04/07/markets/us-stocks-oil-trump-iran-ceasefire">Lloyd's of London: "highly unlikely that trade into the Gulf will simply resume." 187 tankers with 172 million barrels remain trapped.</a> Exxon disclosed about 6% of its global output was lost due to LNG facility damage — "takes a prolonged period to repair." <strong>Goldman's Q4 WTI $67 target assumes gradual Hormuz normalization over months, not a sudden reopening.</strong> The oil rebound to $97 is consistent with this slow normalization thesis.
   </div>
 </div>
 
 <div class="geo">
-  <div class="geo-head">
-    <div class="geo-name">🇦🇷 Argentina — First Post-Ceasefire Open · Glacier Law · Agro Season</div>
-    <span class="pill p-green">Dual Catalyst: Ceasefire + Soybean Harvest</span>
+  <div class="geo-head green">
+    <div class="geo-name">🇦🇷 Argentina — Rotation Confirmed · GGAL Is the Trade</div>
+    <span class="pill p-teal">BANKS +5–7.6% · ENERGY −5% · Playbook ✓</span>
   </div>
-  <div class="geo-body">
-    BYMA opens at 11 AM ART today with three catalysts not priced in: (1) ceasefire → EM risk-on → country risk compression, (2) Brent −14% → Vaca Muerta economics shift but oil inflation easing, (3) Glacier Law vote yesterday → unlocks San Juan mining investment. <a href="https://www.riotimesonline.com/latam-pulse-peru-rally-adorni-petrobras-mexico/">Merval Tuesday close was 2,972,629, down 1.12% on pre-ceasefire risk-off — the ceasefire was announced after BYMA closed.</a><br><br>
-    <strong>Expected today:</strong> Merval +3–5% → 3,050,000–3,120,000 range. Country risk compression from ~600 toward 540–560. Energy sector (VIST/YPFD) will be mixed — oil down is negative for Vaca Muerta economics, but EM risk-on is positive for all AR assets. Banks (GGAL, BMA) should lead the rally as country risk compresses. April agro liquidation continues — BCRA historically buys $500M–$1B per week in April.
+  <div class="geo-green-body">
+    <a href="https://buenosairesherald.com/economics/markets/country-risk-falls-stocks-and-bonds-soar-due-to-middle-east-truce">Wednesday ADRs: Banco Macro +7.6%, Supervielle +7.5%, BBVA +7.3%, GGAL +5%. Energy: YPF −4.9%, TGS −5.3%, Pampa −3.3%. Country risk fell — bonds and stocks rallied simultaneously for the first time since the war began.</a><br><br>
+    The equity-bond divergence that persisted through the entire war (stocks up, bonds falling as country risk rose to 633 bps) has closed. April soybean liquidation is the next structural driver — BCRA historically buys $500M–$1B per week in April. Country risk target: sub-550 by April 30. <strong>GGAL at $47 vs $66–72 target remains the highest-upside owned position in the portfolio.</strong>
   </div>
 </div>
 
-<div class="sec-label">💼 Portfolio — Execute the Rotation</div>
+<div class="sec-label">💼 Portfolio — Ceasefire Rotation Scorecard</div>
 
 <div class="qs">
-  <div class="qs-title">1. Ceasefire Portfolio Regime — Thursday's Trades</div>
-  <div class="metric"><div class="ml">🛢️ VIST / YPFD (trim 50–70% at BYMA open)</div><div class="mv bad">WAR PREMIUM DEFLATING · Brent $94→$67 path · Execute now</div></div>
-  <div class="metric"><div class="ml">🛢️ PBR (trim 30–40%)</div><div class="mv bad">SAME LOGIC · Keep core · FCF 14.5% at $70 Brent protects floor</div></div>
-  <div class="metric"><div class="ml">📈 NVDA (add 50% of target)</div><div class="mv good">ADD ON FIRST PULLBACK · $265 target · Rubin H2 · May 20 next catalyst</div></div>
-  <div class="metric"><div class="ml">📊 SPY / QQQ (add staged)</div><div class="mv good">ADD · Q1 EPS est. +13.2% · Most oversold since 2022</div></div>
-  <div class="metric"><div class="ml">🌏 TSM (add alongside NVDA)</div><div class="mv good">ADD · SK Hynix +12% overnight · AI picks-and-shovels</div></div>
-  <div class="metric"><div class="ml">🇦🇷 GGAL (add if CR &lt;580 today)</div><div class="mv ok">WATCH · $66–72 target vs ~$45 · Country risk is the trigger</div></div>
-  <div class="metric"><div class="ml">✈️ DAL (new position — add today)</div><div class="mv good">ADD · Q1 reporting now · Jet fuel −15% · AmEx floor $9B</div></div>
-  <div class="metric"><div class="ml">💻 MSFT (new position — add)</div><div class="mv good">ADD · −26% YTD · Deepest Mag7 discount · BofA $500 target (+31%)</div></div>
-  <div class="metric"><div class="ml">☀️ Gold / CEDEAR GLD</div><div class="mv ok">HOLD · Rising on ceasefire = fragility hedge · Don't sell</div></div>
+  <div class="qs-title">1. Wednesday Outcome vs the Playbook</div>
+  <div class="metric"><div class="ml">🛢️ VIST/YPFD/PBR trim</div><div class="mv good">YPF −4.9%, TGS −5.3% · Rotation confirmed · Complete trim today if not done</div></div>
+  <div class="metric"><div class="ml">🇦🇷 GGAL / BMA add</div><div class="mv good">GGAL +5%, Macro +7.6% · Country risk compressed · ADD now</div></div>
+  <div class="metric"><div class="ml">📈 SPY/QQQ/NVDA tech add</div><div class="mv good">S&P +2.51%, Nasdaq +2.8% · Add on overnight dip</div></div>
+  <div class="metric"><div class="ml">✈️ DAL (new position)</div><div class="mv good">+12% pre-market · Q1 beat · Q2 revenue guidance above consensus</div></div>
+  <div class="metric"><div class="ml">☀️ Gold</div><div class="mv ok">~$4,800 · Held steady · Fragility confirmed · Hold</div></div>
+  <div class="metric"><div class="ml">🌏 TSM / semis</div><div class="mv good">SK Hynix +12% · Repricing · Add alongside NVDA</div></div>
 </div>
 
 <div class="qs">
-  <div class="qs-title">2. Scenarios — Islamabad Window (April 10–22)</div>
-  <div class="scen scen-green"><strong>🟢 Islamabad productive, ceasefire extended (50%):</strong> Framework agreed, enrichment and Hormuz sovereignty punted to future talks. Ceasefire extended beyond April 22. Brent falls toward $80. S&P toward 7,200. NVDA $220+. AR country risk sub-520. <strong>Portfolio: +20–30% USD from pre-ceasefire lows.</strong></div>
-  <div class="scen scen-amber"><strong>🟡 Islamabad inconclusive, ceasefire barely holds (35%):</strong> Talks end without framework. Iran demands unacceptable. One more 2-week extension. Oil stabilizes $80–95. Markets range-trade. <strong>Portfolio: +8–12% from lows.</strong></div>
-  <div class="scen scen-red"><strong>🔴 Lebanon tripwire — ceasefire collapses (15%):</strong> Israel escalates Lebanon, Iran re-closes Hormuz. Oil back to $110+. Markets give back entire rally. <strong>Portfolio: −15–20% from today's open.</strong> Keep 25% energy stub as hedge.</div>
+  <div class="qs-title">2. Scenarios — Islamabad Saturday</div>
+  <div class="scen scen-green"><strong>🟢 Islamabad produces Lebanon framework + ceasefire extension (45%):</strong> Basic de-escalation protocol agreed. Ceasefire extended past April 22. Brent continues toward $85. S&P 7,000+. AR country risk sub-520. NVDA $215+. <strong>Portfolio: +15–25% from pre-ceasefire levels.</strong></div>
+  <div class="scen scen-amber"><strong>🟡 Islamabad inconclusive — ceasefire barely holds (40%):</strong> Talks "ongoing," Lebanon unresolved, ceasefire still technically in effect. Oil stabilizes $90–100. Markets flat-to-slightly-positive. <strong>Portfolio: +5–10% from today.</strong></div>
+  <div class="scen scen-red"><strong>🔴 Islamabad breakdown — Iran exits (15%):</strong> Lebanon strikes provide Iran's justification. Hormuz fully re-closes. Oil back to $110+. Half the rally erases. <strong>Portfolio: −12–18% from today.</strong> Gold hedge and the 25% energy stub protect the tail.</div>
 </div>
 
 <div class="qs">
-  <div class="qs-title">3. Ranked Recommendations — Today's Priorities</div>
-  <div class="rec"><div class="rec-n">1</div><div class="rec-body"><strong>VIST / YPFD — trim at BYMA 11 AM open, not gradually.</strong> This is the last session where you get the full war premium. Brent heading to $67 by Q4 (Goldman base case). You captured 45–75% gains on these positions. Sell the ceasefire announcement — the second-order players haven't fully processed it yet. The BYMA open will give you better prices than tomorrow.</div></div>
-  <div class="rec"><div class="rec-n">2</div><div class="rec-body"><strong>DAL Q1 — add today regardless of print.</strong> <a href="https://www.tikr.com/blog/delta-air-lines-has-fallen-23-from-its-peak-heres-why-analysts-still-see-a-path-to-80">10.4× P/E, $9B AmEx co-brand, lowest debt since 2019.</a> Jet fuel just dropped 15%. If Q2 guidance is above +5%, this goes to $75–80 quickly. If guidance is cautious due to Q1 fuel costs, you get an even better entry post-print. Either way, DAL is the cleanest ceasefire trade in consumer.</div></div>
-  <div class="rec"><div class="rec-n">3</div><div class="rec-body"><strong>NVDA — buy the first 30-minute pullback from the open gap.</strong> The gap up at the open will be significant. Don't chase the first 15 minutes. Wait for the initial euphoria to fade slightly, then add 50% of your target position. The structural case — $265 target, Rubin GPU H2 launch, $215B FY26 revenue — doesn't change at $175 vs $185.</div></div>
-  <div class="rec"><div class="rec-n">4</div><div class="rec-body"><strong>MSFT — add alongside NVDA, not instead of it.</strong> Azure + Copilot enterprise upsell is intact. <a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-4-7-s-and-p-500-technical-outlook-april-2026-navigating-the-moving-average-resistance">MSFT is down ~23% YTD — worst Mag7 performer.</a> Valuation premium has collapsed to nearly market-level despite 35%+ cloud growth. This is a structural mispricing, not a value trap. BofA $500 target (+31% from current).</div></div>
-  <div class="rec"><div class="rec-n">5</div><div class="rec-body"><strong>Watch BKNG and UAL for ceasefire recovery positioning.</strong> Middle East flights resuming → Booking Holdings (BKNG) recovers European/GCC summer travel. United Airlines (UAL) fell 17.8% in the war vs DAL's 5.7% — if you want leverage on the travel recovery, UAL gives more beta at lower quality. Use DAL as the quality anchor, UAL as a smaller tactical add if you want more exposure.</div></div>
+  <div class="qs-title">3. Ranked Recommendations</div>
+  <div class="rec"><div class="rec-n">1</div><div class="rec-body"><strong>GGAL — this is the highest-conviction Q2 trade in the portfolio.</strong> <a href="https://buenosairesherald.com/economics/markets/country-risk-falls-stocks-and-bonds-soar-due-to-middle-east-truce">GGAL ADR +5% Wednesday.</a> Country risk compressing. April agro season underway. BCRA encaje cuts unlocking credit growth. Three independent catalysts. Target $66–72 vs ~$47. Don't wait for "more confirmation" — you just got it on Wednesday.</div></div>
+  <div class="rec"><div class="rec-n">2</div><div class="rec-body"><strong>DAL — add on the post-earnings consolidation today.</strong> <a href="https://www.cnbc.com/2026/04/08/delta-air-lines-q1-2026-earnings.html">Record $14.2B revenue, EPS +44%, net debt lowest since 2019, corporate travel record.</a> Q2 guidance uses April 2 oil prices — pre-ceasefire. Every $5 Brent falls below $94 improves Q2 by ~$150M. Add on the first intraday pullback from the gap open, not at the peak.</div></div>
+  <div class="rec"><div class="rec-n">3</div><div class="rec-body"><strong>NVDA — add 50% today on the overnight uncertainty dip.</strong> The ceasefire-doubt noise creates the entry window you've been waiting for. The fundamental case is unchanged. <a href="https://stockanalysis.com/stocks/nvda/">$265 consensus target. FY26 revenue $215.9B (+65%). Rubin GPU launching H2.</a> Stage: 50% today, 50% post-Islamabad outcome.</div></div>
+  <div class="rec"><div class="rec-n">4</div><div class="rec-body"><strong>MSFT — add as the Mag7 recovery anchor alongside NVDA.</strong> <a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-4-7-s-and-p-500-technical-outlook-april-2026-navigating-the-moving-average-resistance">−23% YTD — valuation premium essentially erased despite Azure growing 35%+ annually.</a> BofA $500 target (+31%). Lower concentration risk than NVDA-only. Add a parallel position of 30–50% the size of your NVDA add.</div></div>
+  <div class="rec"><div class="rec-n">5</div><div class="rec-body"><strong>Trim energy into the oil rebound — oil at $97 is a gift.</strong> Iran's Hormuz threat overnight is political theater ahead of Islamabad. The underlying trajectory — Goldman Q4 WTI $67 — hasn't changed. Use the $97 rebound to execute remaining VIST/YPFD trim. Keep 25% stub. Don't get trapped by the bounce.</div></div>
 </div>
 
 <!-- STOCK SIGNALS -->
-<div class="sec-label">📈 Stock Signals — Owned + Unowned · Ceasefire Regime Day 1</div>
+<div class="sec-label">📈 Stock Signals — Owned + Unowned · Post-Ceasefire Day 1</div>
 
 <div class="qs" style="padding:0;overflow:hidden">
   <div style="padding:16px 18px 12px;border-bottom:1px solid #f3f4f6">
-    <div class="qs-title" style="margin-bottom:4px">Signal Table · April 9, 2026 · Day 1 Post-Ceasefire</div>
-    <div style="font-size:12px;color:#6b7280">RS = price vs S&P 500 over period. ● = owned. NEW = unowned. Signals updated for ceasefire regime. All signals are day 1 of the new regime — prices will reprice significantly at open.</div>
+    <div class="qs-title" style="margin-bottom:4px">Signal Table · April 9, 2026 · Ceasefire Day 1 (Contested)</div>
+    <div style="font-size:12px;color:#6b7280">RS = price vs S&P 500 over period. ● = owned position. NEW = unowned recommendation. Updated for Wednesday actuals and Islamabad risk framing.</div>
   </div>
   <div class="sig-wrap">
     <table class="sig-table">
@@ -279,60 +274,60 @@ footer a{color:#6b7280;text-decoration:none}
         <tr><th>Ticker</th><th>RS 20d</th><th>RS 60d</th><th>EPS Trend</th><th>Valuation</th><th>Signal</th><th>Key Driver</th></tr>
       </thead>
       <tbody>
-        <tr><td><span class="sig-ticker">● VIST</span><span class="sig-name">Vista Energy · Vaca Muerta</span></td><td><span class="rs-pill rs-strong">2.31×</span></td><td><span class="rs-pill rs-strong">2.18×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">Near GS target $74.21</span></td><td><span class="sig-rec r-trim">TRIM 50–70% NOW</span></td><td class="sig-note">Brent $94→$67 path. War premium deflating. Today's BYMA open is the exit window.</td></tr>
-        <tr><td><span class="sig-ticker">● YPFD</span><span class="sig-name">YPF · Buenos Aires</span></td><td><span class="rs-pill rs-strong">1.94×</span></td><td><span class="rs-pill rs-strong">1.82×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">Near ATH · War priced</span></td><td><span class="sig-rec r-trim">TRIM 50% NOW</span></td><td class="sig-note">Keep 50% for Vaca Muerta structural story. Trim war-era premium today at BYMA open.</td></tr>
-        <tr><td><span class="sig-ticker">● PBR</span><span class="sig-name">Petrobras · Brazil</span></td><td><span class="rs-pill rs-strong">1.42×</span></td><td><span class="rs-pill rs-strong">1.38×</span></td><td>↑ Positive</td><td><span class="val-pill val-cheap">P/E 5.59 · FCF 14.5%</span></td><td><span class="sig-rec r-trim">TRIM 30–40%</span></td><td class="sig-note">Deep value even at $70 Brent. Trim war add, hold core. State control caps upside.</td></tr>
-        <tr><td><span class="sig-ticker">● NVDA</span><span class="sig-name">Nvidia · AI / Semis</span></td><td><span class="rs-pill rs-weak">0.72×</span></td><td><span class="rs-pill rs-weak">0.78×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">Cheapest PE since pre-AI boom</span></td><td><span class="sig-rec r-add">ADD 50% — FIRST PULLBACK</span></td><td class="sig-note">$265 target (+49%). $215B FY26 rev. Rubin GPU H2 2026. Buy the first 30-min pullback, not the gap open.</td></tr>
-        <tr><td><span class="sig-ticker">● SPY</span><span class="sig-name">S&P 500 ETF</span></td><td><span class="rs-pill rs-neutral">1.00×</span></td><td><span class="rs-pill rs-weak">0.91×</span></td><td>↑ Positive</td><td><span class="val-pill val-cheap">War discount unwinding</span></td><td><span class="sig-rec r-add">ADD · Q1 EPS +13.2%</span></td><td class="sig-note">FactSet Q1 EPS growth +13.2%. &lt;20% of stocks above 50-DMA entering ceasefire = structural mean reversion.</td></tr>
-        <tr><td><span class="sig-ticker">● TSM</span><span class="sig-name">TSMC · Taiwan</span></td><td><span class="rs-pill rs-mixed">0.88×</span></td><td><span class="rs-pill rs-mixed">0.85×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">AI infra · Taiwan risk recedes</span></td><td><span class="sig-rec r-add">ADD · SK Hynix +12% overnight</span></td><td class="sig-note">Semis repricing hard. All AI chips route through TSMC. Add alongside NVDA for diversified semi exposure.</td></tr>
-        <tr><td><span class="sig-ticker">● GGAL</span><span class="sig-name">Grupo Galicia · AR Banks</span></td><td><span class="rs-pill rs-weak">0.63×</span></td><td><span class="rs-pill rs-weak">0.61×</span></td><td>→ Mixed</td><td><span class="val-pill val-cheap">Target $66–72 vs ~$45</span></td><td><span class="sig-rec r-add">ADD if CR &lt;580 TODAY</span></td><td class="sig-note">BCRA easing + ceasefire + agro season = CR compression. 47–60% upside to target. Watch the CR print at BYMA open.</td></tr>
-        <tr><td><span class="sig-ticker">● NU</span><span class="sig-name">NuBank · Brazil Fintech</span></td><td><span class="rs-pill rs-weak">0.68×</span></td><td><span class="rs-pill rs-mixed">0.83×</span></td><td>↑ Positive</td><td><span class="val-pill val-rich">Premium · Growth priced</span></td><td><span class="sig-rec r-hold">HOLD · BRL strengthens</span></td><td class="sig-note">EM risk-on strengthens BRL → NU ADR reprices up. Hold. Watch R$5.00/$ as next add level.</td></tr>
-        <tr><td><span class="new-badge">NEW</span><span class="sig-ticker">DAL</span><span class="sig-name">Delta Air Lines</span></td><td><span class="rs-pill rs-weak">0.67×</span></td><td><span class="rs-pill rs-weak">0.74×</span></td><td>↑↑ Improving</td><td><span class="val-pill val-cheap">10.4× P/E · AmEx floor</span></td><td><span class="sig-rec r-add">ADD TODAY · Q1 Reporting</span></td><td class="sig-note">Reports at 6:30 AM ET. Jet fuel −15% overnight. $9B AmEx co-brand war-insensitive. Watch Q2 guidance above +5% YoY.</td></tr>
-        <tr><td><span class="new-badge">NEW</span><span class="sig-ticker">MSFT</span><span class="sig-name">Microsoft · Cloud/AI</span></td><td><span class="rs-pill rs-weak">0.62×</span></td><td><span class="rs-pill rs-weak">0.65×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">−23% YTD · Deepest Mag7 discount</span></td><td><span class="sig-rec r-add">ADD · BofA $500 target</span></td><td class="sig-note">Azure + Copilot structurally intact. BofA Buy at $500 (+31%). War/stagflation were the headwinds. Both receding today.</td></tr>
-        <tr><td><span class="new-badge">NEW</span><span class="sig-ticker">BKNG</span><span class="sig-name">Booking Holdings · Travel</span></td><td><span class="rs-pill rs-weak">0.72×</span></td><td><span class="rs-pill rs-weak">0.79×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">War-discounted</span></td><td><span class="sig-rec r-add">ADD · Travel Recovery</span></td><td class="sig-note">Middle East flights resuming. Dubai International reopening fully. European summer demand intact.</td></tr>
-        <tr><td><span class="new-badge">NEW</span><span class="sig-ticker">XOM</span><span class="sig-name">ExxonMobil · Integrated</span></td><td><span class="rs-pill rs-strong">1.38×</span></td><td><span class="rs-pill rs-strong">1.41×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-rich">+28% YTD · Above analyst target</span></td><td><span class="sig-rec r-watch">SELL ON BOUNCE · Don't add</span></td><td class="sig-note">Already above analyst target. Ceasefire = structural sell for war-elevated energy majors. Take profits on any pop today.</td></tr>
-        <tr><td><span class="new-badge">NEW</span><span class="sig-ticker">RTX</span><span class="sig-name">Raytheon Technologies</span></td><td><span class="rs-pill rs-strong">1.52×</span></td><td><span class="rs-pill rs-strong">1.48×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">Elevated · Defense structural</span></td><td><span class="sig-rec r-hold">HOLD · Mixed Ceasefire</span></td><td class="sig-note">Pratt & Whitney commercial (airlines) benefits from travel recovery. Pure defense headwind from ceasefire. Hold, don't add.</td></tr>
+        <tr><td><span class="sig-ticker">● VIST</span><span class="sig-name">Vista Energy · Vaca Muerta</span></td><td><span class="rs-pill rs-strong">1.85×</span></td><td><span class="rs-pill rs-strong">2.02×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">Above GS target $74.21</span></td><td><span class="sig-rec r-trim">TRIM INTO OIL BOUNCE</span></td><td class="sig-note">Oil rebound to $97 = exit window. Goldman Q4 $67 unchanged. Use the bounce to trim remaining position.</td></tr>
+        <tr><td><span class="sig-ticker">● YPFD</span><span class="sig-name">YPF · Buenos Aires</span></td><td><span class="rs-pill rs-strong">1.72×</span></td><td><span class="rs-pill rs-strong">1.78×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">War premium deflating</span></td><td><span class="sig-rec r-trim">TRIM REMAINING</span></td><td class="sig-note">YPF −4.9% Wednesday confirms rotation. Keep 50% structural. Trim war-era add into today's bounce.</td></tr>
+        <tr><td><span class="sig-ticker">● PBR</span><span class="sig-name">Petrobras · Brazil</span></td><td><span class="rs-pill rs-strong">1.28×</span></td><td><span class="rs-pill rs-strong">1.31×</span></td><td>↑ Positive</td><td><span class="val-pill val-cheap">P/E 5.59 · FCF 14.5%</span></td><td><span class="sig-rec r-trim">TRIM WAR ADD</span></td><td class="sig-note">Core position is structural hold. Trim war-era extra position. Deep value persists at $70 Brent.</td></tr>
+        <tr><td><span class="sig-ticker">● NVDA</span><span class="sig-name">Nvidia · AI / Semis</span></td><td><span class="rs-pill rs-weak">0.74×</span></td><td><span class="rs-pill rs-weak">0.79×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">Cheapest PE since pre-AI</span></td><td><span class="sig-rec r-add">ADD 50% TODAY</span></td><td class="sig-note">Overnight dip = entry. $265 target (+49%). FY26 $215B rev (+65%). Rubin GPU H2. Add on uncertainty noise.</td></tr>
+        <tr><td><span class="sig-ticker">● SPY/QQQ</span><span class="sig-name">S&P 500 / Nasdaq ETFs</span></td><td><span class="rs-pill rs-neutral">1.02×</span></td><td><span class="rs-pill rs-weak">0.93×</span></td><td>↑ Positive</td><td><span class="val-pill val-cheap">War discount unwinding</span></td><td><span class="sig-rec r-add">ADD · Q1 EPS +13.2%</span></td><td class="sig-note">Buy overnight dip. Q1 EPS growth est +13.2% (FactSet). Fundamentals intact, macro improving.</td></tr>
+        <tr><td><span class="sig-ticker">● TSM</span><span class="sig-name">TSMC · Taiwan</span></td><td><span class="rs-pill rs-mixed">0.90×</span></td><td><span class="rs-pill rs-mixed">0.87×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">AI infrastructure</span></td><td><span class="sig-rec r-add">ADD</span></td><td class="sig-note">All AI chips route through TSMC. Add alongside NVDA for semiconductor diversification.</td></tr>
+        <tr><td><span class="sig-ticker">● GGAL</span><span class="sig-name">Grupo Galicia · AR Banks</span></td><td><span class="rs-pill rs-mixed">0.81×</span></td><td><span class="rs-pill rs-weak">0.65×</span></td><td>→ Mixed</td><td><span class="val-pill val-cheap">Target $66–72 vs ~$47</span></td><td><span class="sig-rec r-add">ADD NOW · CR compressing</span></td><td class="sig-note">GGAL +5% Wednesday. Country risk compressed. BCRA + agro harvest + ceasefire = 40–53% upside.</td></tr>
+        <tr><td><span class="sig-ticker">● NU</span><span class="sig-name">NuBank · Brazil Fintech</span></td><td><span class="rs-pill rs-weak">0.70×</span></td><td><span class="rs-pill rs-mixed">0.84×</span></td><td>↑ Positive</td><td><span class="val-pill val-rich">Premium · Growth priced</span></td><td><span class="sig-rec r-hold">HOLD</span></td><td class="sig-note">BRL strengthening on EM risk-on. Hold. Next add level R$5.00/$.</td></tr>
+        <tr><td><span class="nb">NEW</span><span class="sig-ticker">DAL</span><span class="sig-name">Delta Air Lines · Q1 Beat</span></td><td><span class="rs-pill rs-weak">0.69×</span></td><td><span class="rs-pill rs-weak">0.75×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">10.4× P/E · Record revenue</span></td><td><span class="sig-rec r-add">ADD · Buy pullback</span></td><td class="sig-note">EPS $0.64 (+44%), revenue $14.2B (+9.4%). Q2: +low-teens, $1.00–$1.50. Fuel assumption pre-ceasefire = upside.</td></tr>
+        <tr><td><span class="nb">NEW</span><span class="sig-ticker">MSFT</span><span class="sig-name">Microsoft · Cloud/AI</span></td><td><span class="rs-pill rs-weak">0.63×</span></td><td><span class="rs-pill rs-weak">0.66×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-cheap">−23% YTD · Deepest Mag7</span></td><td><span class="sig-rec r-add">ADD · BofA $500 target</span></td><td class="sig-note">Azure +35% annual. BofA Buy, $500 (+31%). War headwinds receding. Parallel add to NVDA.</td></tr>
+        <tr><td><span class="nb">NEW</span><span class="sig-ticker">BKNG</span><span class="sig-name">Booking Holdings · Travel</span></td><td><span class="rs-pill rs-weak">0.73×</span></td><td><span class="rs-pill rs-weak">0.80×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-fair">War-discounted</span></td><td><span class="sig-rec r-add">ADD · Travel Recovery</span></td><td class="sig-note">Middle East flights resuming. Dubai airport reopening. European summer demand intact. Pairs with DAL.</td></tr>
+        <tr><td><span class="nb">NEW</span><span class="sig-ticker">XOM</span><span class="sig-name">ExxonMobil · Integrated</span></td><td><span class="rs-pill rs-strong">1.32×</span></td><td><span class="rs-pill rs-strong">1.38×</span></td><td>↑↑ Strong</td><td><span class="val-pill val-rich">+28% YTD · Above target</span></td><td><span class="sig-rec r-watch">SELL INTO OIL BOUNCES</span></td><td class="sig-note">+28% YTD, above analyst target. Today's $97 oil rebound is the exit, not the entry. Sell any pop.</td></tr>
+        <tr><td><span class="nb">NEW</span><span class="sig-ticker">UAL</span><span class="sig-name">United Airlines · High Beta</span></td><td><span class="rs-pill rs-weak">0.58×</span></td><td><span class="rs-pill rs-weak">0.65×</span></td><td>↑ Improving</td><td><span class="val-pill val-cheap">Deeper war discount than DAL</span></td><td><span class="sig-rec r-wait">WAIT · DAL first</span></td><td class="sig-note">−17.8% in war vs DAL −5.7%. More upside beta but lower quality. Add UAL only after establishing DAL as anchor.</td></tr>
       </tbody>
     </table>
   </div>
   <div class="sig-narrative">
-    <p><strong>🟢 Day 1 playbook: sell war winners, buy war losers.</strong> Energy positions (VIST, YPFD, PBR, XOM) captured massive war premiums. Today's ceasefire open is the highest-probability exit window you will get. Brent heading to $67 by Q4 — every day you hold is a day closer to that price being reflected in earnings multiples. Sell into the opening momentum, not after it fades.</p>
-    <p><strong>🔴 The best unowned adds are DAL and MSFT — both report or have re-rating catalysts today.</strong> <a href="https://www.tikr.com/blog/delta-air-lines-has-fallen-23-from-its-peak-heres-why-analysts-still-see-a-path-to-80">DAL at 10.4× P/E with $3.84B FCF and the AmEx co-brand floors downside</a> — jet fuel just dropped 15% the same morning it reports. MSFT at −23% YTD is statistically absurd for a company growing Azure 35%+ annually. Both are high-quality businesses that the war temporarily broke.</p>
-    <p><strong>⚠️ Don't sell ALL energy today.</strong> Keep a 25–30% stub in VIST/YPFD/PBR. The 15% scenario where Islamabad fails and Hormuz re-closes is real. Gold +2.2% on the ceasefire is the market telling you the same thing. Hedge appropriately.</p>
-    <p><strong>💡 Methodology:</strong> RS vs S&P 500 over stated period. EPS trend = analyst revision direction (30 days). Valuation vs 3-year trailing average. NEW = unowned, newly added. ● = owned. Not investment advice — verify independently.</p>
+    <p><strong>🟢 Wednesday confirmed the ceasefire rotation playbook in Argentina — cleanly.</strong> <a href="https://buenosairesherald.com/economics/markets/country-risk-falls-stocks-and-bonds-soar-due-to-middle-east-truce">Banks +5–7.6%, energy −5%, bonds rallied alongside equities</a> for the first time since the war began. The equity-bond divergence has closed. GGAL is now the clearest medium-term add in the portfolio.</p>
+    <p><strong>🔴 DAL's Q1 results are the best possible ceasefire trade confirmation in consumer.</strong> <a href="https://www.cnbc.com/2026/04/08/delta-air-lines-q1-2026-earnings.html">Record revenue, EPS +44%, net debt lowest since 2019.</a> The fuel headwind is guided but set at pre-ceasefire oil prices — any Brent fall below $90 makes Q2 guidance conservative. <a href="https://liveandletsfly.com/delta-air-lines-q1-earnings-growth-cuts-fuel-costs/">The ceasefire could push DAL to the upper end of its $1.50 guide.</a> Add on consolidation, not at the gap.</p>
+    <p><strong>⚠️ The $97 oil rebound is a sell signal for energy, not a hold signal.</strong> Iran's Parliament Speaker claiming violations is Islamabad positioning — both sides are maximizing leverage before Saturday's talks. Vance personally attending signals the US is serious about a deal. Use the oil bounce to complete your VIST/YPFD trim. Goldman's Q4 $67 WTI target hasn't changed.</p>
+    <p><strong>💡 Methodology:</strong> RS vs S&P 500 over stated period. EPS trend = analyst revision direction (30 days). Valuation vs 3-year trailing average. NEW = unowned recommendation. ● = owned. Not investment advice.</p>
   </div>
 </div>
 
 <!-- MARKETS -->
-<div class="sec-label">📊 Markets — Wednesday Close (Pre-Ceasefire) / Thursday Premarket</div>
+<div class="sec-label">📊 Markets — Wednesday Close / Thursday Setup</div>
 
 <div class="g4">
-  <div class="tc cgreen"><div class="tl">S&P 500 (Wed close)</div><div class="tv">6,616</div><div class="tc-ch up">▲ +0.08% Wed (pre-ceasefire)</div><div class="tc-note">Futures: +2.5% Thu · Ceasefire rally</div></div>
-  <div class="tc cgreen"><div class="tl">Nasdaq (Wed close)</div><div class="tv">22,017</div><div class="tc-ch up">▲ +0.10% Wed</div><div class="tc-note">Futures: +3.2% Thu · NVDA repricing</div></div>
-  <div class="tc cgreen"><div class="tl">Dow (Wed close)</div><div class="tv">46,584</div><div class="tc-ch dn">▼ −0.18% Wed</div><div class="tc-note">Futures: +1,074 pts (+2.3%)</div></div>
-  <div class="tc cgreen"><div class="tl">Brent Crude</div><div class="tv">~$94</div><div class="tc-ch dn">▼ −14% overnight</div><div class="tc-note">Goldman Q4 target: $67 · Trim energy</div></div>
+  <div class="tc cgreen"><div class="tl">S&P 500 (Wed close)</div><div class="tv">6,782</div><div class="tc-ch up">▲ +2.51% · Best since Apr 2025</div><div class="tc-note">Futures: −0.1% Thu · Buy dip</div></div>
+  <div class="tc cgreen"><div class="tl">Nasdaq (Wed close)</div><div class="tv">22,635</div><div class="tc-ch up">▲ +2.8% Wed</div><div class="tc-note">Futures: −0.2% · NVDA entry</div></div>
+  <div class="tc cgreen"><div class="tl">Dow (Wed close)</div><div class="tv">47,909</div><div class="tc-ch up">▲ +2.8% (+1,325 pts)</div><div class="tc-note">Best day since Apr 2025</div></div>
+  <div class="tc camber"><div class="tl">WTI / Brent</div><div class="tv">~$97</div><div class="tc-ch up">▲ Rebounded from $94 close</div><div class="tc-note">Iran/Lebanon posturing · Sell bounces</div></div>
 </div>
 
 <div class="g4">
-  <div class="tc camber"><div class="tl">VIX</div><div class="tv">~22</div><div class="tc-ch dn">▼ From 31 peak · Still elevated</div><div class="tc-note">Below 20 = fully risk-on · Not there yet</div></div>
-  <div class="tc cgold" style="--ac:#d97706"><div class="tl">Gold</div><div class="tv">$4,803</div><div class="tc-ch up">▲ +2.2% · Fragility signal</div><div class="tc-note">Hold GLD/IAU · Don't sell on ceasefire</div></div>
-  <div class="tc cgreen"><div class="tl">Merval (Tue close)</div><div class="tv">2,972,629</div><div class="tc-ch dn">▼ Pre-ceasefire close</div><div class="tc-note">Today 11AM: +3–5% est. → ~3.05–3.12M</div></div>
-  <div class="tc cblue"><div class="tl">10Y Treasury</div><div class="tv">4.25%</div><div class="tc-ch dn">▼ −9bps overnight</div><div class="tc-note">Fed cuts back on 2026 calendar</div></div>
+  <div class="tc camber"><div class="tl">VIX</div><div class="tv">~20</div><div class="tc-ch dn">▼ From 31 peak · Near normal</div><div class="tc-note">Below 20 = fully risk-on</div></div>
+  <div class="tc cgold" style="--ac:#d97706"><div class="tl">Gold</div><div class="tv">~$4,800</div><div class="tc-ch fl">Held steady · Fragility signal</div><div class="tc-note">HOLD · Your ceasefire hedge</div></div>
+  <div class="tc cgreen"><div class="tl">Merval (Wed close)</div><div class="tv">3,011,186</div><div class="tc-ch up">▲ +1.30% · Above 3M</div><div class="tc-note">Banks +7.6% · Energy −5% · ✓</div></div>
+  <div class="tc cblue"><div class="tl">10Y Treasury</div><div class="tv">4.29%</div><div class="tc-ch dn">▼ −4bps Wed</div><div class="tc-note">~25% Fed cut probability 2026</div></div>
 </div>
 
 <!-- REGULATION -->
 <div class="sec-label">⚖️ Regulation — Active Clocks</div>
 
 <div class="reg">
-  <div class="reg-head"><span class="pill p-red">🔴 115 days</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">EU AI Act</span><div class="reg-title" style="margin-left:8px"> · HRAI Aug 2 — Legal Must Decide This Week</div></div>
-  <div class="reg-body">115 days to Aug 2. With Gulf clients now re-engaging, Joule's Q3 pipeline is accelerating. A non-compliance enforcement in Q3 would be maximally damaging precisely when pipeline recovery peaks. <strong>Legal leadership decision this week: extension request, pause deployment, or accept risk with documented mitigation.</strong></div>
-  <div class="reg-foot"><span class="dl dl-r">Aug 2 · 115 days · LEGAL DECISION — THIS WEEK</span></div>
+  <div class="reg-head"><span class="pill p-red">🔴 114 days</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">EU AI Act · HRAI</span><div class="reg-title" style="margin-left:8px"> · Aug 2 — Legal Decision Cannot Slip Further</div></div>
+  <div class="reg-body">114 days. Joule pipeline accelerating post-ceasefire. Non-compliance enforcement in Q3 would hit precisely when Gulf energy client revenue recovery peaks. <strong>Three options: (1) regulatory extension request citing Commission's own Feb 2 failure, (2) pause Joule EU HR/Finance deployment, (3) accept non-compliance with documented mitigation. All three require a legal leadership decision this week.</strong></div>
+  <div class="reg-foot"><span class="dl dl-r">Aug 2 · 114 days · LEGAL DECISION — THIS WEEK</span></div>
 </div>
 
 <div class="reg">
-  <div class="reg-head"><span class="pill p-amber">Jun 11</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">CRA · NIS2</span><div class="reg-title" style="margin-left:8px"> · CRA Jun 11 · NIS2 BSI confirm now</div></div>
-  <div class="reg-body">Ceasefire context: Gulf energy clients resuming operations → SAP energy vertical cyber risk exposure increases. CRA Product CABs (Jun 11) and NIS2 Germany BSI registration must both be confirmed complete this week.</div>
-  <div class="reg-foot"><span class="dl dl-a">CRA CABs: Jun 11 · NIS2 BSI: confirm today</span></div>
+  <div class="reg-head"><span class="pill p-amber">Jun 11</span><span class="pill p-blue" style="background:#eff6ff;color:#1d4ed8;margin-left:8px">CRA · NIS2</span><div class="reg-title" style="margin-left:8px"> · Product CABs Jun 11 · Confirm BSI Today</div></div>
+  <div class="reg-body">Gulf client reactivation → SAP energy vertical cyber exposure increases. Confirm CRA Product CAB completion plan and NIS2 Germany BSI registration status today.</div>
+  <div class="reg-foot"><span class="dl dl-a">CRA: Jun 11 · NIS2 BSI: confirm today</span></div>
 </div>
 
 <!-- SAP -->
@@ -340,20 +335,20 @@ footer a{color:#6b7280;text-decoration:none}
 
 <div class="card">
   <div class="sap-item green">
-    <div class="sap-title">Gulf Pipeline Reactivates — First-Mover Window Is Now</div>
-    <div class="sap-body">40 days of frozen Gulf IT procurement ends today. Saudi Aramco, QatarEnergy, ADNOC procurement cycles restart within 48 hours. The post-war Gulf capex supercycle — NOC modernization, infrastructure rebuild, Vaca Muerta expansion — is the largest enterprise IT opportunity since 2022. <strong>SAP energy vertical should have proposals ready and calls scheduled by end of this week.</strong> Arab countries lost an estimated $120B+ in Q1; that capital is being redeployed starting today.</div>
+    <div class="sap-title">Gulf Pipeline Reactivating — First Mover Window Closes This Week</div>
+    <div class="sap-body">Wednesday's DAL results confirm enterprise demand remained intact through the oil shock. Corporate travel at record levels, all sectors positive. Gulf energy clients (Aramco, QatarEnergy, ADNOC) restarted procurement cycles Wednesday. <strong>SAP energy vertical proposals should be in flight. If not sent Monday or Tuesday, send today.</strong> Every day lost is market share ceded to competitors who moved faster.</div>
   </div>
   <div class="sap-item green">
-    <div class="sap-title">DAL Q1 + Ceasefire = Enterprise AI Capex Resumes</div>
-    <div class="sap-body">Delta's results are a proxy for enterprise CIO confidence in the broader economy. If DAL Q2 guidance is constructive (+5%+ YoY), enterprise CFOs interpret it as the oil shock being absorbed — and resume IT budget approvals that were frozen since March 1. <a href="https://www.tradingview.com/symbols/NASDAQ-NVDA/">NVDA guided $78.4B next quarter (+65%).</a> Joule sits on top of this AI infrastructure — SAP's Q2/Q3 pipeline should accelerate materially if DAL guides constructively.</div>
+    <div class="sap-title">DAL Q1 Signals Enterprise AI Capex Resuming</div>
+    <div class="sap-body"><a href="https://aviationsourcenews.com/delta-air-lines-announces-strong-q1-2026-results-despite-fuel-headwinds/">85% of corporate survey respondents expect travel spend to increase or stay the same in Q2.</a> Enterprise CIOs will interpret DAL's constructive guidance as the oil shock being absorbed — IT budget freezes ending. SAP cloud pipeline bookings in April should show acceleration as a result. Q1 CCB miss was war-related. Q2 should recover sharply.</div>
   </div>
   <div class="sap-item amber">
-    <div class="sap-title">SAP Q1 Late April — Q2 Guidance Is the Real Number</div>
-    <div class="sap-body">The 39-day Gulf pipeline freeze likely suppressed Q1 CCB. <strong>The ceasefire makes Q2 pipeline commentary far more important than Q1 actuals.</strong> BofA projects 11.5% revenue + 15% EBIT recovery. Gulf energy client re-engagement + Joule demand acceleration + Fed rate cuts returning = the three pillars of a SAP Q2 beat and raise. Watch for Gulf energy client mentions specifically on the Q1 call.</div>
+    <div class="sap-title">SAP Q1 Late April — Q2 Gulf Commentary Is the Market Event</div>
+    <div class="sap-body">Q1 CCB likely suppressed by the 40-day Gulf freeze. <strong>The Q2 guidance and Gulf energy pipeline commentary will be the real market event.</strong> Watch specifically for: (1) Joule attach rate, (2) Gulf energy client mentions, (3) CCB recovery vs Q4. BofA's $308 target (+60%) requires Q2 to show the freeze reversing clearly.</div>
   </div>
   <div class="sap-item red">
-    <div class="sap-title">EU AI Act — 115 Days · Last Call</div>
-    <div class="sap-body">The accelerating Joule pipeline post-ceasefire makes EU AI Act compliance even more urgent. <strong>Legal decision this week. The three options each have different revenue profiles — but waiting further narrows all of them.</strong></div>
+    <div class="sap-title">EU AI Act — 114 Days — Decision This Week, Not Next Month</div>
+    <div class="sap-body">Joule's accelerating Gulf pipeline post-ceasefire makes the EU AI Act risk larger, not smaller. <strong>Legal must decide this week. Waiting until after SAP Q1 (late April) leaves ~80 days — insufficient for an extension request.</strong></div>
   </div>
 </div>
 
@@ -361,18 +356,17 @@ footer a{color:#6b7280;text-decoration:none}
 <div class="sec-label">📅 Ahead</div>
 <div class="card">
   <ul class="act-list">
-    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">TODAY Thu 9</div><div><strong>BYMA 11 AM ART — first ceasefire open.</strong> DAL Q1 at 6:30 AM ET. Execute the rotation: trim energy, add NVDA/TSM/DAL/MSFT. Watch country risk print for GGAL add trigger (&lt;580 bps).</div></li>
-    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">FRI Apr 10</div><div><strong>Islamabad talks begin.</strong> The most consequential diplomatic meeting since February 28. Watch for: nuclear framework language, Hormuz governance, Lebanon inclusion or exclusion.</div></li>
-    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">~Apr 15</div><div><strong>Lebanon tripwire checkpoint.</strong> If no major Israeli escalation in Lebanon by April 15, the ceasefire is almost certainly holding through April 22.</div></li>
-    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">APR (month)</div><div><strong>Argentine soybean harvest + BCRA buying peak.</strong> Country risk target: sub-550 by April 30. Sub-500 = sovereign market re-access and full Merval ATH re-test.</div></li>
-    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">~Apr 22</div><div><strong>Ceasefire expires.</strong> Islamabad must produce a framework or the cycle restarts.</div></li>
-    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">LATE APR</div><div><strong>SAP Q1 + VIST Q1 (Apr 23) + NVDA earnings May 20.</strong></div></li>
-    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">Aug 2</div><div><strong>EU AI Act HRAI deadline.</strong> 115 days. Legal decision this week — not next month.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">TODAY Thu 9</div><div><strong>BYMA 11 AM ART.</strong> Trim energy into oil rebound. Add GGAL on CR &lt;580. NVDA/TSM on overnight dip. DAL consolidation buy. PCE inflation data before US open.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">SAT Apr 11</div><div><strong>Islamabad talks — Vance leads.</strong> Lebanon framework is the make-or-break issue. Any joint statement language = Monday market open +2%+ minimum.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">APR (month)</div><div><strong>Argentine agro harvest + BCRA peak buying.</strong> Country risk target: sub-550 by Apr 30.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">~Apr 22</div><div><strong>Ceasefire expires.</strong> Islamabad must produce a framework.</div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#6b7280;min-width:90px;flex-shrink:0">Late Apr</div><div><strong>SAP Q1 · VIST Q1 Apr 23 · NVDA May 20.</strong></div></li>
+    <li><div style="font-size:12px;font-weight:600;color:#dc2626;min-width:90px;flex-shrink:0">Aug 2</div><div><strong>EU AI Act HRAI.</strong> 114 days. Legal decision this week.</div></li>
   </ul>
 </div>
 
 <footer>
-  Generated by Claude · Thursday April 9, 2026 · 7:00 AM ART · Ceasefire Day 1 · Islamabad Talks Tomorrow<br>
+  Generated by Claude · Thursday April 9, 2026 · 7:00 AM ART · Ceasefire Day 1 (Contested) · Islamabad Saturday<br>
   Not investment advice · Verify all data independently · <a href="https://github.com/marcioherlein/morning">github.com/marcioherlein/morning</a>
 </footer>
 
